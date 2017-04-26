@@ -4,7 +4,7 @@
       "title": "Beds Distribution",
       "text": "%pyspark\n\nsb.distplot(airbnb.select(\"beds\").toPandas(), kde\u003dFalse)\nplt.savefig(\u0027data/NewYork/img/beds_distribution.png\u0027)",
       "user": "anonymous",
-      "dateUpdated": "Apr 26, 2017 4:52:21 PM",
+      "dateUpdated": "Apr 26, 2017 7:51:41 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -42,7 +42,7 @@
       "title": "Related Data",
       "text": "%pyspark\nsb.pairplot(airbnb.select(\"price\", \"beds\", \"minimum_nights\", \"district\").toPandas(), hue\u003d\"district\")\nplt.savefig(\u0027data/NewYork/img/related_data.png\u0027)",
       "user": "anonymous",
-      "dateUpdated": "Apr 26, 2017 7:09:54 PM",
+      "dateUpdated": "Apr 26, 2017 7:51:43 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -80,7 +80,7 @@
       "title": "Boxplot - Price Distribution per District",
       "text": "%pyspark\nboxplotDF \u003d airbnb.select(\u0027price\u0027, \u0027beds\u0027, \u0027district\u0027).toPandas()\n\n#df_long \u003d pd.melt(boxplotDF, \"district\", var_name\u003d\"price\", value_name\u003d\"beds\")\n#sb.factorplot(\"price\", hue\u003d\"district\", y\u003d\"beds\", data\u003ddf_long, kind\u003d\"box\", size\u003d10)\nsb.boxplot(boxplotDF[\u0027price\u0027], groupby\u003dboxplotDF.district)",
       "user": "anonymous",
-      "dateUpdated": "Apr 26, 2017 5:11:18 PM",
+      "dateUpdated": "Apr 26, 2017 7:51:47 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -122,7 +122,7 @@
       "title": "Boxplot - Price (less than 500) Distribution per District ",
       "text": "%pyspark\nboxplotDF \u003d airbnb.select(\u0027price\u0027, \u0027beds\u0027, \u0027district\u0027).toPandas()\nboxplotDF \u003d boxplotDF[boxplotDF.price \u003c 500]\n\n#df_long \u003d pd.melt(boxplotDF, \"district\", var_name\u003d\"price\", value_name\u003d\"beds\")\n#sb.factorplot(\"price\", hue\u003d\"district\", y\u003d\"beds\", data\u003ddf_long, kind\u003d\"box\", size\u003d10)\nsb.boxplot(boxplotDF[\u0027price\u0027], groupby\u003dboxplotDF.district)",
       "user": "anonymous",
-      "dateUpdated": "Apr 26, 2017 5:11:42 PM",
+      "dateUpdated": "Apr 26, 2017 7:51:50 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
