@@ -69,7 +69,7 @@
       "title": "PySpark libraries",
       "text": "%pyspark\n\nfrom collections import Counter\nfrom folium.features import *\nfrom geopy.geocoders import Nominatim\n\nimport folium \nimport folium.plugins\nimport functools\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport pygeoj\nimport pyspark.sql.functions as func\nimport seaborn as sb\n#import sys\n#import subprocess\n#import os\n#import time\n#from selenium import webdriver\n\nfrom sklearn import ensemble\nfrom sklearn import linear_model\nfrom sklearn import preprocessing\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.grid_search import GridSearchCV\nfrom sklearn.cross_validation import train_test_split\nfrom sklearn.model_selection import cross_val_score\nimport sklearn.metrics as metrics\n\nfrom pyspark.ml import Pipeline\nfrom pyspark.ml.classification import DecisionTreeClassifier\nfrom pyspark.ml.clustering import KMeans\nfrom pyspark.ml.evaluation import BinaryClassificationEvaluator, MulticlassClassificationEvaluator\nfrom pyspark.ml.feature import StringIndexer, VectorIndexer, VectorAssembler, SQLTransformer, OneHotEncoder\nfrom pyspark.ml.tuning import CrossValidator, ParamGridBuilder\nfrom pyspark.mllib.linalg import Vectors\nfrom pyspark.mllib.recommendation import ALS, MatrixFactorizationModel, Rating\nfrom pyspark.sql.types import *\n\nplt.style.use(\u0027ggplot\u0027)",
       "user": "anonymous",
-      "dateUpdated": "Apr 26, 2017 5:45:30 PM",
+      "dateUpdated": "Apr 26, 2017 6:42:31 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -79,20 +79,28 @@
         },
         "editorMode": "ace/mode/python",
         "title": true,
-        "editorHide": true
+        "editorHide": false
       },
       "settings": {
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "/usr/local/lib/python2.7/dist-packages/sklearn/cross_validation.py:44: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.\n  \"This module will be removed in 0.20.\", DeprecationWarning)\n/usr/local/lib/python2.7/dist-packages/sklearn/grid_search.py:43: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. This module will be removed in 0.20.\n  DeprecationWarning)\n"
+          }
+        ]
+      },
       "apps": [],
       "jobName": "paragraph_1492693303800_-435663893",
       "id": "20170420-100143_2100898637",
       "dateCreated": "Apr 20, 2017 10:01:43 AM",
-      "dateStarted": "Apr 26, 2017 5:45:31 PM",
-      "dateFinished": "Apr 26, 2017 5:45:57 PM",
+      "dateStarted": "Apr 26, 2017 6:42:31 PM",
+      "dateFinished": "Apr 26, 2017 6:42:32 PM",
       "status": "FINISHED",
-      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
