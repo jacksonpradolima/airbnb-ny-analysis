@@ -418,7 +418,7 @@
       "title": "Review Ratings Compared to the Number of Reviews",
       "text": "%sql\nSELECT review_scores_rating, number_of_reviews\nFROM airbnb\nWHERE review_scores_rating \u003e \"${min_review_score\u003d0}\"",
       "user": "anonymous",
-      "dateUpdated": "Apr 26, 2017 5:52:07 PM",
+      "dateUpdated": "Apr 26, 2017 7:08:16 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
