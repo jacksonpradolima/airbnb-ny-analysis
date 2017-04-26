@@ -166,9 +166,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n\n## View Maps\n- [mean price listing per district](https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_price.html)\n- [cultural organizations per district](https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_cultural.html)\n- [incidents per district](https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_incidents.html)\n \n",
+      "text": "%md\n\n## View Maps\n\nA way to provide information to the user through a map\n\n- [mean price listing per district](https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_price.html)\n- [cultural organizations per district](https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_cultural.html)\n- [incidents per district](https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_incidents.html)\n \n",
       "user": "anonymous",
-      "dateUpdated": "Apr 26, 2017 6:43:25 PM",
+      "dateUpdated": "Apr 26, 2017 7:12:20 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -190,7 +190,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eView Maps\u003c/h2\u003e\n\u003cul\u003e\n  \u003cli\u003e\u003ca href\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_price.html\"\u003emean price listing per district\u003c/a\u003e\u003c/li\u003e\n  \u003cli\u003e\u003ca href\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_cultural.html\"\u003ecultural organizations per district\u003c/a\u003e\u003c/li\u003e\n  \u003cli\u003e\u003ca href\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_incidents.html\"\u003eincidents per district\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eView Maps\u003c/h2\u003e\n\u003cp\u003eA way to provide information to the user through a map\u003c/p\u003e\n\u003cul\u003e\n  \u003cli\u003e\u003ca href\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_price.html\"\u003emean price listing per district\u003c/a\u003e\u003c/li\u003e\n  \u003cli\u003e\u003ca href\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_cultural.html\"\u003ecultural organizations per district\u003c/a\u003e\u003c/li\u003e\n  \u003cli\u003e\u003ca href\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_incidents.html\"\u003eincidents per district\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -198,8 +198,8 @@
       "jobName": "paragraph_1492695968204_-1796336339",
       "id": "20170420-104608_482676248",
       "dateCreated": "Apr 20, 2017 10:46:08 AM",
-      "dateStarted": "Apr 26, 2017 6:43:25 PM",
-      "dateFinished": "Apr 26, 2017 6:43:25 PM",
+      "dateStarted": "Apr 26, 2017 7:12:20 PM",
+      "dateFinished": "Apr 26, 2017 7:12:20 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -253,6 +253,9 @@
     "2CFJ3M9BB:shared_process": [],
     "2CE3TQDAW:shared_process": []
   },
-  "config": {},
+  "config": {
+    "looknfeel": "report",
+    "personalizedMode": "false"
+  },
   "info": {}
 }

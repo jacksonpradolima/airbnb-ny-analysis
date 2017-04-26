@@ -42,7 +42,7 @@
       "title": "Related Data",
       "text": "%pyspark\nsb.pairplot(airbnb.select(\"price\", \"beds\", \"minimum_nights\", \"district\").toPandas(), hue\u003d\"district\")\nplt.savefig(\u0027data/NewYork/img/related_data.png\u0027)",
       "user": "anonymous",
-      "dateUpdated": "Apr 24, 2017 8:25:47 AM",
+      "dateUpdated": "Apr 26, 2017 7:09:54 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
