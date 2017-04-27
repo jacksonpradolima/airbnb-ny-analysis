@@ -204,9 +204,10 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n",
+      "title": "Map - Price",
+      "text": "%angular\n\n\u003cdiv\u003e \n    \u003cobject type\u003d\"text/html\" data\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_price.html\" width\u003d\"100%\" height\u003d\"1000px\" style\u003d\"overflow:auto;\"\u003e\n    \u003c/object\u003e\n\u003c/div\u003e\n",
       "user": "anonymous",
-      "dateUpdated": "Apr 26, 2017 6:40:32 PM",
+      "dateUpdated": "Apr 27, 2017 5:03:31 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -215,17 +216,126 @@
           "language": "markdown",
           "editOnDblClick": true
         },
-        "editorMode": "ace/mode/markdown",
-        "editorHide": true
+        "editorMode": "ace/mode/undefined",
+        "editorHide": true,
+        "tableHide": false,
+        "title": true
       },
       "settings": {
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\u003cdiv\u003e \n    \u003cobject type\u003d\"text/html\" data\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_price.html\" width\u003d\"100%\" height\u003d\"1000px\" style\u003d\"overflow:auto;\"\u003e\n    \u003c/object\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
       "apps": [],
       "jobName": "paragraph_1493242503592_944507260",
       "id": "20170426-183503_1532933126",
       "dateCreated": "Apr 26, 2017 6:35:03 PM",
+      "dateStarted": "Apr 27, 2017 5:03:31 PM",
+      "dateFinished": "Apr 27, 2017 5:03:31 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Map - Cultural Organizations",
+      "text": "%angular\n\n\u003cdiv\u003e \n    \u003cobject type\u003d\"text/html\" data\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_cultural.html\" width\u003d\"100%\" height\u003d\"1000px\" style\u003d\"overflow:auto;\"\u003e\n    \u003c/object\u003e\n\u003c/div\u003e\n",
+      "user": "anonymous",
+      "dateUpdated": "Apr 27, 2017 5:03:29 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": true,
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\u003cdiv\u003e \n    \u003cobject type\u003d\"text/html\" data\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_cultural.html\" width\u003d\"100%\" height\u003d\"1000px\" style\u003d\"overflow:auto;\"\u003e\n    \u003c/object\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1493323378803_1920756508",
+      "id": "20170427-170258_423647498",
+      "dateCreated": "Apr 27, 2017 5:02:58 PM",
+      "dateStarted": "Apr 27, 2017 5:03:29 PM",
+      "dateFinished": "Apr 27, 2017 5:03:29 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Map - Incidents",
+      "text": "%angular\n\n\u003cdiv\u003e \n    \u003cobject type\u003d\"text/html\" data\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_incidents.html\" width\u003d\"100%\" height\u003d\"1000px\" style\u003d\"overflow:auto;\"\u003e\n    \u003c/object\u003e\n\u003c/div\u003e\n",
+      "user": "anonymous",
+      "dateUpdated": "Apr 27, 2017 5:03:26 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": true,
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\u003cdiv\u003e \n    \u003cobject type\u003d\"text/html\" data\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_incidents.html\" width\u003d\"100%\" height\u003d\"1000px\" style\u003d\"overflow:auto;\"\u003e\n    \u003c/object\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1493323376119_97046722",
+      "id": "20170427-170256_1803705404",
+      "dateCreated": "Apr 27, 2017 5:02:56 PM",
+      "dateStarted": "Apr 27, 2017 5:03:26 PM",
+      "dateFinished": "Apr 27, 2017 5:03:26 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%angular\n",
+      "user": "anonymous",
+      "dateUpdated": "Apr 27, 2017 5:02:22 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1493323342990_858987462",
+      "id": "20170427-170222_573736393",
+      "dateCreated": "Apr 27, 2017 5:02:22 PM",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
