@@ -1,6 +1,44 @@
 {
   "paragraphs": [
     {
+      "text": "%md\n## Results and Analysis\n",
+      "user": "anonymous",
+      "dateUpdated": "Apr 27, 2017 6:38:19 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eResults and Analysis\u003c/h2\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1493329092406_652371248",
+      "id": "20170427-183812_1463165836",
+      "dateCreated": "Apr 27, 2017 6:38:12 PM",
+      "dateStarted": "Apr 27, 2017 6:38:19 PM",
+      "dateFinished": "Apr 27, 2017 6:38:19 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
       "title": "Listings per District",
       "text": "%sql\nselect lower(district) district, count(district) district_count\nfrom airbnb\ngroup by 1\norder by 1, 2",
       "dateUpdated": "Apr 26, 2017 5:48:59 PM",
@@ -746,7 +784,7 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "Airbnb/New York/Charts-1",
+  "name": "Airbnb/New York/2-Charts analysis with SQL",
   "id": "2CE5NZNME",
   "angularObjects": {
     "2CBX4XXXG:shared_process": [],
@@ -770,7 +808,7 @@
     "2CE3TQDAW:shared_process": []
   },
   "config": {
-    "looknfeel": "report",
+    "looknfeel": "default",
     "personalizedMode": "false"
   },
   "info": {}

@@ -291,7 +291,7 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "Airbnb/New York/Charts-2",
+  "name": "Airbnb/New York/3-Charts analysis with Python",
   "id": "2CDNH3PMK",
   "angularObjects": {
     "2CBX4XXXG:shared_process": [],

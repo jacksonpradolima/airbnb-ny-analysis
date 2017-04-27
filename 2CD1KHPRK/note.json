@@ -344,7 +344,7 @@
       "title": "[Function] GradientBoostingRegressor + Plot error of boosting",
       "text": "%pyspark\n\ndef runGradientBoostingRegressor(colname):\n    initTrainingTestingSubsets(colname)\n    global X_train, y_train, clf\n    \n    n_est \u003d 300\n    tuned_parameters \u003d {\"n_estimators\": [ n_est ], \"max_depth\" : [ 4 ], \"learning_rate\": [ 0.01 ], \"min_samples_split\" : [ 2], \"loss\" : [ \u0027ls\u0027, \u0027lad\u0027 ]}\n\n    #estimator\n    estimator \u003d ensemble.GradientBoostingRegressor()\n    \n    clf \u003d GridSearchCV(estimator, cv\u003d3, param_grid\u003dtuned_parameters, scoring\u003d\u0027neg_median_absolute_error\u0027)\n    preds \u003d clf.fit(X_train, y_train)\n    best \u003d clf.best_estimator_\n    \n    #print \"Best estimator\"\n    #print best\n    #print \"Best parameters\"\n    #print clf.best_params_\n\n    print \"Median Absolute Error of $ {}\".format(round(abs(clf.best_score_),2))\n    \n    test_score \u003d np.zeros(n_est, dtype\u003dnp.float64)\n\n    train_score \u003d best.train_score_\n    for i, y_pred in enumerate(best.staged_predict(X_test)):\n        test_score[i] \u003d best.loss_(y_test, y_pred)\n\n    plt.figure(figsize\u003d(12, 6), dpi\u003d100)\n    plt.tick_params(axis\u003d\u0027both\u0027, which\u003d\u0027major\u0027, labelsize\u003d16)\n    #plt.subplot(1, 2, 1)\n    plt.plot(np.arange(n_est), train_score, \u0027darkblue\u0027, label\u003d\u0027Training Set Error\u0027)\n    plt.plot(np.arange(n_est), test_score, \u0027red\u0027, label\u003d\u0027Test Set Error\u0027)\n    plt.legend(loc\u003d\u0027upper right\u0027, prop\u003d{\u0027size\u0027:16})\n    plt.xlabel(\u0027Boosting Iterations\u0027, fontsize\u003d16)\n    plt.ylabel(\u0027Least Absolute Deviation\u0027, fontsize\u003d16)",
       "user": "anonymous",
-      "dateUpdated": "Apr 27, 2017 11:53:41 AM",
+      "dateUpdated": "Apr 27, 2017 5:13:41 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -1009,9 +1009,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n\nEm seguida, vamos tentar um método conjunto para ver se podemos obter melhores resultados. O lado positivo é que provavelmente obteremos uma pontuação melhor, e a desvantagem é que os métodos de conjunto têm uma variedade desconcertante de hiperparâmetros que devem ser ajustados, cada um dos quais pode afetar nosso modelo e requer alguma experimentação para acertar. A maneira comum de abordar isso é usar uma exaustiva \"grid search\" que simplesmente tenta todas as combinações de parâmetros fornecidas e usa cross-validation para encontrar o melhor. Scikit-learn fornece a função muito útil GridSearchCV para esta finalidade.\n\nA compensação de usar GridSearchCV é que a busca exaustiva e cross-validation pode levar um monte de CPU e tempo. É aqui que podemos utilizar o Spark para distribuir a pesquisa a mais máquinas e núcleos, permitindo-nos testar mais combinações mais rapidamente. \n\nThe grid search provided by **GridSearchCV** exhaustively generates candidates from a grid of parameter values specified with the `param_grid` parameter. For instance, the following `param_grid`:\n\n`n_estimators \u003d 300`\n`max_depth \u003d 4`\n`learning_rate \u003d 0.01`\n`min_samples_split \u003d 2`\n`loss \u003d ls / lad`\n`scoring \u003d neg_median_absolute_error`\n`cv \u003d 3`    \n`Estimator \u003d GradientBoostingRegressor`    \n\nOutro estimador que posso usar, por exemplo, é o RandomForestClassifier. ",
+      "text": "%md\n\nEm seguida, vamos tentar um método conjunto para ver se podemos obter melhores resultados. O lado positivo é que provavelmente obteremos uma pontuação melhor, e a desvantagem é que os métodos de conjunto têm uma variedade desconcertante de hiperparâmetros que devem ser ajustados, cada um dos quais pode afetar nosso modelo e requer alguma experimentação para acertar. A maneira comum de abordar isso é usar uma exaustiva \"grid search\" que simplesmente tenta todas as combinações de parâmetros fornecidas e usa cross-validation para encontrar o melhor. Scikit-learn fornece a função muito útil GridSearchCV para esta finalidade.\n\nA compensação de usar GridSearchCV é que a busca exaustiva e cross-validation pode levar um monte de CPU e tempo. É aqui que podemos utilizar o Spark para distribuir a pesquisa a mais máquinas e núcleos, permitindo-nos testar mais combinações mais rapidamente. \n\nThe grid search provided by **GridSearchCV** exhaustively generates candidates from a grid of parameter values specified with the `param_grid` parameter. For instance, the following `param_grid`:\n  \n\nGradient Tree Boosting or Gradient Boosted Regression Trees (GBRT) is a generalization of boosting to arbitrary differentiable loss functions. GBRT is an accurate and effective off-the-shelf procedure that can be used for both regression and classification problems. Gradient Tree Boosting models are used in a variety of areas including Web search ranking and ecology.\n\n\n`n_estimators \u003d 300`\n`max_depth \u003d 4`\n`learning_rate \u003d 0.01`\n`min_samples_split \u003d 2`\n`loss \u003d ls / lad`\n`scoring \u003d neg_median_absolute_error`\n`cv \u003d 3`    \n`Estimator \u003d GradientBoostingRegressor`  \n\n\nThe advantages of GBRT are:\n* Natural handling of data of mixed type (\u003d heterogeneous features)\n* Predictive power\n* Robustness to outliers in output space (via robust loss functions)\n\nThe disadvantages of GBRT are:\n* Scalability, due to the sequential nature of boosting it can hardly be parallelized.\n\n\n[Wikipedia](https://en.wikipedia.org/wiki/Gradient_boosting)\n\n",
       "user": "anonymous",
-      "dateUpdated": "Apr 27, 2017 1:19:58 PM",
+      "dateUpdated": "Apr 27, 2017 5:17:03 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -1033,7 +1033,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eEm seguida, vamos tentar um método conjunto para ver se podemos obter melhores resultados. O lado positivo é que provavelmente obteremos uma pontuação melhor, e a desvantagem é que os métodos de conjunto têm uma variedade desconcertante de hiperparâmetros que devem ser ajustados, cada um dos quais pode afetar nosso modelo e requer alguma experimentação para acertar. A maneira comum de abordar isso é usar uma exaustiva \u0026ldquo;grid search\u0026rdquo; que simplesmente tenta todas as combinações de parâmetros fornecidas e usa cross-validation para encontrar o melhor. Scikit-learn fornece a função muito útil GridSearchCV para esta finalidade.\u003c/p\u003e\n\u003cp\u003eA compensação de usar GridSearchCV é que a busca exaustiva e cross-validation pode levar um monte de CPU e tempo. É aqui que podemos utilizar o Spark para distribuir a pesquisa a mais máquinas e núcleos, permitindo-nos testar mais combinações mais rapidamente. \u003c/p\u003e\n\u003cp\u003eThe grid search provided by \u003cstrong\u003eGridSearchCV\u003c/strong\u003e exhaustively generates candidates from a grid of parameter values specified with the \u003ccode\u003eparam_grid\u003c/code\u003e parameter. For instance, the following \u003ccode\u003eparam_grid\u003c/code\u003e:\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003en_estimators \u003d 300\u003c/code\u003e\u003cbr/\u003e\u003ccode\u003emax_depth \u003d 4\u003c/code\u003e\u003cbr/\u003e\u003ccode\u003elearning_rate \u003d 0.01\u003c/code\u003e\u003cbr/\u003e\u003ccode\u003emin_samples_split \u003d 2\u003c/code\u003e\u003cbr/\u003e\u003ccode\u003eloss \u003d ls / lad\u003c/code\u003e\u003cbr/\u003e\u003ccode\u003escoring \u003d neg_median_absolute_error\u003c/code\u003e\u003cbr/\u003e\u003ccode\u003ecv \u003d 3\u003c/code\u003e\u003cbr/\u003e\u003ccode\u003eEstimator \u003d GradientBoostingRegressor\u003c/code\u003e \u003c/p\u003e\n\u003cp\u003eOutro estimador que posso usar, por exemplo, é o RandomForestClassifier.\u003c/p\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eEm seguida, vamos tentar um método conjunto para ver se podemos obter melhores resultados. O lado positivo é que provavelmente obteremos uma pontuação melhor, e a desvantagem é que os métodos de conjunto têm uma variedade desconcertante de hiperparâmetros que devem ser ajustados, cada um dos quais pode afetar nosso modelo e requer alguma experimentação para acertar. A maneira comum de abordar isso é usar uma exaustiva \u0026ldquo;grid search\u0026rdquo; que simplesmente tenta todas as combinações de parâmetros fornecidas e usa cross-validation para encontrar o melhor. Scikit-learn fornece a função muito útil GridSearchCV para esta finalidade.\u003c/p\u003e\n\u003cp\u003eA compensação de usar GridSearchCV é que a busca exaustiva e cross-validation pode levar um monte de CPU e tempo. É aqui que podemos utilizar o Spark para distribuir a pesquisa a mais máquinas e núcleos, permitindo-nos testar mais combinações mais rapidamente. \u003c/p\u003e\n\u003cp\u003eThe grid search provided by \u003cstrong\u003eGridSearchCV\u003c/strong\u003e exhaustively generates candidates from a grid of parameter values specified with the \u003ccode\u003eparam_grid\u003c/code\u003e parameter. For instance, the following \u003ccode\u003eparam_grid\u003c/code\u003e:\u003c/p\u003e\n\u003cp\u003eGradient Tree Boosting or Gradient Boosted Regression Trees (GBRT) is a generalization of boosting to arbitrary differentiable loss functions. GBRT is an accurate and effective off-the-shelf procedure that can be used for both regression and classification problems. Gradient Tree Boosting models are used in a variety of areas including Web search ranking and ecology.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003en_estimators \u003d 300\u003c/code\u003e\u003cbr/\u003e\u003ccode\u003emax_depth \u003d 4\u003c/code\u003e\u003cbr/\u003e\u003ccode\u003elearning_rate \u003d 0.01\u003c/code\u003e\u003cbr/\u003e\u003ccode\u003emin_samples_split \u003d 2\u003c/code\u003e\u003cbr/\u003e\u003ccode\u003eloss \u003d ls / lad\u003c/code\u003e\u003cbr/\u003e\u003ccode\u003escoring \u003d neg_median_absolute_error\u003c/code\u003e\u003cbr/\u003e\u003ccode\u003ecv \u003d 3\u003c/code\u003e\u003cbr/\u003e\u003ccode\u003eEstimator \u003d GradientBoostingRegressor\u003c/code\u003e \u003c/p\u003e\n\u003cp\u003eThe advantages of GBRT are:\u003cbr/\u003e* Natural handling of data of mixed type (\u003d heterogeneous features)\u003cbr/\u003e* Predictive power\u003cbr/\u003e* Robustness to outliers in output space (via robust loss functions)\u003c/p\u003e\n\u003cp\u003eThe disadvantages of GBRT are:\u003cbr/\u003e* Scalability, due to the sequential nature of boosting it can hardly be parallelized.\u003c/p\u003e\n\u003cp\u003e\u003ca href\u003d\"https://en.wikipedia.org/wiki/Gradient_boosting\"\u003eWikipedia\u003c/a\u003e\u003c/p\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -1041,8 +1041,8 @@
       "jobName": "paragraph_1493298731588_-1111058026",
       "id": "20170427-101211_1225421809",
       "dateCreated": "Apr 27, 2017 10:12:11 AM",
-      "dateStarted": "Apr 27, 2017 1:19:58 PM",
-      "dateFinished": "Apr 27, 2017 1:19:58 PM",
+      "dateStarted": "Apr 27, 2017 5:17:03 PM",
+      "dateFinished": "Apr 27, 2017 5:17:03 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -1590,7 +1590,7 @@
     {
       "text": "%angular\n\n\u003cdiv\u003e \n    \u003cobject type\u003d\"text/html\" data\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/index.html\" width\u003d\"100%\" height\u003d\"1000px\" style\u003d\"overflow:auto;\"\u003e\n    \u003c/object\u003e\n\u003c/div\u003e\n",
       "user": "anonymous",
-      "dateUpdated": "Apr 27, 2017 4:42:40 PM",
+      "dateUpdated": "Apr 27, 2017 5:01:39 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -1608,7 +1608,7 @@
           "editOnDblClick": true
         },
         "editorMode": "ace/mode/undefined",
-        "editorHide": true,
+        "editorHide": false,
         "tableHide": false
       },
       "settings": {
@@ -2036,32 +2036,61 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\n",
+      "text": "%md\n\n## Concluding Remarks\n\tTrabalhos futuros?\n\t\n\t\n## Discussion\n",
       "user": "anonymous",
-      "dateUpdated": "Apr 25, 2017 5:26:18 PM",
+      "dateUpdated": "Apr 27, 2017 6:35:55 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "python"
+          "language": "markdown",
+          "editOnDblClick": true
         },
-        "editorMode": "ace/mode/python",
-        "editorHide": true
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eConcluding Remarks\u003c/h2\u003e\n\u003cpre\u003e\u003ccode\u003eTrabalhos futuros?\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003eDiscussion\u003c/h2\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
       "apps": [],
       "jobName": "paragraph_1493137657076_-1351227926",
       "id": "20170425-132737_2140452178",
       "dateCreated": "Apr 25, 2017 1:27:37 PM",
+      "dateStarted": "Apr 27, 2017 6:35:55 PM",
+      "dateFinished": "Apr 27, 2017 6:35:55 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "Apr 27, 2017 6:35:55 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1493328955904_344420531",
+      "id": "20170427-183555_1018438852",
+      "dateCreated": "Apr 27, 2017 6:35:55 PM",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "Airbnb/New York/Machine Learning",
+  "name": "Airbnb/New York/5-Machine Learning",
   "id": "2CD1KHPRK",
   "angularObjects": {
     "2CBX4XXXG:shared_process": [],
