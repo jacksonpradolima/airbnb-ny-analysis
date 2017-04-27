@@ -240,7 +240,7 @@
       "title": "Collinearity among the features - one bedroom",
       "text": "%pyspark\n\n#matrix of each feature as a function of another\nsb.pairplot(dfAll.filter(\u0027bedrooms \u003d\u003d 1\u0027).select(\u0027price\u0027,\u0027accommodates\u0027, \u0027number_of_reviews\u0027, \u0027reviews_per_month\u0027, \u0027beds\u0027, \u0027availability_30\u0027, \u0027review_scores_rating\u0027, \u0027cultural_organizations\u0027, \u0027nypd_complaint\u0027).toPandas(), palette\u003d\u0027husl\u0027)\nplt.savefig(\u0027data/NewYork/img/pairwise_relations_one_bedrooms.png\u0027)",
       "user": "anonymous",
-      "dateUpdated": "Apr 26, 2017 5:28:08 PM",
+      "dateUpdated": "Apr 27, 2017 1:28:28 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,

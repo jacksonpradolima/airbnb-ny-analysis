@@ -43,7 +43,7 @@
       "title": "[Function] Cleaning and organize data",
       "text": "%pyspark\n\ndef initData():\n    global dfAll, df\n    \n    allcols \u003d [\u0027price\u0027,\u0027accommodates\u0027,\u0027bedrooms\u0027,\u0027beds\u0027,\u0027district\u0027,\u0027room_type\u0027,\\\n               \u0027cancellation_policy\u0027,\u0027instant_bookable\u0027,\u0027reviews_per_month\u0027,\u0027number_of_reviews\u0027,\\\n               \u0027availability_30\u0027,\u0027review_scores_rating\u0027, \u0027cultural_organizations\u0027, \u0027incidents\u0027]\n\n    #select the new data\n    df \u003d dfAll.select(allcols).toPandas()\n\n    # clean the data\n    # first fixup \u0027reviews_per_month\u0027 where there are no reviews\n    df[\u0027reviews_per_month\u0027].fillna(0, inplace\u003dTrue)\n\n    # just drop rows with bad/weird values\n    # (we could do more here)\n    df \u003d df[df.bedrooms !\u003d 0]\n    df \u003d df[df.beds !\u003d 0]\n    df \u003d df[df.price !\u003d 0]\n    df \u003d df.dropna(axis\u003d0)\n\n    #convert the wrong data\n    df[\u0027price\u0027] \u003d df[\u0027price\u0027].replace(\u0027[\\$,)]\u0027,\u0027\u0027, regex\u003dTrue).replace(\u0027[(]\u0027,\u0027-\u0027, regex\u003dTrue).astype(float)\n\n    df[\u0027reviews_per_month\u0027] \u003d df[\u0027reviews_per_month\u0027].replace(\u0027[\\$,)]\u0027,\u0027\u0027, regex\u003dTrue)\\\n                .replace(\u0027[(]\u0027,\u0027-\u0027, regex\u003dTrue).astype(float)",
       "user": "anonymous",
-      "dateUpdated": "Apr 26, 2017 7:53:21 PM",
+      "dateUpdated": "Apr 27, 2017 3:35:57 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -76,7 +76,7 @@
       "title": "[Function] Handling Categorical Variables",
       "text": "%pyspark\n\ndef handleCategoricalVariables():\n    #df \u003d df[df.bedrooms \u003d\u003d 1]\n    global alldata, df\n    \n    # get feature encoding for categorical variables\n    district_dummies \u003d pd.get_dummies(df.district)\n    room_type_dummies \u003d pd.get_dummies(df.room_type)\n    cancellation_policy_dummies \u003d pd.get_dummies(df.cancellation_policy)\n\n    # convert boolean column to a single boolean value indicating whether this listing has instant booking available\n    instant_bookable_dummies \u003d pd.get_dummies(df.instant_bookable, prefix\u003d\"instant\")\n    instant_bookable_dummies \u003d instant_bookable_dummies.drop(\u0027instant_f\u0027, axis\u003d1)\n\n    # replace the old columns with our new one-hot encoded ones\n    alldata \u003d pd.concat((df.drop([\u0027district\u0027, \\\n                            \u0027room_type\u0027, \\\n                            \u0027cancellation_policy\u0027, \\\n                            \u0027instant_bookable\u0027], axis\u003d1), \\\n        district_dummies.astype(int), \\\n        room_type_dummies.astype(int), \\\n        cancellation_policy_dummies.astype(int), instant_bookable_dummies.astype(int)), \\\n        axis\u003d1)",
       "user": "anonymous",
-      "dateUpdated": "Apr 26, 2017 7:53:15 PM",
+      "dateUpdated": "Apr 27, 2017 3:35:18 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -452,7 +452,7 @@
       "title": "[Function] Assemble feature vectors",
       "text": "%pyspark\n\ndef assembleFeatureVectors(position):\n    initData()\n    handleCategoricalVariables()\n\n    global alldataDF, alldata\n    #position: (8) cultural_organizations; (9) nypd_complaint \n    alldata.columns.values[position] \u003d \"label\"\n\n    features \u003d alldata.columns.drop(\u0027label\u0027).values.tolist()\n\n    alldataDF \u003d spark.createDataFrame(alldata)\n\n    # Index labels, adding metadata to the label column.\n    # Fit on whole dataset to include all labels in index.\n    assembler \u003d VectorAssembler(inputCols\u003dfeatures, outputCol\u003d\"features\")\n    alldataDF \u003d assembler.transform(alldataDF.dropna())",
       "user": "anonymous",
-      "dateUpdated": "Apr 26, 2017 7:56:31 PM",
+      "dateUpdated": "Apr 27, 2017 3:35:08 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -479,6 +479,40 @@
       "dateCreated": "Apr 20, 2017 3:15:20 PM",
       "dateStarted": "Apr 26, 2017 7:54:28 PM",
       "dateFinished": "Apr 26, 2017 7:54:28 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "[Function] Decision Tree to Json",
+      "text": "%pyspark\n\n# Parser\ndef parse(lines):\n\tblock \u003d []\n\twhile lines :\n\t\t\n\t\tif lines[0].startswith(\u0027If\u0027):\n\t\t\tbl \u003d \u0027 \u0027.join(lines.pop(0).split()[1:]).replace(\u0027(\u0027, \u0027\u0027).replace(\u0027)\u0027, \u0027\u0027)\n\t\t\tblock.append({\u0027name\u0027:bl, \u0027children\u0027:parse(lines)})\n\t\t\t\n\t\t\t\n\t\t\tif lines[0].startswith(\u0027Else\u0027):\n\t\t\t\tbe \u003d \u0027 \u0027.join(lines.pop(0).split()[1:]).replace(\u0027(\u0027, \u0027\u0027).replace(\u0027)\u0027, \u0027\u0027)\n\t\t\t\tblock.append({\u0027name\u0027:be, \u0027children\u0027:parse(lines)})\n\t\telif not lines[0].startswith((\u0027If\u0027,\u0027Else\u0027)):\n\t\t\tblock2 \u003d lines.pop(0)\n\t\t\tblock.append({\u0027name\u0027:block2})\n\t\telse:\n\t\t\tbreak\t\n\treturn block\n\n# Convert Tree to JSON\ndef tree_json(tree):\n\tdata \u003d []\n\tfor line in tree.splitlines() : \n\t\tif line.strip():\n\t\t\tline \u003d line.strip()\n\t\t\tdata.append(line)\n\t\telse : break\n\t\tif not line : break\n\tres \u003d []\n\tres.append({\u0027name\u0027:\u0027Root\u0027, \u0027children\u0027:parse(data[1:])})\n\twith open(\u0027data/NewYork/ArchitectureTree/data.json\u0027, \u0027w\u0027) as outfile:\n\t\tjson.dump(res[0], outfile)\n",
+      "user": "anonymous",
+      "dateUpdated": "Apr 27, 2017 4:43:27 PM",
+      "config": {
+        "colWidth": 6.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python",
+        "editorHide": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1493312889221_-1722705238",
+      "id": "20170427-140809_31192557",
+      "dateCreated": "Apr 27, 2017 2:08:09 PM",
+      "dateStarted": "Apr 27, 2017 3:56:22 PM",
+      "dateFinished": "Apr 27, 2017 3:56:22 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -1260,7 +1294,7 @@
       "title": "K-Means - Price - all bedrooms",
       "text": "%pyspark\nassembleFeatureVectors(0)\nrunKMeans(alldataDF)\nrunRandomKMeans(alldataDF)",
       "user": "anonymous",
-      "dateUpdated": "Apr 26, 2017 7:59:32 PM",
+      "dateUpdated": "Apr 27, 2017 1:39:11 PM",
       "config": {
         "colWidth": 4.0,
         "enabled": true,
@@ -1516,12 +1550,12 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "Classification and Evaluator (Decision Tree) - Price",
-      "text": "%pyspark\n\nassembleFeatureVectors(3)\n\n# Split the data into training and test sets (30% held out for testing)\n(trainingData, testData) \u003d alldataDF.randomSplit([0.7, 0.3], seed\u003d1)\n\nprint(\"Train set size: %d\" % trainingData.count())\nprint(\"Test set size: %d\" % testData.count())\n\n#Classification\n# Train a GBT model.\n#gbt \u003d GBTClassifier(labelCol\u003d\"indexedLabel\", featuresCol\u003d\"indexedFeatures\", maxIter\u003d10)\n#lg \u003d LinearRegression(labelCol\u003d\"indexedLabel\", featuresCol\u003d\"indexedFeatures\", maxIter\u003d10)\nclassifier \u003d DecisionTreeClassifier(labelCol\u003d\"label\", featuresCol\u003d\"features\", maxDepth\u003d5)\n#rf \u003d RandomForestClassifier(labelCol\u003d\"label\", featuresCol\u003d\"features\", numTrees\u003d500, maxDepth\u003d30)\n\n# Train model.\nmodel \u003d classifier.fit(trainingData)\n\n# Make predictions.\npredictions \u003d model.transform(testData).cache()\n\n#predictions.select(\"prediction\", \"label\", \"features\").show(5)\n#predictions.groupBy(\"prediction\",\"beds\").count().show()\n\n#Evaluator\n# Select (prediction, true label) and compute test error\nevaluator \u003d MulticlassClassificationEvaluator(labelCol\u003d\"label\", predictionCol\u003d\"prediction\", metricName\u003d\"accuracy\")\naccuracy \u003d evaluator.evaluate(predictions)\nprint(\"Test Error \u003d %g\" % (1.0 - accuracy))",
+      "title": "Classification and Evaluator (Decision Tree) - All bedrooms",
+      "text": "%pyspark\n\nassembleFeatureVectors(3)\n\n# Split the data into training and test sets (30% held out for testing)\n(trainingData, testData) \u003d alldataDF.randomSplit([0.7, 0.3], seed\u003d1)\n\nprint(\"Train set size: %d\" % trainingData.count())\nprint(\"Test set size: %d\" % testData.count())\n\n#Classification\n# Train a GBT model.\n#gbt \u003d GBTClassifier(labelCol\u003d\"indexedLabel\", featuresCol\u003d\"indexedFeatures\", maxIter\u003d10)\n#lg \u003d LinearRegression(labelCol\u003d\"indexedLabel\", featuresCol\u003d\"indexedFeatures\", maxIter\u003d10)\nclassifier \u003d DecisionTreeClassifier(labelCol\u003d\"label\", featuresCol\u003d\"features\", maxDepth\u003d5)\n#rf \u003d RandomForestClassifier(labelCol\u003d\"label\", featuresCol\u003d\"features\", numTrees\u003d500, maxDepth\u003d30)\n\n# Train model.\nmodel \u003d classifier.fit(trainingData)\n\n# Make predictions.\npredictions \u003d model.transform(testData).cache()\n\n#predictions.select(\"prediction\", \"label\", \"features\").show(5)\n#predictions.groupBy(\"prediction\",\"beds\").count().show()\n\n#Evaluator\n# Select (prediction, true label) and compute test error\nevaluator \u003d MulticlassClassificationEvaluator(labelCol\u003d\"label\", predictionCol\u003d\"prediction\", metricName\u003d\"accuracy\")\naccuracy \u003d evaluator.evaluate(predictions)\nprint(\"Test Error \u003d %g\" % (1.0 - accuracy))\ntree_json(model.toDebugString)",
       "user": "anonymous",
-      "dateUpdated": "Apr 27, 2017 11:47:40 AM",
+      "dateUpdated": "Apr 27, 2017 4:40:47 PM",
       "config": {
-        "colWidth": 6.0,
+        "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
@@ -1548,18 +1582,64 @@
       "jobName": "paragraph_1492030490871_-1741070517",
       "id": "20170412-175450_1773564462",
       "dateCreated": "Apr 12, 2017 5:54:50 PM",
-      "dateStarted": "Apr 26, 2017 4:29:55 PM",
-      "dateFinished": "Apr 26, 2017 4:30:04 PM",
+      "dateStarted": "Apr 27, 2017 3:56:45 PM",
+      "dateFinished": "Apr 27, 2017 3:56:54 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "Classification and Evaluator (Decision Tree) - Price - One bedroom",
+      "text": "%angular\n\n\u003cdiv\u003e \n    \u003cobject type\u003d\"text/html\" data\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/index.html\" width\u003d\"100%\" height\u003d\"1000px\" style\u003d\"overflow:auto;\"\u003e\n    \u003c/object\u003e\n\u003c/div\u003e\n",
+      "user": "anonymous",
+      "dateUpdated": "Apr 27, 2017 4:42:40 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 58.6,
+              "optionOpen": false
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\u003cdiv\u003e \n    \u003cobject type\u003d\"text/html\" data\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/index.html\" width\u003d\"100%\" height\u003d\"1000px\" style\u003d\"overflow:auto;\"\u003e\n    \u003c/object\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1493319407981_-103413207",
+      "id": "20170427-155647_637130703",
+      "dateCreated": "Apr 27, 2017 3:56:47 PM",
+      "dateStarted": "Apr 27, 2017 4:42:40 PM",
+      "dateFinished": "Apr 27, 2017 4:42:40 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Classification and Evaluator (Decision Tree) - One bedroom",
       "text": "%pyspark\n\nassembleFeatureVectors(3)\n\n# Split the data into training and test sets (30% held out for testing)\n(trainingData, testData) \u003d alldataDF.filter(\u0027bedrooms \u003d\u003d 1\u0027).randomSplit([0.7, 0.3], seed\u003d1)\n\nprint(\"Train set size: %d\" % trainingData.count())\nprint(\"Test set size: %d\" % testData.count())\n\n#Classification\n# Train a GBT model.\n#gbt \u003d GBTClassifier(labelCol\u003d\"indexedLabel\", featuresCol\u003d\"indexedFeatures\", maxIter\u003d10)\n#lg \u003d LinearRegression(labelCol\u003d\"indexedLabel\", featuresCol\u003d\"indexedFeatures\", maxIter\u003d10)\nclassifier \u003d DecisionTreeClassifier(labelCol\u003d\"label\", featuresCol\u003d\"features\", maxDepth\u003d5)\n#rf \u003d RandomForestClassifier(labelCol\u003d\"label\", featuresCol\u003d\"features\", numTrees\u003d500, maxDepth\u003d30)\n\n# Train model.\nmodel \u003d classifier.fit(trainingData)\n\n# Make predictions.\npredictions \u003d model.transform(testData).cache()\n\n#predictions.select(\"prediction\", \"label\", \"features\").show(5)\n#predictions.groupBy(\"prediction\",\"beds\").count().show()\n\n#Evaluator\n# Select (prediction, true label) and compute test error\nevaluator \u003d MulticlassClassificationEvaluator(labelCol\u003d\"label\", predictionCol\u003d\"prediction\", metricName\u003d\"accuracy\")\naccuracy \u003d evaluator.evaluate(predictions)\nprint(\"Test Error \u003d %g\" % (1.0 - accuracy))",
       "user": "anonymous",
-      "dateUpdated": "Apr 26, 2017 7:55:13 PM",
+      "dateUpdated": "Apr 27, 2017 4:43:54 PM",
       "config": {
-        "colWidth": 6.0,
+        "colWidth": 4.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
@@ -1595,9 +1675,9 @@
       "title": "Classification and Evaluator (Decision Tree) - Cultural Organizations",
       "text": "%pyspark\n\nassembleFeatureVectors(8)\n\n# Split the data into training and test sets (30% held out for testing)\n(trainingData, testData) \u003d alldataDF.randomSplit([0.7, 0.3], seed\u003d1)\n\nprint(\"Train set size: %d\" % trainingData.count())\nprint(\"Test set size: %d\" % testData.count())\n\n#Classification\n# Train a GBT model.\n#gbt \u003d GBTClassifier(labelCol\u003d\"indexedLabel\", featuresCol\u003d\"indexedFeatures\", maxIter\u003d10)\n#lg \u003d LinearRegression(labelCol\u003d\"indexedLabel\", featuresCol\u003d\"indexedFeatures\", maxIter\u003d10)\nclassifier \u003d DecisionTreeClassifier(labelCol\u003d\"label\", featuresCol\u003d\"features\", maxDepth\u003d5)\n#rf \u003d RandomForestClassifier(labelCol\u003d\"label\", featuresCol\u003d\"features\", numTrees\u003d500, maxDepth\u003d30)\n\n# Train model.\nmodel \u003d classifier.fit(trainingData)\n\n# Make predictions.\npredictions \u003d model.transform(testData).cache()\n\n#predictions.select(\"prediction\", \"label\", \"features\").show(5)\n#predictions.groupBy(\"prediction\",\"beds\").count().show()\n\n#Evaluator\n# Select (prediction, true label) and compute test error\nevaluator \u003d MulticlassClassificationEvaluator(labelCol\u003d\"label\", predictionCol\u003d\"prediction\", metricName\u003d\"accuracy\")\naccuracy \u003d evaluator.evaluate(predictions)\nprint(\"Test Error \u003d %g\" % (1.0 - accuracy))\n",
       "user": "anonymous",
-      "dateUpdated": "Apr 26, 2017 4:47:21 PM",
+      "dateUpdated": "Apr 27, 2017 4:43:58 PM",
       "config": {
-        "colWidth": 6.0,
+        "colWidth": 4.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
@@ -1633,9 +1713,9 @@
       "title": "Classification and Evaluator (Decision Tree) - Incidents",
       "text": "%pyspark\n\nassembleFeatureVectors(9)\n\n# Split the data into training and test sets (30% held out for testing)\n(trainingData, testData) \u003d alldataDF.randomSplit([0.7, 0.3], seed\u003d1)\n\nprint(\"Train set size: %d\" % trainingData.count())\nprint(\"Test set size: %d\" % testData.count())\n\n#Classification\n# Train a GBT model.\n#gbt \u003d GBTClassifier(labelCol\u003d\"indexedLabel\", featuresCol\u003d\"indexedFeatures\", maxIter\u003d10)\n#lg \u003d LinearRegression(labelCol\u003d\"indexedLabel\", featuresCol\u003d\"indexedFeatures\", maxIter\u003d10)\nclassifier \u003d DecisionTreeClassifier(labelCol\u003d\"label\", featuresCol\u003d\"features\", maxDepth\u003d5)\n#rf \u003d RandomForestClassifier(labelCol\u003d\"label\", featuresCol\u003d\"features\", numTrees\u003d500, maxDepth\u003d30)\n\n# Train model.\nmodel \u003d classifier.fit(trainingData)\n\n# Make predictions.\npredictions \u003d model.transform(testData).cache()\n\n#predictions.select(\"prediction\", \"label\", \"features\").show(5)\n#predictions.groupBy(\"prediction\",\"beds\").count().show()\n\n#Evaluator\n# Select (prediction, true label) and compute test error\nevaluator \u003d MulticlassClassificationEvaluator(labelCol\u003d\"label\", predictionCol\u003d\"prediction\", metricName\u003d\"accuracy\")\naccuracy \u003d evaluator.evaluate(predictions)\nprint(\"Test Error \u003d %g\" % (1.0 - accuracy))",
       "user": "anonymous",
-      "dateUpdated": "Apr 26, 2017 4:47:25 PM",
+      "dateUpdated": "Apr 27, 2017 4:44:01 PM",
       "config": {
-        "colWidth": 6.0,
+        "colWidth": 4.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
