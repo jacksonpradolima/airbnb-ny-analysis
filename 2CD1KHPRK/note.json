@@ -3,7 +3,7 @@
     {
       "text": "%md\n# Machine Learning\n\nSection **machine learning** procedures\n \nLinear models:\n1. Vanilla Linear Regression\n2. Ridge Regression\n3. Lasso Regression\n4. ElasticNet\n5. Bayesian Ridge\n6. Orthogonal Matching Pursuit\n\nClassification:\n1. K-Means\n2. Decision Tree\n3. Random Forest\n\n## Functions \nFirst, some functions were created to help the analysis",
       "user": "anonymous",
-      "dateUpdated": "Apr 26, 2017 7:16:32 PM",
+      "dateUpdated": "Apr 28, 2017 6:48:58 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -1590,7 +1590,7 @@
     {
       "text": "%angular\n\n\u003cdiv\u003e \n    \u003cobject type\u003d\"text/html\" data\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/index.html\" width\u003d\"100%\" height\u003d\"1000px\" style\u003d\"overflow:auto;\"\u003e\n    \u003c/object\u003e\n\u003c/div\u003e\n",
       "user": "anonymous",
-      "dateUpdated": "Apr 27, 2017 5:01:39 PM",
+      "dateUpdated": "Apr 28, 2017 6:49:11 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,

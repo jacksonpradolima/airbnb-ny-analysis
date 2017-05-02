@@ -1,9 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "%md\n## Results and Analysis\n",
+      "text": "%md\n## Results and Analysis\n\n### Charts with SQL",
       "user": "anonymous",
-      "dateUpdated": "Apr 27, 2017 6:38:19 PM",
+      "dateUpdated": "May 2, 2017 4:38:51 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -25,7 +25,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eResults and Analysis\u003c/h2\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eResults and Analysis\u003c/h2\u003e\n\u003ch3\u003eCharts with SQL\u003c/h3\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -33,15 +33,16 @@
       "jobName": "paragraph_1493329092406_652371248",
       "id": "20170427-183812_1463165836",
       "dateCreated": "Apr 27, 2017 6:38:12 PM",
-      "dateStarted": "Apr 27, 2017 6:38:19 PM",
-      "dateFinished": "Apr 27, 2017 6:38:19 PM",
+      "dateStarted": "May 2, 2017 4:38:51 PM",
+      "dateFinished": "May 2, 2017 4:38:51 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Listings per District",
-      "text": "%sql\nselect lower(district) district, count(district) district_count\nfrom airbnb\ngroup by 1\norder by 1, 2",
-      "dateUpdated": "Apr 26, 2017 5:48:59 PM",
+      "text": "%sql\nselect lower(district) district, count(district) district_count\nfrom airbnb\ngroup by 1\norder by 2",
+      "user": "anonymous",
+      "dateUpdated": "May 2, 2017 10:25:20 AM",
       "config": {
         "editorSetting": {
           "language": "sql"
@@ -90,7 +91,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "district\tdistrict_count\nbronx\t606\nbrooklyn\t15781\nmanhattan\t16854\nqueens\t3569\nstaten island\t233\n"
+            "data": "district\tdistrict_count\nstaten island\t233\nbronx\t606\nqueens\t3569\nbrooklyn\t15781\nmanhattan\t16854\n"
           }
         ]
       },
@@ -98,14 +99,16 @@
       "jobName": "paragraph_1493239502192_1806659503",
       "id": "20170420-100742_1825561548",
       "dateCreated": "Apr 26, 2017 5:45:02 PM",
-      "status": "READY",
-      "errorMessage": "",
+      "dateStarted": "May 2, 2017 10:24:58 AM",
+      "dateFinished": "May 2, 2017 10:24:59 AM",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Incidentes per District",
-      "text": "%sql\nselect lower(BORO_NM) district, count(*) count\nfrom nypdcomplaint\ngroup by 1\norder by 1, 2",
-      "dateUpdated": "Apr 26, 2017 5:49:00 PM",
+      "text": "%sql\nselect lower(BORO_NM) district, count(*) count\nfrom nypdcomplaint\ngroup by 1\norder by 2",
+      "user": "anonymous",
+      "dateUpdated": "May 2, 2017 10:25:19 AM",
       "config": {
         "editorSetting": {
           "language": "sql"
@@ -154,7 +157,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "district\tcount\nbronx\t106133\nbrooklyn\t140690\nmanhattan\t115511\nqueens\t94619\nstaten island\t21851\n"
+            "data": "district\tcount\nstaten island\t21851\nqueens\t94619\nbronx\t106133\nmanhattan\t115511\nbrooklyn\t140690\n"
           }
         ]
       },
@@ -162,14 +165,16 @@
       "jobName": "paragraph_1493239502210_1887456772",
       "id": "20170420-100904_1676298871",
       "dateCreated": "Apr 26, 2017 5:45:02 PM",
-      "status": "READY",
-      "errorMessage": "",
+      "dateStarted": "May 2, 2017 10:25:06 AM",
+      "dateFinished": "May 2, 2017 10:25:07 AM",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Cultural Organizations per District",
-      "text": "%sql\nselect lower(borough) district, count(*) count\nfrom culturalorganizations\ngroup by 1\norder by 1, 2",
-      "dateUpdated": "Apr 26, 2017 5:49:01 PM",
+      "text": "%sql\nselect lower(borough) district, count(*) count\nfrom culturalorganizations\ngroup by 1\norder by 2",
+      "user": "anonymous",
+      "dateUpdated": "May 2, 2017 10:25:17 AM",
       "config": {
         "editorSetting": {
           "language": "sql"
@@ -199,7 +204,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "district\tcount\nbronx\t94\nbrooklyn\t381\nmanhattan\t1252\nqueens\t190\nstaten island\t51\n"
+            "data": "district\tcount\nstaten island\t51\nbronx\t94\nqueens\t190\nbrooklyn\t381\nmanhattan\t1252\n"
           }
         ]
       },
@@ -207,8 +212,9 @@
       "jobName": "paragraph_1493239502215_1885533027",
       "id": "20170420-100915_379544083",
       "dateCreated": "Apr 26, 2017 5:45:02 PM",
-      "status": "READY",
-      "errorMessage": "",
+      "dateStarted": "May 2, 2017 10:25:11 AM",
+      "dateFinished": "May 2, 2017 10:25:11 AM",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -699,7 +705,7 @@
     {
       "title": "Average prices of Airbnb listings by the respective neighbourhoods",
       "text": "%sql\nSELECT AVG(price) avg_price, neighbourhood, max(district)\nFROM airbnb\nGROUP BY neighbourhood\nORDER BY 1 DESC",
-      "dateUpdated": "Apr 26, 2017 5:45:02 PM",
+      "dateUpdated": "May 2, 2017 4:37:33 PM",
       "config": {
         "editorSetting": {
           "language": "sql"
@@ -744,7 +750,8 @@
             "helium": {}
           }
         },
-        "enabled": true
+        "enabled": true,
+        "editorHide": true
       },
       "settings": {
         "params": {},
