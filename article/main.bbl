@@ -1,0 +1,92 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{00}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showDOI #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showDOI      \undefined \def \showDOI       #1{{\tt DOI:}\penalty0{#1}\ }
+  \fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       #1{#1}          \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[\protect\citeauthoryear{Airbnb}{Airbnb}{2017}]%
+        {base:airbnb}
+\bibfield{author}{\bibinfo{person}{Inside Airbnb}.}
+  \bibinfo{year}{2017}\natexlab{}.
+\newblock \bibinfo{title}{Listings}.
+\newblock
+  \bibinfo{howpublished}{\url{http://data.insideairbnb.com/united-states/ny/new-york-city/2017-04-02/data/listings.csv.gz}}.
+    (\bibinfo{year}{2017}).
+\newblock
+\newblock
+\shownote{Acessed Apr 2017. Date Compiled April 2, 2017.}
+
+
+\bibitem[\protect\citeauthoryear{BetaNYC}{BetaNYC}{2015}]%
+        {base:borough}
+\bibfield{author}{\bibinfo{person}{BetaNYC}.} \bibinfo{year}{2015}\natexlab{}.
+\newblock \bibinfo{title}{NYC Borough}.
+\newblock
+  \bibinfo{howpublished}{\url{http://data.beta.nyc/dataset/nyc-borough-boundaries/resource/7c164faa-4458-4ff2-9ef0-09db00b509ef?view\_id=8c05eff7-54d1-4359-8183-0e278e91b01a}}.
+    (\bibinfo{year}{2015}).
+\newblock
+\newblock
+\shownote{Acessed Apr 2017.}
+
+
+\bibitem[\protect\citeauthoryear{Department}{Department}{2016}]%
+        {base:incidents}
+\bibfield{author}{\bibinfo{person}{New York City~Police Department}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \bibinfo{title}{Incidents}.
+\newblock
+  \bibinfo{howpublished}{\url{https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Current-YTD/5uac-w243/data}}.
+    (\bibinfo{year}{2016}).
+\newblock
+\newblock
+\shownote{Acessed Apr 2017.}
+
+
+\bibitem[\protect\citeauthoryear{of~Cultural~Affairs}{of~Cultural~Affairs}{2017}]%
+        {base:cultural}
+\bibfield{author}{\bibinfo{person}{Department of Cultural~Affairs}.}
+  \bibinfo{year}{2017}\natexlab{}.
+\newblock \bibinfo{title}{Cultural Organizations}.
+\newblock
+  \bibinfo{howpublished}{\url{https://data.cityofnewyork.us/Recreation/DCLA-Cultural-Organizations/u35m-9t32}}.
+    (\bibinfo{year}{2017}).
+\newblock
+\newblock
+\shownote{Acessed Apr 2017. Last Update April 7, 2017.}
+
+
+\end{thebibliography}
