@@ -18,7 +18,6 @@
 \usepackage{mdframed}
 \usepackage{hyperref}
 
-
 \usepackage[labelformat=simple]{subcaption}
 \renewcommand\thesubfigure{(\alph{subfigure})}
 \definecolor{Gray}{gray}{0.9}
@@ -40,16 +39,6 @@
 	
 \renewcommand{\shortauthors}{J. A. Prado Lima}
 \renewcommand{\shorttitle}{Airbnb - New York’s Analysis}
-
-
-\begin{comment}
-\begin{abstract}
-
-The selection of products for the variability testing of Feature Models (FMs) is a complex task impacted by many factors. To solve this problem, Multi-Objective and Evolutionary Algorithms (MOEAs) have been successfully used in the field known as Search-Based Software Engineering (SBSE). However, the design of a search-based approach is not an easy task for the software engineer, who can find some difficulties such as: the choice and configuration of the best MOEAs, the choice of the best search operators to be implemented, and so on. In addition to this, existing approaches are dependent on the problem domain and do not allow reuse. In this way the use of Hyper-Heuristic (HH) can help to obtain more generic and reusable search-based approaches, and because of this is considered a trend in the SBSE field. Following this trend and to contribute to reduce the software engineer's efforts, this work explores the use of a hyper-heuristic for automatically generation of MOEAs to select test products from the FM, considering three factors: pairwise coverage, mutation score and cost, given by the number of products. The HH is based on a grammar that represents the elements, parameters and components of existing MOEAs and implements evolutionary operators, such as crossover and mutation, suitable for selection problems. In this way, it can be reused for other similar software engineering problems. Evaluation results show that the proposed approach obtains results that are better or statistically equivalent than similar approaches found in the literature.
-\end{abstract} 
-
-\keywords{Software Product Line Testing, Search-Based Software Engineering, Hyper-Heuristics} 
-\end{comment}
 
 \begin{abstract}
 	Airbnb is an outstanding hosting service used worldwide and provides information to its users in a simple and efficient manner, although this information is limited only to listings of its products. In this work, an analysis is made taking into account if incidents and cultural organizations influence the prices practiced in Airbnb. Besides, the prediction of new prices is carried out that the user can come to inform taking into account information of the current listings. The price forecast has some advantages when advising the user: on the price practiced (is too large or small), the mode of advertisement, or even on the investment decisions of the market analysis. To help in this task, the present work performs an analysis using graphs, maps and different types of machine learning.
@@ -124,10 +113,38 @@ The investigation focused on four dataset collected in open data sites. These da
 \vspace{-0.2cm}
 \subsection{Settings}
 
-In this step was used three different approaches to read the data (csv files): (i) SqlContext with databricks; (ii) parquet; and (iii) pandas. After, it was create a unique dataframe with the necessary informations. To help in the analsys, the Cultural Organizations and Incidents dataset received a score a they are like a column unique in the new dataframe. How we have 5 districts in New York, and to be easy, the Cultural Organizations and Incidents dataset were grouped and ranked in relation to the order (1-5), where 1 is the work and 5 the best. In this case, the datasets were ordered by the number in each district, ascendant for cultural organizations and descendant for the incidents.
+In this step was used three different approaches to read the data (csv files): (i) SqlContext with databricks; (ii) parquet; and (iii) pandas. After, it was create a unique dataframe with the necessary informations. To help in the analsys, the Cultural Organizations and Incidents dataset received a score a they are like a column unique in the new dataframe. How we have 5 districts in New York, and to be easy, the Cultural Organizations and Incidents dataset were grouped and ranked in relation to the order (1-5), where 1 is the work and 5 the best. In this case, the datasets were ordered by the number in each district, ascendant for cultural organizations and descendant for the incidents. In the end, we have a unique dataset with 37043 rows.
 
 \section{Results and Analysis}
 \label{sec:results}
+
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=\linewidth]{images/price_per_district}
+	\caption{Mean Price per District}
+	\label{fig:casPf}
+\end{figure}
+
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=\linewidth]{images/cultural_organizations_per_district}
+	\caption{Number of Cultural Organizations per District}
+	\label{fig:eshopPf}
+\end{figure}
+
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=\linewidth]{images/incidents_per_district}
+	\caption{Number of Incidents per District}
+	\label{fig:jamesPf}
+\end{figure}
+
+\begin{figure}[!htpb]
+	\centering
+	\includegraphics[width=\linewidth]{images/pairwise_relations_principal_features}
+	\caption{}
+	\label{fig:pairwiserelationsprincipalfeatures}
+\end{figure}
 
 \subsection{RQ1 - Comparing}
 
@@ -144,66 +161,3 @@ In this step was used three different approaches to read the data (csv files): (
 \bibliography{references} 
 
 \end{document}
-
-\begin{comment}
-\subsection{Analyzing the data}
-
-The objective of this step is to know the data and improve our understanding of the problem. The dataset contains 37043 rows, where each row represents a listing on the Airbnb and each column contains some information about them. Addictionally, ratings were created for the cultural and incident indexes, respectivally the columns: cultural\_organizations and nypd\_complaint (incidents). The columns are:
-
-\begin{itemize}
-\item \textbf{id}: listing id
-\item \textbf{latitude and longitude}: latitude and longitude of the listing
-\item \textbf{is\_location\_exact}: a boolean thats confirm the localization
-\item \textbf{host\_id}: the host id
-\item \textbf{host\_name}: the host name
-\item \textbf{host\_response\_time}: the host response time 
-\item \textbf{host\_response\_rate}: the host response rate 
-\item \textbf{host\_is\_superhost}: if the host is superhost
-\item \textbf{host\_listings\_count}: the host listings count
-\item \textbf{host\_total\_listings\_count}: the host total listings count
-\item \textbf{host\_identity\_verified}: if the host was verified
-\item \textbf{neighbourhood}: the listings neibourhood
-\item \textbf{district}: the listings district
-\item \textbf{property\_type}: These options are pretty straightforward. To avoid any confusion, Airbnb added a brief description of each property (home) type that appears when your mouse hovers over. Select the option that best describes your place. Keep in mind that the drop-down menu to the right expands your list of choices pretty significantly, including everything from loft, to castle, to tent.
-\item \textbf{room\_type}: all listings are grouped into the following three room types: \textit{Shared rooms}, \textit{Private rooms}, \textit{Entire homes / apartments}. 
-\begin{itemize}
-\item \textbf{Shared rooms}: are for when you'd like a comfy, communal experience, and don't mind sharing a space with others. When you book a shared room, you'll be sharing your bedroom and the entire space with other people. These rooms work best for the flexible traveler looking for new friends and a budget-friendly stay.
-\item \textbf{Private rooms}: are great for when you prefer a little privacy, but still value a local connection. When you book a private room, you'll have a bedroom to yourself, but will share some spaces with others. With a private room, you'll be able to wake up to greet your new friends in the kitchen and have the freedom to bid them adieu at bedtime.
-\item \textbf{Entire homes/apartments}: are best if you're seeking a home away from home with complete privacy and the freedom to cook breakfast in your pajamas. With an entire home/apartment, you'll have the whole space to yourself. You can be your own host, make your own dinner, and remember to treat your listing with the respect and courtesy you would at your own home.
-\end{itemize}
-\item \textbf{accommodates}: This allows you to select the maximum number of people that can comfortably fit in your place. It’s important to understand that capacity is not limited to bed space: you will have the opportunity to indicate the number of available beds in the subsequent steps (given you selected the “Entire home/apt” room type). For now, calculate how many people you can accommodate if each has his or her own bed, sofa bed, or inflatable mattress, provided that the sleeping arrangement is as comfortable as you would expect if you were the guest yourself. Finally, select the appropriate number from the drop-down list given.	
-\item \textbf{bathrooms}: the number of bathrooms
-\item \textbf{bedrooms}: the number of bedrooms
-\item \textbf{beds}: the number of beds
-\item \textbf{bed\_type}: the bed type
-\item \textbf{price}: the price
-\item \textbf{weekly\_price}: the weekly price
-\item \textbf{monthly\_price}: the monthly price
-\item \textbf{security\_deposit}: the security deposit
-\item \textbf{cleaning\_fee}: the cleaning fee
-\item \textbf{guests\_included}: the guests included
-\item \textbf{extra\_people}: the price for each extra people
-\item \textbf{minimum\_nights}: the minimum nights
-\item \textbf{maximum\_nights}: the maximum nights
-\item \textbf{availability\_30}: the availability in 30 days
-\item \textbf{availability\_60}: the availability in 60 days
-\item \textbf{availability\_90}: the availability in 90 days
-\item \textbf{availability\_365}: the availability in 365 days
-\item \textbf{number\_of\_reviews}: the number of reviews
-\item \textbf{review\_scores\_rating}: the review scores rating
-\item \textbf{review\_scores\_accuracy}: the review scores accuracy
-\item \textbf{review\_scores\_cleanliness}: the review scores cleanliness
-\item \textbf{review\_scores\_checkin}: the review scores checkin
-\item \textbf{review\_scores\_communication}: the review scores communication
-\item \textbf{review\_scores\_location}: the review scores location
-\item \textbf{review\_scores\_value}: the review scores value
-\item \textbf{review\_per\_month}: the review per month
-\item \textbf{instant\_bookable}: if is instant bookable
-\item \textbf{cancellation\_policy}: the cancellation policy
-\item \textbf{require\_guest\_profile\_picture}: if required guest profile picture
-\item \textbf{require\_guest\_phone\_verification}: if require guest phone verification
-\item \textbf{calculated\_host\_listings\_count}: the calculated host listings count
-\item \textbf{cultural\_organizations}: the score of the district in relation the number of cultural organization between 1 (worst) and 5 (best). We have 5 districts, so they are ordered and the score was make in relation the order.
-\item \textbf{incidents}: the score of the district in relation the incidents between 1 (worst) and 5 (best). We have 5 districts, so they are ordered and the score was make in relation the order.
-\end{itemize}
-\end{comment}
