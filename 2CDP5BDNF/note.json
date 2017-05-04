@@ -207,7 +207,7 @@
       "title": "Map - Price",
       "text": "%angular\n\n\u003cdiv\u003e \n    \u003cobject type\u003d\"text/html\" data\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_price.html\" width\u003d\"100%\" height\u003d\"1000px\" style\u003d\"overflow:auto;\"\u003e\n    \u003c/object\u003e\n\u003c/div\u003e\n",
       "user": "anonymous",
-      "dateUpdated": "Apr 27, 2017 5:03:31 PM",
+      "dateUpdated": "May 4, 2017 11:48:35 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -217,7 +217,7 @@
           "editOnDblClick": true
         },
         "editorMode": "ace/mode/undefined",
-        "editorHide": true,
+        "editorHide": false,
         "tableHide": false,
         "title": true
       },
@@ -364,7 +364,7 @@
     "2CE3TQDAW:shared_process": []
   },
   "config": {
-    "looknfeel": "report",
+    "looknfeel": "default",
     "personalizedMode": "false"
   },
   "info": {}

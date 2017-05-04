@@ -292,7 +292,7 @@
     {
       "title": "Average prices grouped by the num. of people that can accommodate",
       "text": "%sql\nWITH subquery AS(\n SELECT AVG(price) PRICE, district, beds, COUNT(1) AS cnt\n    FROM airbnb\n    WHERE beds \u003c\u003d ${max_accommodations\u003d4}\n     AND price \u003c 1000\n    GROUP BY district, beds\n)\nSELECT * \nFROM subquery q2\nINNER JOIN (\n    SELECT DISTINCT(district)\n    FROM subquery q1\n    WHERE q1.cnt \u003e ${min_count_of_listings\u003d50}\n) AS distinct_neigh\nON distinct_neigh.district \u003d q2.district\nWHERE cnt \u003e 15",
-      "dateUpdated": "Apr 26, 2017 5:52:25 PM",
+      "dateUpdated": "May 3, 2017 5:09:21 PM",
       "config": {
         "editorSetting": {
           "language": "sql"
@@ -634,7 +634,7 @@
     {
       "title": "Average response rates of Airbnb listings by the respective neighbourhoods",
       "text": "%sql\nSELECT AVG(host_response_rate) avg_response, neighbourhood, max(district)\nFROM airbnb\nGROUP BY neighbourhood\nORDER BY 1 DESC",
-      "dateUpdated": "Apr 26, 2017 5:45:02 PM",
+      "dateUpdated": "May 2, 2017 5:33:49 PM",
       "config": {
         "editorSetting": {
           "language": "sql"
@@ -679,7 +679,8 @@
             "helium": {}
           }
         },
-        "enabled": true
+        "enabled": true,
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -776,8 +777,17 @@
     },
     {
       "text": "%sql\n",
-      "dateUpdated": "Apr 26, 2017 5:45:02 PM",
-      "config": {},
+      "dateUpdated": "May 3, 2017 11:04:14 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql",
+        "editorHide": true
+      },
       "settings": {
         "params": {},
         "forms": {}
