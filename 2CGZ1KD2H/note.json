@@ -1,0 +1,502 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n# Airbnb - New York’s Analysis\n\n## Abstract\nAirbnb is an outstanding hosting service used worldwide and provides information to its users in a simple and efficient manner. In this work, an analysis is made taking into account if incidents and cultural organizations influence the prices practiced in Airbnb. Besides, the prediction of new prices is carried out that the user can come to inform taking into account information of the current listings. The price forecast has some advantages when advising the user: on the price practiced (is too large or small), the mode of advertisement, or even on the investment decisions of the market analysis. To help in this task, the present work performs an analysis using charts, maps and different types of machine learning. The data reveals that Queens district has a fair trade-off among price, cultural organization, and incidents, as well as, the accommodates diversity. Besides, the cultural organization has a high influence in to predict price.\n\n## Introduction\n\nAirbnb was founded in August of 2008 and based in San Francisco, California. Airbnb is an online marketplace and hospitality service, enabling people to lease or rent short-term lodging including vacation rentals, apartment rentals, homestays, hostel beds, or hotel rooms. \n\nConsidering the Airbnb listing, how can we predict a price or if the cultural organizations and incidents impacts on listing price? In some moments, the guests want to a local to be cheaper or more attractive considering local events to appreciate. Thus, predicting an affordable and safe local is arguably necessary. In this paper, we try and capture this characteristic using maps, charts and machine learning to help the guest in the chose.\n\n## Experiment Description\n\nThe hypothesis of this work is that our approach is capable of recommending a cheap and safe local (district/borough) as well as consider the influence of this aspect in to predict listing price. \n\nAccording to our goals the experiment was guided by the following researches questions: **RQ1**: ``How the incidents and cultural organizations impact on listing price?`` and **RQ2**: ``How the incidents and cultural organizations impact on regression model to predict the listing price?``.\n\nTo answer the RQ1, we compared the result shows on maps, a collinearity matrix among the features, and how the accommodates are distributed. To answer the RQ2, we used a machine learning with seven regression models, and the results were compared using Median Absolute Error.\n\n### Target Data\n\nThe investigation focused on four datasets collected in open data sites. These datasets are as follows: 1) Listings, a dataset that is an Airbnb snapshot of 02 April 2017; 2) Incidents, contains all incidents from New York for the year 2016; 3) Cultural Organizations, contains all cultural organizations from New York in 2017; and 4) NYC Borough, contains information about boundaries of boroughs (districts).\n\n| Dataset | Description | Size | Format |\n| ------- | ----------- | ---- | ------ |\n| Listings | Detailed listings data, including various attributes (features) of each listing such as number of bedrooms, bathrooms, location, etc. Date Compiled on **02 April, 2017** | 153,7MB | [gz](http://data.insideairbnb.com/united-states/ny/new-york-city/2017-04-02/data/listings.csv.gz) |\n| Incidents | All valid felony, misdemeanor, and violation crimes reported to the New York City Police Department (NYPD) for all complete quarters in 2016. | 124,2MB | [csv](https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Current-YTD/5uac-w243/data) |\n| Cultural Organizations | Listing of all Cultural Organizations in the Department of Cultural Affairs directory. | 333,3kB | [csv](https://data.cityofnewyork.us/Recreation/DCLA-Cultural-Organizations/u35m-9t32) |\n| NYC Borough | Polygon boundaries of boroughs (water areas excluded). | 400,5kB | [GeoJson](http://data.beta.nyc/dataset/nyc-borough-boundaries/resource/7c164faa-4458-4ff2-9ef0-09db00b509ef?view_id\u003d8c05eff7-54d1-4359-8183-0e278e91b01a) |\n\n### Integration Data\n\nTo help in the analyses, the Cultural Organizations and Incidents dataset received a score. How we have 5 districts in New York, and to be easy, the Cultural Organizations and Incidents dataset were grouped and ranked in relation to the order (1-5), where 1 is the worst and 5 the best. In this case, the datasets were ordered by the number in each district, ascendant for Cultural Organizations and descendant for the Incidents. In the end, it was create a unique data frame with the necessary informations that contains **37043** rows. \n",
+      "user": "anonymous",
+      "dateUpdated": "May 4, 2017 6:26:41 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eAirbnb - New York’s Analysis\u003c/h1\u003e\n\u003ch2\u003eAbstract\u003c/h2\u003e\n\u003cp\u003eAirbnb is an outstanding hosting service used worldwide and provides information to its users in a simple and efficient manner. In this work, an analysis is made taking into account if incidents and cultural organizations influence the prices practiced in Airbnb. Besides, the prediction of new prices is carried out that the user can come to inform taking into account information of the current listings. The price forecast has some advantages when advising the user: on the price practiced (is too large or small), the mode of advertisement, or even on the investment decisions of the market analysis. To help in this task, the present work performs an analysis using charts, maps and different types of machine learning. The data reveals that Queens district has a fair trade-off among price, cultural organization, and incidents, as well as, the accommodates diversity. Besides, the cultural organization has a high influence in to predict price.\u003c/p\u003e\n\u003ch2\u003eIntroduction\u003c/h2\u003e\n\u003cp\u003eAirbnb was founded in August of 2008 and based in San Francisco, California. Airbnb is an online marketplace and hospitality service, enabling people to lease or rent short-term lodging including vacation rentals, apartment rentals, homestays, hostel beds, or hotel rooms. \u003c/p\u003e\n\u003cp\u003eConsidering the Airbnb listing, how can we predict a price or if the cultural organizations and incidents impacts on listing price? In some moments, the guests want to a local to be cheaper or more attractive considering local events to appreciate. Thus, predicting an affordable and safe local is arguably necessary. In this paper, we try and capture this characteristic using maps, charts and machine learning to help the guest in the chose.\u003c/p\u003e\n\u003ch2\u003eExperiment Description\u003c/h2\u003e\n\u003cp\u003eThe hypothesis of this work is that our approach is capable of recommending a cheap and safe local (district/borough) as well as consider the influence of this aspect in to predict listing price. \u003c/p\u003e\n\u003cp\u003eAccording to our goals the experiment was guided by the following researches questions: \u003cstrong\u003eRQ1\u003c/strong\u003e: \u003ccode\u003eHow the incidents and cultural organizations impact on listing price?\u003c/code\u003e and \u003cstrong\u003eRQ2\u003c/strong\u003e: \u003ccode\u003eHow the incidents and cultural organizations impact on regression model to predict the listing price?\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eTo answer the RQ1, we compared the result shows on maps, a collinearity matrix among the features, and how the accommodates are distributed. To answer the RQ2, we used a machine learning with seven regression models, and the results were compared using Median Absolute Error.\u003c/p\u003e\n\u003ch3\u003eTarget Data\u003c/h3\u003e\n\u003cp\u003eThe investigation focused on four datasets collected in open data sites. These datasets are as follows: 1) Listings, a dataset that is an Airbnb snapshot of 02 April 2017; 2) Incidents, contains all incidents from New York for the year 2016; 3) Cultural Organizations, contains all cultural organizations from New York in 2017; and 4) NYC Borough, contains information about boundaries of boroughs (districts).\u003c/p\u003e\n\u003ctable\u003e\n  \u003cthead\u003e\n    \u003ctr\u003e\n      \u003cth\u003eDataset \u003c/th\u003e\n      \u003cth\u003eDescription \u003c/th\u003e\n      \u003cth\u003eSize \u003c/th\u003e\n      \u003cth\u003eFormat \u003c/th\u003e\n    \u003c/tr\u003e\n  \u003c/thead\u003e\n  \u003ctbody\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eListings \u003c/td\u003e\n      \u003ctd\u003eDetailed listings data, including various attributes (features) of each listing such as number of bedrooms, bathrooms, location, etc. Date Compiled on \u003cstrong\u003e02 April, 2017\u003c/strong\u003e \u003c/td\u003e\n      \u003ctd\u003e153,7MB \u003c/td\u003e\n      \u003ctd\u003e\u003ca href\u003d\"http://data.insideairbnb.com/united-states/ny/new-york-city/2017-04-02/data/listings.csv.gz\"\u003egz\u003c/a\u003e \u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eIncidents \u003c/td\u003e\n      \u003ctd\u003eAll valid felony, misdemeanor, and violation crimes reported to the New York City Police Department (NYPD) for all complete quarters in 2016. \u003c/td\u003e\n      \u003ctd\u003e124,2MB \u003c/td\u003e\n      \u003ctd\u003e\u003ca href\u003d\"https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Current-YTD/5uac-w243/data\"\u003ecsv\u003c/a\u003e \u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eCultural Organizations \u003c/td\u003e\n      \u003ctd\u003eListing of all Cultural Organizations in the Department of Cultural Affairs directory. \u003c/td\u003e\n      \u003ctd\u003e333,3kB \u003c/td\u003e\n      \u003ctd\u003e\u003ca href\u003d\"https://data.cityofnewyork.us/Recreation/DCLA-Cultural-Organizations/u35m-9t32\"\u003ecsv\u003c/a\u003e \u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eNYC Borough \u003c/td\u003e\n      \u003ctd\u003ePolygon boundaries of boroughs (water areas excluded). \u003c/td\u003e\n      \u003ctd\u003e400,5kB \u003c/td\u003e\n      \u003ctd\u003e\u003ca href\u003d\"http://data.beta.nyc/dataset/nyc-borough-boundaries/resource/7c164faa-4458-4ff2-9ef0-09db00b509ef?view_id\u003d8c05eff7-54d1-4359-8183-0e278e91b01a\"\u003eGeoJson\u003c/a\u003e \u003c/td\u003e\n    \u003c/tr\u003e\n  \u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch3\u003eIntegration Data\u003c/h3\u003e\n\u003cp\u003eTo help in the analyses, the Cultural Organizations and Incidents dataset received a score. How we have 5 districts in New York, and to be easy, the Cultural Organizations and Incidents dataset were grouped and ranked in relation to the order (1-5), where 1 is the worst and 5 the best. In this case, the datasets were ordered by the number in each district, ascendant for Cultural Organizations and descendant for the Incidents. In the end, it was create a unique data frame with the necessary informations that contains \u003cstrong\u003e37043\u003c/strong\u003e rows.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1493931483268_-183743261",
+      "id": "20170504-120259_833065773",
+      "dateCreated": "May 4, 2017 5:58:03 PM",
+      "dateStarted": "May 4, 2017 6:26:41 PM",
+      "dateFinished": "May 4, 2017 6:26:41 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nfrom folium.features import *\nfrom geopy.geocoders import Nominatim\n\nimport folium \nimport folium.plugins\nimport functools\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport pygeoj\nimport pyspark.sql.functions as func\nimport seaborn as sb\n\nfrom sklearn import ensemble\nfrom sklearn import linear_model\nfrom sklearn import preprocessing\nfrom sklearn.grid_search import GridSearchCV\nfrom sklearn.cross_validation import train_test_split\nfrom sklearn.model_selection import cross_val_score\nimport sklearn.metrics as metrics\n\nfrom pyspark.ml.classification import DecisionTreeClassifier\nfrom pyspark.ml.evaluation import BinaryClassificationEvaluator, MulticlassClassificationEvaluator\nfrom pyspark.ml.feature import StringIndexer, VectorIndexer, VectorAssembler, SQLTransformer, OneHotEncoder\nfrom pyspark.sql.types import *\n",
+      "user": "anonymous",
+      "dateUpdated": "May 4, 2017 6:29:06 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1493933274887_1472355567",
+      "id": "20170504-182754_1209043741",
+      "dateCreated": "May 4, 2017 6:27:54 PM",
+      "dateStarted": "May 4, 2017 6:28:33 PM",
+      "dateFinished": "May 4, 2017 6:28:43 PM",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\ncultural_organizations \u003d sqlContext.read.format(\"com.databricks.spark.csv\").options(header\u003d\"true\", delimiter\u003d\",\", charset\u003d\"ISO-8859-1\", inferSchema\u003d\"true\").load(\"data/NewYork/cultural_organizations.csv\")\n\nnypdComplaintStreamRaw \u003d sqlContext.read.format(\"com.databricks.spark.csv\").options(header\u003d\"true\", delimiter\u003d\",\", charset\u003d\"ISO-8859-1\", inferSchema\u003d\"true\").load(\"data/NewYork/NYPD_Complaint_Data_Current_YTD.csv\")\n\nairbnbDetailedStreamRaw \u003d sqlContext.read.format(\"com.databricks.spark.csv\").options(header\u003d\"true\", delimiter\u003d\";\", charset\u003d\"ISO-8859-1\", inferSchema\u003d\"true\").load(\"data/NewYork/cleaned_data/listings.csv\")\n  \n# Convert the dataset to a more efficent format to speed up our analysis\nairbnbDetailedStreamRaw.write.mode(\"overwrite\").format(\"parquet\").save(\"data/NewYork/airbnb-detailed-stream\")\nnypdComplaintStreamRaw.write.mode(\"overwrite\").format(\"parquet\").save(\"data/NewYork/nypd-complaint-stream\")\n  \n#Load the optimized data as a DataFrame\nnypd_complaint \u003d sqlContext.read.parquet(\"data/NewYork/nypd-complaint-stream\")\nar \u003d sqlContext.read.parquet(\"data/NewYork/airbnb-detailed-stream\")\n\nallcols \u003d [\u0027price\u0027,\u0027accommodates\u0027,\u0027bedrooms\u0027,\u0027beds\u0027,\u0027district\u0027,\u0027room_type\u0027,\\\n               \u0027cancellation_policy\u0027,\u0027instant_bookable\u0027,\u0027reviews_per_month\u0027,\u0027number_of_reviews\u0027,\\\n               \u0027availability_30\u0027,\u0027review_scores_rating\u0027]\n               \nairbnb \u003d ar.select(allcols)\n\n#Make the data available as a SQL table\ncultural_organizations.registerTempTable(\"culturalorganizations\")\nnypd_complaint.registerTempTable(\"nypdcomplaint\")\nairbnb.registerTempTable(\"airbnb\")\n\nsfP \u003d sqlContext.sql(\"\"\"SELECT *, district cultural_organizations, district incidents FROM airbnb\"\"\").toPandas()\n\ncountCultural \u003d cultural_organizations.select(\"borough\").groupBy(\"borough\").count() \\\n                    .selectExpr(\"borough as District\", \"cast(count as float) AS Number\").orderBy(\"Number\")\n                    \ncountIncidents \u003d nypd_complaint.select(func.initcap(\"BORO_NM\").alias(\"BORO_NM\")).select(\"BORO_NM\").groupBy(\"BORO_NM\") \\\n                    .count().selectExpr(\"BORO_NM as District\", \"cast(count as float) AS Number\")\\\n                    .orderBy(func.desc(\"Number\"))\n                    \ncultural \u003d {}\nincidentes \u003d {}\n\nfor index, each in enumerate(countCultural.collect()):\n     cultural[each[0]] \u003d index + 1\n\nfor index, each in enumerate(countIncidents.collect()):\n     incidentes[each[0]] \u003d index + 1\n     \n# new values for cultural_organizations and nypd_complaint columns\nsfP.replace({\"cultural_organizations\": cultural}, inplace\u003dTrue)\nsfP.replace({\"incidents\": incidentes}, inplace\u003dTrue)\n\ndfAll \u003d spark.createDataFrame(sfP)\ndfAll.registerTempTable(\"dfAll\")\n",
+      "user": "anonymous",
+      "dateUpdated": "May 4, 2017 6:31:44 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1493933348385_1950521829",
+      "id": "20170504-182908_1442797920",
+      "dateCreated": "May 4, 2017 6:29:08 PM",
+      "dateStarted": "May 4, 2017 6:31:23 PM",
+      "dateFinished": "May 4, 2017 6:31:31 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n\n## Results and Analysis\n\nThis section shows and discusses the results to answer the researches questions.\n",
+      "user": "anonymous",
+      "dateUpdated": "May 4, 2017 6:27:21 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eResults and Analysis\u003c/h2\u003e\n\u003cp\u003eThis section shows and discusses the results to answer the researches questions.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1493931483271_-183358512",
+      "id": "20170504-120500_1891610265",
+      "dateCreated": "May 4, 2017 5:58:03 PM",
+      "dateStarted": "May 4, 2017 6:27:21 PM",
+      "dateFinished": "May 4, 2017 6:27:21 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n\n### Answering RQ1\n\nFigure1  shows, per district, a matrix of each feature as a function of another which is useful to check for any collinearity among the feature. The cells running through the diagonal of the matrix contain a histogram with its values on the X axis. The features chose to be analyzed were: price, cultural organizations, and incidents.\n\nBased on the figure, we do see that Queens and Bronx are in the trade-off among the features. To help in to check this observation, Figure 2 shows that Manhattan district has the highest listings mean price, and Queens and Bronx are the lowest. In Figure 3, we can observe that Manhattan stands out followed by Brooklyn. On the other hand, Brooklyn stands out followed by Manhattan when we consider incidents (Figure 4). In this sense, we can affirm that Queens and Bronx have the best trade-off among mean price, cultural organizations and incidents.",
+      "user": "anonymous",
+      "dateUpdated": "May 4, 2017 6:35:43 PM",
+      "config": {
+        "colWidth": 5.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eAnswering RQ1\u003c/h3\u003e\n\u003cp\u003eFigure1 shows, per district, a matrix of each feature as a function of another which is useful to check for any collinearity among the feature. The cells running through the diagonal of the matrix contain a histogram with its values on the X axis. The features chose to be analyzed were: price, cultural organizations, and incidents.\u003c/p\u003e\n\u003cp\u003eBased on the figure, we do see that Queens and Bronx are in the trade-off among the features. To help in to check this observation, Figure 2 shows that Manhattan district has the highest listings mean price, and Queens and Bronx are the lowest. In Figure 3, we can observe that Manhattan stands out followed by Brooklyn. On the other hand, Brooklyn stands out followed by Manhattan when we consider incidents (Figure 4). In this sense, we can affirm that Queens and Bronx have the best trade-off among mean price, cultural organizations and incidents.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1493933229136_-1442948145",
+      "id": "20170504-182709_1357178220",
+      "dateCreated": "May 4, 2017 6:27:09 PM",
+      "dateStarted": "May 4, 2017 6:35:39 PM",
+      "dateFinished": "May 4, 2017 6:35:39 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Figure 1 - Collinearity among the features",
+      "text": "%pyspark \n\nsb.pairplot(dfAll.select(\"price\", \"cultural_organizations\", \"incidents\", \"district\").toPandas(), hue\u003d\"district\")\nplt.savefig(\u0027data/NewYork/img/related_data2.png\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "May 4, 2017 6:38:14 PM",
+      "config": {
+        "colWidth": 7.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python",
+        "editorHide": true,
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv style\u003d\u0027width:auto;height:auto\u0027\u003e\u003cimg src\u003ddata:image/png;base64,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GkJDW9o5MyIix8FCj4garJaPjobGO6jaebrsFDtnQ0TkeHiNHhEREZGTYqFHRERE5KRY6BERERE5KRZ6RERERE6KhR4RERGRk2KhR0REROSkWOgREREROSmHvI+eIAh45513cPHiRbi4uCAuLg7BwcFip0VERETUoDhkofftt9+ipKQEO3bswLlz5xAfH49169aJnRaRUystLcUHH6w0e06tViI/v9g0/dpr0zkkGRFRA+KQhd6ZM2cQEREBAOjUqRPOnz8vckZEzu/GjWv47OxeKN2V1c4vzivGsBtPc0gyIqIGxCELPZ1OB3d3d9O0XC6H0WiEVMpLDokqW/TOe/g58UK180pLDfjb1GcR3jMcsbGza4yxePFSAEBA56ZQa92rbZOfmWd6bEms+7UBgBdfnISC3Iwa51ecZ8n60goKamyTVlCA5nWIlXo7t8Y2qbdz0b7GuURE9iURBEEQO4m6Wrp0KTp37oyBAwcCACIjI/H999+LmxQRERFRA+OQp8C6du2Ko0ePAgDOnj2LVq1aiZwRERERUcPjkGf0Kv7qFgDi4+PRvHnzWpYiIiIi+mtxyEKPiIiIiGrnkF/dEhEREVHtWOgREREROSkWekREREROioUeERERkZNioUdERETkpFjoERERETkpFnpEREREToqFHhEREZGTYqFHRERE5KRY6BERERE5KRZ6RERERE6KhR4RERGRk2KhR0REROSkWOgREREROSm52AnU18aNG3H48GHo9XpMmDABo0aNEjslIiIiogbFIQu9xMRE/PLLL9ixYwcKCgrw4Ycfip0SERERUYMjEQRBEDuJulq5ciUkEgkuX76M/Px8zJo1C+3atRM7LSIiIqIGxSHP6GVnZyM1NRUbNmzAzZs3MW3aNBw4cEDstIiIiIgaFIcs9Ly8vBAaGgq5XI7mzZtDqVTi7t278PHxqba9IAiQSCR2zpLIMuyf1JCxfxI5Nocs9Lp164aEhAS88MILSE9PR1FREby9vWtsL5FIkJmZZ9UctFp3q8ZkvIYXz15s0T8rsva+sVdsW8d31Njl8e3Flv2T/Uec+M7UP6l2DlnoRUZG4ueff8bo0aMhCALmz5/PT5xERERElThkoQcAM2fOFDsFIiIiogaNN0wmIiIiclIs9IiIiIicFAs9IiIiIifFQo+IiIjISbHQIyIiInJSLPSIiIiI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 style\u003d\u0027width\u003dauto;height:auto\u0027\u003e\u003cdiv\u003e\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1493933238559_1000992192",
+      "id": "20170504-182718_510689647",
+      "dateCreated": "May 4, 2017 6:27:18 PM",
+      "dateStarted": "May 4, 2017 6:36:04 PM",
+      "dateFinished": "May 4, 2017 6:38:01 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Figure 2 - Mean Price per District",
+      "text": "%angular\n\n\u003cdiv\u003e \n    \u003cobject type\u003d\"text/html\" data\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_price.html\" width\u003d\"100%\" height\u003d\"1000px\" style\u003d\"overflow:auto;\"\u003e\n    \u003c/object\u003e\n\u003c/div\u003e\n",
+      "user": "anonymous",
+      "dateUpdated": "May 4, 2017 6:41:09 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": true,
+        "tableHide": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\u003cdiv\u003e \n    \u003cobject type\u003d\"text/html\" data\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_price.html\" width\u003d\"100%\" height\u003d\"1000px\" style\u003d\"overflow:auto;\"\u003e\n    \u003c/object\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1493933637182_-732714832",
+      "id": "20170504-183357_1477970230",
+      "dateCreated": "May 4, 2017 6:33:57 PM",
+      "dateStarted": "May 4, 2017 6:38:50 PM",
+      "dateFinished": "May 4, 2017 6:38:50 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Figure 3 - Number of Cultural Organizations per District",
+      "text": "%angular\n\n\u003cdiv\u003e \n    \u003cobject type\u003d\"text/html\" data\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_cultural.html\" width\u003d\"100%\" height\u003d\"1000px\" style\u003d\"overflow:auto;\"\u003e\n    \u003c/object\u003e\n\u003c/div\u003e\n",
+      "user": "anonymous",
+      "dateUpdated": "May 4, 2017 6:41:06 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": true,
+        "tableHide": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\u003cdiv\u003e \n    \u003cobject type\u003d\"text/html\" data\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_cultural.html\" width\u003d\"100%\" height\u003d\"1000px\" style\u003d\"overflow:auto;\"\u003e\n    \u003c/object\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1493933915098_9079403",
+      "id": "20170504-183835_1408717364",
+      "dateCreated": "May 4, 2017 6:38:35 PM",
+      "dateStarted": "May 4, 2017 6:41:02 PM",
+      "dateFinished": "May 4, 2017 6:41:02 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Figure 4 - Number Incidents per District",
+      "text": "%angular\n\n\u003cdiv\u003e \n    \u003cobject type\u003d\"text/html\" data\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_incidents.html\" width\u003d\"100%\" height\u003d\"1000px\" style\u003d\"overflow:auto;\"\u003e\n    \u003c/object\u003e\n\u003c/div\u003e\n\n",
+      "user": "anonymous",
+      "dateUpdated": "May 4, 2017 6:41:13 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true,
+        "editorHide": true,
+        "tableHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\u003cdiv\u003e \n    \u003cobject type\u003d\"text/html\" data\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_incidents.html\" width\u003d\"100%\" height\u003d\"1000px\" style\u003d\"overflow:auto;\"\u003e\n    \u003c/object\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1493933962742_467208074",
+      "id": "20170504-183922_606507448",
+      "dateCreated": "May 4, 2017 6:39:22 PM",
+      "dateStarted": "May 4, 2017 6:41:02 PM",
+      "dateFinished": "May 4, 2017 6:41:02 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nFigure 5 shows mean price grouped by the number of people that can be accommodated (number of beds) per district: Queens, Manhattan, Bronx, Brooklyn, and Staten Island. We can observe that Manhattan\u0027s district has more options than other ones. It\u0027s interesting to highlight Queens district outperformed the Bronx in the diversity of accommodates. \n\nAnalyzing the results, we can conclude that where there are more cultural organizations is more expensive and consequently attracts more incidents. However, we found two districts in the trade-off among price, cultural organizations and incidents: Queens and Bronx; where comparing these districts Queens outperform the Bronx in the diversity of accommodates.\n",
+      "user": "anonymous",
+      "dateUpdated": "May 4, 2017 6:41:02 PM",
+      "config": {
+        "colWidth": 4.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eFigure 5 shows mean price grouped by the number of people that can be accommodated (number of beds) per district: Queens, Manhattan, Bronx, Brooklyn, and Staten Island. We can observe that Manhattan\u0026rsquo;s district has more options than other ones. It\u0026rsquo;s interesting to highlight Queens district outperformed the Bronx in the diversity of accommodates. \u003c/p\u003e\n\u003cp\u003eAnalyzing the results, we can conclude that where there are more cultural organizations is more expensive and consequently attracts more incidents. However, we found two districts in the trade-off among price, cultural organizations and incidents: Queens and Bronx; where comparing these districts Queens outperform the Bronx in the diversity of accommodates.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1493933956022_333684881",
+      "id": "20170504-183916_171969774",
+      "dateCreated": "May 4, 2017 6:39:16 PM",
+      "dateStarted": "May 4, 2017 6:41:02 PM",
+      "dateFinished": "May 4, 2017 6:41:02 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Figure 5 - Mean price grouped by the number of people that can accommodate",
+      "text": "%sql\nWITH subquery AS(\n SELECT AVG(price) PRICE, district, beds, COUNT(1) AS cnt\n    FROM airbnb\n    WHERE beds \u003c\u003d ${max_accommodations\u003d4}\n     AND price \u003c 1000\n    GROUP BY district, beds\n)\nSELECT * \nFROM subquery q2\nINNER JOIN (\n    SELECT DISTINCT(district)\n    FROM subquery q1\n    WHERE q1.cnt \u003e ${min_count_of_listings\u003d50}\n) AS distinct_neigh\nON distinct_neigh.district \u003d q2.district\nWHERE cnt \u003e 15",
+      "user": "anonymous",
+      "dateUpdated": "May 4, 2017 6:43:01 PM",
+      "config": {
+        "colWidth": 8.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "multiBarChart": {}
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "district",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [
+                {
+                  "name": "beds",
+                  "index": 2.0,
+                  "aggr": "sum"
+                }
+              ],
+              "values": [
+                {
+                  "name": "PRICE",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sql",
+        "editorHide": true,
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {
+          "max_accommodations": "4",
+          "min_count_of_listings": "50"
+        },
+        "forms": {
+          "max_accommodations": {
+            "name": "max_accommodations",
+            "defaultValue": "4",
+            "hidden": false
+          },
+          "min_count_of_listings": {
+            "name": "min_count_of_listings",
+            "defaultValue": "50",
+            "hidden": false
+          }
+        }
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "PRICE\tdistrict\tbeds\tcnt\tdistrict\n179.4678899082569\tQueens\t4\t109\tQueens\n97.9025787965616\tQueens\t2\t698\tQueens\n283.5128630705394\tManhattan\t3\t1205\tManhattan\n72.04285714285714\tBronx\t1\t420\tBronx\n211.3871635610766\tBrooklyn\t4\t483\tBrooklyn\n86.67645134149761\tBrooklyn\t1\t10697\tBrooklyn\n343.70661157024796\tManhattan\t4\t484\tManhattan\n187.95088044485635\tBrooklyn\t3\t1079\tBrooklyn\n128.11428571428573\tBronx\t3\t35\tBronx\n85.57377049180327\tBronx\t2\t122\tBronx\n73.25833333333334\tQueens\t1\t2400\tQueens\n69.75\tStaten Island\t1\t128\tStaten Island\n161.21428571428572\tStaten Island\t3\t28\tStaten Island\n83.8\tStaten Island\t2\t50\tStaten Island\n127.39980414849106\tManhattan\t1\t11233\tManhattan\n150.34285714285716\tQueens\t3\t245\tQueens\n205.07795545402627\tManhattan\t2\t3502\tManhattan\n139.85544490844845\tBrooklyn\t2\t3113\tBrooklyn\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1493933999597_301442595",
+      "id": "20170504-183959_297013387",
+      "dateCreated": "May 4, 2017 6:39:59 PM",
+      "dateStarted": "May 4, 2017 6:42:21 PM",
+      "dateFinished": "May 4, 2017 6:42:22 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n",
+      "user": "anonymous",
+      "dateUpdated": "May 4, 2017 6:40:27 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1493934027970_-34260950",
+      "id": "20170504-184027_2101167517",
+      "dateCreated": "May 4, 2017 6:40:27 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Airbnb/New York/0-Article",
+  "id": "2CGZ1KD2H",
+  "angularObjects": {
+    "2CBX4XXXG:shared_process": [],
+    "2CE9JBDN9:shared_process": [],
+    "2CE6FRUQ2:shared_process": [],
+    "2CEW73UMT:shared_process": [],
+    "2CEYK8CDB:shared_process": [],
+    "2CECHXHWE:shared_process": [],
+    "2CC3Z58W4:shared_process": [],
+    "2CE3U5JZ6:shared_process": [],
+    "2CFEXZ961:shared_process": [],
+    "2CCY49CMM:shared_process": [],
+    "2CCJBUHKC:shared_process": [],
+    "2CFBV5Z6A:shared_process": [],
+    "2CFSCYD6V:shared_process": [],
+    "2CEFPBE3C:shared_process": [],
+    "2CEV49FNN:shared_process": [],
+    "2CDAWQ29W:shared_process": [],
+    "2CCBCNXT2:shared_process": [],
+    "2CFJ3M9BB:shared_process": [],
+    "2CE3TQDAW:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}
