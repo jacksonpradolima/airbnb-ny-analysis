@@ -209,7 +209,7 @@
       "title": "[Function] Dividing the data into training and testing subsets",
       "text": "%pyspark\n\ndef initTrainingTestingSubsets(colname):\n    handleCategoricalVariables()\n    \n    global X_train, X_test, y_train, y_test, alldata\n    \n    # We set random_state\u003d1 to guarantee that the split will be always the same for reproducible results drop what will be analysed\n    X_train, X_test, y_train, y_test \u003d train_test_split(alldata.drop([colname], axis\u003d1), alldata[colname], test_size\u003d0.2, random_state\u003d1)\n\n    print(\"Train set size: %d\" % X_train.shape[0])\n    print(\"Test set size: %d\" % X_test.shape[0])",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 6:52:28 PM",
+      "dateUpdated": "May 4, 2017 6:58:14 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -220,7 +220,7 @@
         },
         "editorMode": "ace/mode/python",
         "title": true,
-        "editorHide": false
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -276,7 +276,7 @@
       "title": "[Function] Run Linear Models",
       "text": "%pyspark\n\ndef runLinearModels(colname, log_bool\u003dNone):\n\n    initLinearModels()\n    initTrainingTestingSubsets(colname)\n    global models, model_labels, model_errors\n    \n    for model in models:\n        model.fit(X_train, y_train)\n        if not log_bool:\n            model_err \u003d metrics.median_absolute_error(y_test, model.predict(X_test))\n            model_errors \u003d np.append(model_errors, model_err)\n        else:\n            model_err \u003d metrics.median_absolute_error(np.exp(y_test), np.exp(model.predict(X_test)))\n            model_errors \u003d np.append(model_errors, model_err)\n\n    pltMedianAbsoluteError(model_labels, model_errors, colname)",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 6:50:24 PM",
+      "dateUpdated": "May 4, 2017 6:58:12 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -286,7 +286,7 @@
           "editOnDblClick": false
         },
         "editorMode": "ace/mode/python",
-        "editorHide": false,
+        "editorHide": true,
         "tableHide": false,
         "title": true,
         "lineNumbers": false
@@ -345,7 +345,7 @@
       "title": "[Function] GradientBoostingRegressor + Plot error of boosting",
       "text": "%pyspark\n\ndef runGradientBoostingRegressor(colname):\n    initTrainingTestingSubsets(colname)\n    global X_train, y_train, clf\n    \n    n_est \u003d 300\n    tuned_parameters \u003d {\"n_estimators\": [ n_est ], \"max_depth\" : [ 4 ], \"learning_rate\": [ 0.01 ], \"min_samples_split\" : [ 2], \"loss\" : [ \u0027ls\u0027, \u0027lad\u0027 ]}\n\n    #estimator\n    estimator \u003d ensemble.GradientBoostingRegressor()\n    \n    clf \u003d GridSearchCV(estimator, cv\u003d3, param_grid\u003dtuned_parameters, scoring\u003d\u0027neg_median_absolute_error\u0027)\n    preds \u003d clf.fit(X_train, y_train)\n    best \u003d clf.best_estimator_\n    \n    #print \"Best estimator\"\n    #print best\n    #print \"Best parameters\"\n    #print clf.best_params_\n\n    print \"Median Absolute Error of $ {}\".format(round(abs(clf.best_score_),2))\n    \n    test_score \u003d np.zeros(n_est, dtype\u003dnp.float64)\n\n    train_score \u003d best.train_score_\n    for i, y_pred in enumerate(best.staged_predict(X_test)):\n        test_score[i] \u003d best.loss_(y_test, y_pred)\n\n    plt.figure(figsize\u003d(12, 6), dpi\u003d100)\n    plt.tick_params(axis\u003d\u0027both\u0027, which\u003d\u0027major\u0027, labelsize\u003d16)\n    #plt.subplot(1, 2, 1)\n    plt.plot(np.arange(n_est), train_score, \u0027darkblue\u0027, label\u003d\u0027Training Set Error\u0027)\n    plt.plot(np.arange(n_est), test_score, \u0027red\u0027, label\u003d\u0027Test Set Error\u0027)\n    plt.legend(loc\u003d\u0027upper right\u0027, prop\u003d{\u0027size\u0027:16})\n    plt.xlabel(\u0027Boosting Iterations\u0027, fontsize\u003d16)\n    plt.ylabel(\u0027Least Absolute Deviation\u0027, fontsize\u003d16)\n    plt.savefig(\"data/NewYork/img/gradient_boosting_regressor_{}.pdf\".format(colname))",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 6:49:23 PM",
+      "dateUpdated": "May 4, 2017 6:58:18 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -363,7 +363,7 @@
         },
         "editorMode": "ace/mode/python",
         "title": true,
-        "editorHide": false
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -386,7 +386,7 @@
       "title": "[Function] Graph for the Feature importance in Random Forest",
       "text": "%pyspark\n\ndef plotRandomForest(colname):\n    global labels, indices, X_train\n    \n    labels \u003d labels[:10]\n    indices \u003d indices[:10]\n    temp \u003d X_train[labels]\n\n    plt.figure(figsize\u003d(30,10))\n    plt.tick_params(axis\u003d\u0027both\u0027, which\u003d\u0027major\u0027, labelsize\u003d16)\n    #plt.title(\"Feature importance in Random Forest\", fontsize\u003d30)\n    plt.bar(range(temp.shape[1]), importances[indices], color\u003d\"g\", yerr\u003dstd[indices], align\u003d\"center\")\n    plt.xticks(range(temp.shape[1]), labels)\n    plt.xlim([-1, temp.shape[1]])\n    plt.savefig(\"data/NewYork/img/feature_importance_randomforest_{}.pdf\".format(colname))\n",
       "user": "anonymous",
-      "dateUpdated": "May 3, 2017 11:37:22 AM",
+      "dateUpdated": "May 4, 2017 6:58:24 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -420,7 +420,7 @@
       "title": "[Function] Plot Feature Importance from GridSearchCV",
       "text": "%pyspark\n\ndef plotFeatureImportanceGridSearchCV(colname):\n    feature_importance \u003d clf.best_estimator_.feature_importances_\n    # make importances relative to max importance\n    feature_importance \u003d 100.0 * (feature_importance / feature_importance.max())\n    sorted_idx \u003d np.argsort(feature_importance)\n    pos \u003d np.arange(sorted_idx.shape[0]) + .5\n    pvals \u003d feature_importance[sorted_idx]\n    pcols \u003d X_train.columns[sorted_idx]\n    plt.figure(figsize\u003d(12,12), dpi\u003d100)\n    plt.barh(pos, pvals, align\u003d\u0027center\u0027)\n    plt.tick_params(axis\u003d\u0027both\u0027, which\u003d\u0027major\u0027, labelsize\u003d12)\n    plt.yticks(pos, pcols)\n    plt.xlabel(\u0027Relative Importance\u0027, fontsize\u003d16)\n    plt.title(\u0027Variable Importance\u0027, fontsize\u003d16)\n    plt.savefig(\"data/NewYork/img/feature_importance_gridSearchCV_{}.pdf\".format(colname))",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 6:55:26 PM",
+      "dateUpdated": "May 4, 2017 6:58:21 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -430,7 +430,7 @@
         },
         "editorMode": "ace/mode/python",
         "title": true,
-        "editorHide": false
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -453,7 +453,7 @@
       "title": "[Function] Assemble feature vectors",
       "text": "%pyspark\n\ndef assembleFeatureVectors(position):\n    initData()\n    handleCategoricalVariables()\n\n    global alldataDF, alldata\n    #position: (8) cultural_organizations; (9) nypd_complaint \n    alldata.columns.values[position] \u003d \"label\"\n\n    features \u003d alldata.columns.drop(\u0027label\u0027).values.tolist()\n\n    alldataDF \u003d spark.createDataFrame(alldata)\n\n    # Index labels, adding metadata to the label column.\n    # Fit on whole dataset to include all labels in index.\n    assembler \u003d VectorAssembler(inputCols\u003dfeatures, outputCol\u003d\"features\")\n    alldataDF \u003d assembler.transform(alldataDF.dropna())",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 5:20:50 PM",
+      "dateUpdated": "May 4, 2017 6:58:30 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -464,7 +464,7 @@
         },
         "editorMode": "ace/mode/python",
         "title": true,
-        "editorHide": true
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -487,7 +487,7 @@
       "title": "[Function] Decision Tree to Json",
       "text": "%pyspark\n\n# Parser\ndef parse(lines):\n\tblock \u003d []\n\twhile lines :\n\t\t\n\t\tif lines[0].startswith(\u0027If\u0027):\n\t\t\tbl \u003d \u0027 \u0027.join(lines.pop(0).split()[1:]).replace(\u0027(\u0027, \u0027\u0027).replace(\u0027)\u0027, \u0027\u0027)\n\t\t\tblock.append({\u0027name\u0027:bl, \u0027children\u0027:parse(lines)})\n\t\t\t\n\t\t\t\n\t\t\tif lines[0].startswith(\u0027Else\u0027):\n\t\t\t\tbe \u003d \u0027 \u0027.join(lines.pop(0).split()[1:]).replace(\u0027(\u0027, \u0027\u0027).replace(\u0027)\u0027, \u0027\u0027)\n\t\t\t\tblock.append({\u0027name\u0027:be, \u0027children\u0027:parse(lines)})\n\t\telif not lines[0].startswith((\u0027If\u0027,\u0027Else\u0027)):\n\t\t\tblock2 \u003d lines.pop(0)\n\t\t\tblock.append({\u0027name\u0027:block2})\n\t\telse:\n\t\t\tbreak\t\n\treturn block\n\n# Convert Tree to JSON\ndef tree_json(tree):\n\tdata \u003d []\n\tfor line in tree.splitlines() : \n\t\tif line.strip():\n\t\t\tline \u003d line.strip()\n\t\t\tdata.append(line)\n\t\telse : break\n\t\tif not line : break\n\tres \u003d []\n\tres.append({\u0027name\u0027:\u0027Root\u0027, \u0027children\u0027:parse(data[1:])})\n\twith open(\u0027data/NewYork/ArchitectureTree/data.json\u0027, \u0027w\u0027) as outfile:\n\t\tjson.dump(res[0], outfile)\n",
       "user": "anonymous",
-      "dateUpdated": "May 3, 2017 11:20:33 AM",
+      "dateUpdated": "May 4, 2017 6:59:32 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -497,7 +497,7 @@
           "editOnDblClick": false
         },
         "editorMode": "ace/mode/python",
-        "editorHide": true,
+        "editorHide": false,
         "title": true
       },
       "settings": {

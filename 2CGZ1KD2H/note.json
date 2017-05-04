@@ -39,9 +39,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\n\nfrom folium.features import *\nfrom geopy.geocoders import Nominatim\n\nimport folium \nimport folium.plugins\nimport functools\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport pygeoj\nimport pyspark.sql.functions as func\nimport seaborn as sb\n\nfrom sklearn import ensemble\nfrom sklearn import linear_model\nfrom sklearn import preprocessing\nfrom sklearn.grid_search import GridSearchCV\nfrom sklearn.cross_validation import train_test_split\nfrom sklearn.model_selection import cross_val_score\nimport sklearn.metrics as metrics\n\nfrom pyspark.ml.classification import DecisionTreeClassifier\nfrom pyspark.ml.evaluation import BinaryClassificationEvaluator, MulticlassClassificationEvaluator\nfrom pyspark.ml.feature import StringIndexer, VectorIndexer, VectorAssembler, SQLTransformer, OneHotEncoder\nfrom pyspark.sql.types import *\n",
+      "text": "%pyspark\n\nfrom folium.features import *\nfrom geopy.geocoders import Nominatim\n\nimport folium \nimport folium.plugins\nimport functools\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport pygeoj\nimport pyspark.sql.functions as func\nimport seaborn as sb\n\nfrom sklearn import ensemble\nfrom sklearn import linear_model\nfrom sklearn import preprocessing\nfrom sklearn.grid_search import GridSearchCV\nfrom sklearn.cross_validation import train_test_split\nfrom sklearn.model_selection import cross_val_score\nimport sklearn.metrics as metrics\n\nfrom pyspark.ml.classification import DecisionTreeClassifier, RandomForestClassifier, GBTClassifier\nfrom pyspark.ml.evaluation import BinaryClassificationEvaluator, MulticlassClassificationEvaluator\nfrom pyspark.ml.feature import StringIndexer, VectorIndexer, VectorAssembler, SQLTransformer, OneHotEncoder\nfrom pyspark.sql.types import *\n",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 6:29:06 PM",
+      "dateUpdated": "May 4, 2017 7:10:13 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -51,20 +51,23 @@
           "editOnDblClick": false
         },
         "editorMode": "ace/mode/python",
-        "editorHide": true
+        "editorHide": false
       },
       "settings": {
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
       "apps": [],
       "jobName": "paragraph_1493933274887_1472355567",
       "id": "20170504-182754_1209043741",
       "dateCreated": "May 4, 2017 6:27:54 PM",
-      "dateStarted": "May 4, 2017 6:28:33 PM",
-      "dateFinished": "May 4, 2017 6:28:43 PM",
+      "dateStarted": "May 4, 2017 7:10:13 PM",
+      "dateFinished": "May 4, 2017 7:10:13 PM",
       "status": "FINISHED",
-      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -458,9 +461,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\n\ndef cleanData():\n    global df\n    #select the new data\n    df \u003d dfAll.toPandas()\n\n    # clean the data\n    # first fixup \u0027reviews_per_month\u0027 where there are no reviews\n    df[\u0027reviews_per_month\u0027].fillna(0, inplace\u003dTrue)\n\n    # just drop rows with bad/weird values\n    # (we could do more here)\n    df \u003d df[df.bedrooms !\u003d 0]\n    df \u003d df[df.beds !\u003d 0]\n    df \u003d df[df.price !\u003d 0]\n    df \u003d df.dropna(axis\u003d0)\n\n    #convert the wrong data\n    df[\u0027price\u0027] \u003d df[\u0027price\u0027].replace(\u0027[\\$,)]\u0027,\u0027\u0027, regex\u003dTrue).replace(\u0027[(]\u0027,\u0027-\u0027, regex\u003dTrue).astype(float)\n\n    df[\u0027reviews_per_month\u0027] \u003d df[\u0027reviews_per_month\u0027].replace(\u0027[\\$,)]\u0027,\u0027\u0027, regex\u003dTrue)\\\n                .replace(\u0027[(]\u0027,\u0027-\u0027, regex\u003dTrue).astype(float)\n   \n    prepareSets()\n   \ndef prepareSets():\n    global alldata, df\n    \n    # get feature encoding for categorical variables\n    district_dummies \u003d pd.get_dummies(df.district)\n    room_type_dummies \u003d pd.get_dummies(df.room_type)\n    cancellation_policy_dummies \u003d pd.get_dummies(df.cancellation_policy)\n\n    # convert boolean column to a single boolean value indicating whether this listing has instant booking available\n    instant_bookable_dummies \u003d pd.get_dummies(df.instant_bookable, prefix\u003d\"instant\")\n    instant_bookable_dummies \u003d instant_bookable_dummies.drop(\u0027instant_f\u0027, axis\u003d1)\n\n    # replace the old columns with our new one-hot encoded ones\n    alldata \u003d pd.concat((df.drop([\u0027district\u0027, \\\n                            \u0027room_type\u0027, \\\n                            \u0027cancellation_policy\u0027, \\\n                            \u0027instant_bookable\u0027], axis\u003d1), \\\n        district_dummies.astype(int), \\\n        room_type_dummies.astype(int), \\\n        cancellation_policy_dummies.astype(int), instant_bookable_dummies.astype(int)), \\\n        axis\u003d1)\n        \ndef initTrainingTestingSubsets(colname):\n    global X_train, X_test, y_train, y_test, alldata\n    \n    # We set random_state\u003d1 to guarantee that the split will be always the same for reproducible results drop what will be analysed\n    X_train, X_test, y_train, y_test \u003d train_test_split(alldata.drop([colname], axis\u003d1), alldata[colname], test_size\u003d0.2002, random_state\u003d1)\n",
+      "text": "%pyspark\n\ndef cleanData():\n    global df, dfAll\n    #select the new data\n    df \u003d dfAll.toPandas()\n\n    # clean the data\n    # first fixup \u0027reviews_per_month\u0027 where there are no reviews\n    df[\u0027reviews_per_month\u0027].fillna(0, inplace\u003dTrue)\n\n    # just drop rows with bad/weird values\n    # (we could do more here)\n    df \u003d df[df.bedrooms !\u003d 0]\n    df \u003d df[df.beds !\u003d 0]\n    df \u003d df[df.price !\u003d 0]\n    df \u003d df.dropna(axis\u003d0)\n\n    #convert the wrong data\n    df[\u0027price\u0027] \u003d df[\u0027price\u0027].replace(\u0027[\\$,)]\u0027,\u0027\u0027, regex\u003dTrue).replace(\u0027[(]\u0027,\u0027-\u0027, regex\u003dTrue).astype(float)\n\n    df[\u0027reviews_per_month\u0027] \u003d df[\u0027reviews_per_month\u0027].replace(\u0027[\\$,)]\u0027,\u0027\u0027, regex\u003dTrue)\\\n                .replace(\u0027[(]\u0027,\u0027-\u0027, regex\u003dTrue).astype(float)\n   \n    prepareSets()\n   \ndef prepareSets():\n    global alldata, df\n    \n    # get feature encoding for categorical variables\n    district_dummies \u003d pd.get_dummies(df.district)\n    room_type_dummies \u003d pd.get_dummies(df.room_type)\n    cancellation_policy_dummies \u003d pd.get_dummies(df.cancellation_policy)\n\n    # convert boolean column to a single boolean value indicating whether this listing has instant booking available\n    instant_bookable_dummies \u003d pd.get_dummies(df.instant_bookable, prefix\u003d\"instant\")\n    instant_bookable_dummies \u003d instant_bookable_dummies.drop(\u0027instant_f\u0027, axis\u003d1)\n\n    # replace the old columns with our new one-hot encoded ones\n    alldata \u003d pd.concat((df.drop([\u0027district\u0027, \\\n                            \u0027room_type\u0027, \\\n                            \u0027cancellation_policy\u0027, \\\n                            \u0027instant_bookable\u0027], axis\u003d1), \\\n        district_dummies.astype(int), \\\n        room_type_dummies.astype(int), \\\n        cancellation_policy_dummies.astype(int), instant_bookable_dummies.astype(int)), \\\n        axis\u003d1)\n        \ndef initTrainingTestingSubsets(colname):\n    global X_train, X_test, y_train, y_test, alldata\n    \n    # We set random_state\u003d1 to guarantee that the split will be always the same for reproducible results drop what will be analysed\n    X_train, X_test, y_train, y_test \u003d train_test_split(alldata.drop([colname], axis\u003d1), alldata[colname], test_size\u003d0.2002, random_state\u003d1)\n",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 6:56:21 PM",
+      "dateUpdated": "May 4, 2017 7:20:43 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -483,8 +486,8 @@
       "jobName": "paragraph_1493934380207_772094480",
       "id": "20170504-184620_366767710",
       "dateCreated": "May 4, 2017 6:46:20 PM",
-      "dateStarted": "May 4, 2017 6:56:21 PM",
-      "dateFinished": "May 4, 2017 6:56:21 PM",
+      "dateStarted": "May 4, 2017 7:20:43 PM",
+      "dateFinished": "May 4, 2017 7:20:43 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -654,18 +657,114 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n",
+      "text": "%pyspark\ndef assembleFeatureVectors(position):\n    cleanData()\n\n    global alldataDF, alldata\n    \n    #position: (8) cultural_organizations; (9) nypd_complaint \n    alldata.columns.values[position] \u003d \"label\"\n\n    features \u003d alldata.columns.drop(\u0027label\u0027).values.tolist()\n\n    alldataDF \u003d spark.createDataFrame(alldata)\n\n    # Index labels, adding metadata to the label column.\n    # Fit on whole dataset to include all labels in index.\n    assembler \u003d VectorAssembler(inputCols\u003dfeatures, outputCol\u003d\"features\")\n    alldataDF \u003d assembler.transform(alldataDF.dropna())\n",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 6:45:29 PM",
+      "dateUpdated": "May 4, 2017 6:59:28 PM",
+      "config": {
+        "colWidth": 6.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1493934329015_-1460496118",
+      "id": "20170504-184529_471739846",
+      "dateCreated": "May 4, 2017 6:45:29 PM",
+      "dateStarted": "May 4, 2017 6:59:28 PM",
+      "dateFinished": "May 4, 2017 6:59:28 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Parser\ndef parse(lines):\n\tblock \u003d []\n\twhile lines :\n\t\t\n\t\tif lines[0].startswith(\u0027If\u0027):\n\t\t\tbl \u003d \u0027 \u0027.join(lines.pop(0).split()[1:]).replace(\u0027(\u0027, \u0027\u0027).replace(\u0027)\u0027, \u0027\u0027)\n\t\t\tblock.append({\u0027name\u0027:bl, \u0027children\u0027:parse(lines)})\n\t\t\t\n\t\t\t\n\t\t\tif lines[0].startswith(\u0027Else\u0027):\n\t\t\t\tbe \u003d \u0027 \u0027.join(lines.pop(0).split()[1:]).replace(\u0027(\u0027, \u0027\u0027).replace(\u0027)\u0027, \u0027\u0027)\n\t\t\t\tblock.append({\u0027name\u0027:be, \u0027children\u0027:parse(lines)})\n\t\telif not lines[0].startswith((\u0027If\u0027,\u0027Else\u0027)):\n\t\t\tblock2 \u003d lines.pop(0)\n\t\t\tblock.append({\u0027name\u0027:block2})\n\t\telse:\n\t\t\tbreak\t\n\treturn block\n\n# Convert Tree to JSON\ndef tree_json(tree):\n\tdata \u003d []\n\tfor line in tree.splitlines() : \n\t\tif line.strip():\n\t\t\tline \u003d line.strip()\n\t\t\tdata.append(line)\n\t\telse : break\n\t\tif not line : break\n\tres \u003d []\n\tres.append({\u0027name\u0027:\u0027Root\u0027, \u0027children\u0027:parse(data[1:])})\n\twith open(\u0027data/NewYork/DecisionTree/data.json\u0027, \u0027w\u0027) as outfile:\n\t\tjson.dump(res[0], outfile)\n",
+      "user": "anonymous",
+      "dateUpdated": "May 4, 2017 7:01:02 PM",
+      "config": {
+        "colWidth": 6.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1493935168698_-939922634",
+      "id": "20170504-185928_2030722317",
+      "dateCreated": "May 4, 2017 6:59:28 PM",
+      "dateStarted": "May 4, 2017 7:01:02 PM",
+      "dateFinished": "May 4, 2017 7:01:02 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\neval_features \u003d {}\n\n#The tree festures most importants\neval_features[\u0027Entire_home_apt\u0027] \u003d 15\neval_features[\u0027accommodates\u0027] \u003d 1\neval_features[\u0027cultural_organizations\u0027] \u003d 8\n\nfor key, value in eval_features.iteritems():    \n    print \"\\nClassifying \u0027{}\u0027\".format(key)\n    assembleFeatureVectors(value)\n\n    # Split the data into training and test sets (20% held out for testing)\n    (trainingData, testData) \u003d alldataDF.randomSplit([0.8, 0.2], seed\u003d1)    \n    \n    classifiers \u003d [DecisionTreeClassifier(labelCol\u003d\"label\", featuresCol\u003d\"features\", maxDepth\u003d5), RandomForestClassifier(labelCol\u003d\"label\", featuresCol\u003d\"features\", numTrees\u003d10, maxDepth\u003d5)]\n    \n    model_labels \u003d np.array([\u0027DecisionTree\u0027, \u0027RandomForest\u0027, \u0027GBT\u0027])\n    model_errors \u003d np.array([])\n        \n    for index, classifier in enumerate(classifiers):\n        model \u003d classifier.fit(trainingData)\n        predictions \u003d model.transform(testData).cache()\n    \n        evaluator \u003d MulticlassClassificationEvaluator(labelCol\u003d\"label\", predictionCol\u003d\"prediction\", metricName\u003d\"accuracy\")\n        accuracy \u003d evaluator.evaluate(predictions)\n        model_err \u003d 1.0 - accuracy\n        model_errors \u003d np.append(model_errors, model_err)\n        \n        if(model_labels[index] \u003d\u003d \"DecisionTree\"):\n            tree_json(model.toDebugString)\n            \n        print \"{}) {} - {}/{}\".format(index + 1, model_labels[index], model_err, accuracy)",
+      "user": "anonymous",
+      "dateUpdated": "May 4, 2017 7:30:55 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nClassifying \u0027Entire_home_apt\u0027\n1) DecisionTree - 0.0/1.0\n2) RandomForest - 0.000943777807739/0.999056222192\n\nClassifying \u0027cultural_organizations\u0027\n1) DecisionTree - 0.0/1.0\n2) RandomForest - 0.0/1.0\n\nClassifying \u0027accommodates\u0027\n1) DecisionTree - 0.411487124174/0.588512875826\n2) RandomForest - 0.415127410004/0.584872589996\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1493935184228_1759506297",
+      "id": "20170504-185944_600546082",
+      "dateCreated": "May 4, 2017 6:59:44 PM",
+      "dateStarted": "May 4, 2017 7:30:55 PM",
+      "dateFinished": "May 4, 2017 7:31:20 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "May 4, 2017 7:01:07 PM",
       "config": {},
       "settings": {
         "params": {},
         "forms": {}
       },
       "apps": [],
-      "jobName": "paragraph_1493934329015_-1460496118",
-      "id": "20170504-184529_471739846",
-      "dateCreated": "May 4, 2017 6:45:29 PM",
+      "jobName": "paragraph_1493935267220_2079372195",
+      "id": "20170504-190107_923168169",
+      "dateCreated": "May 4, 2017 7:01:07 PM",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
