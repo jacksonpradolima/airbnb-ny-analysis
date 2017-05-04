@@ -1,0 +1,83 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n# Airbnb - New York’s Analysis\n\n## Abstract\nAirbnb is an outstanding hosting service used worldwide and provides information to its users in a simple and efficient manner. In this work, an analysis is made taking into account if incidents and cultural organizations influence the prices practiced in Airbnb. Besides, the prediction of new prices is carried out that the user can come to inform taking into account information of the current listings. The price forecast has some advantages when advising the user: on the price practiced (is too large or small), the mode of advertisement, or even on the investment decisions of the market analysis. To help in this task, the present work performs an analysis using charts, maps and different types of machine learning. The data reveals that Queens district has a fair trade-off among price, cultural organization, and incidents, as well as, the accommodates diversity. Besides, the cultural organization has a high influence in to predict price.\n\n## Introduction\n\nAirbnb was founded in August of 2008 and based in San Francisco, California. Airbnb is an online marketplace and hospitality service, enabling people to lease or rent short-term lodging including vacation rentals, apartment rentals, homestays, hostel beds, or hotel rooms. \n\nConsidering the Airbnb listing, how can we predict a price or if the cultural organizations and incidents impacts on listing price? In some moments, the guests want to a local to be cheaper or more attractive considering local events to appreciate. Thus, predicting an affordable and safe local is arguably necessary. In this paper, we try and capture this characteristic using maps, charts and machine learning to help the guest in the chose.\n\n## Experiment Description\n\nThe hypothesis of this work is that our approach is capable of recommending a cheap and safe local (district/borough) as well as consider the influence of this aspect in to predict listing price. \n\nAccording to our goals the experiment was guided by the following researches questions: **RQ1**: ``How the incidents and cultural organizations impact on listing price?\u0027\u0027 and **RQ2**: ``How the incidents and cultural organizations impact on regression model to predict the listing price?\u0027\u0027.\n\nTo answer the RQ1, we compared the result shows on maps, a collinearity matrix among the features, and how the accommodates are distributed. To answer the RQ2, we used a machine learning with seven regression models, and the results were compared using Median Absolute Error.\n\n### Target Data\n\nThe investigation focused on four datasets collected in open data sites. These datasets are as follows: 1) Listings, a dataset that is an Airbnb snapshot of 02 April 2017; 2) Incidents, contains all incidents from New York for the year 2016; 3) Cultural Organizations, contains all cultural organizations from New York in 2017; and 4) NYC Borough, contains information about boundaries of boroughs (districts).",
+      "user": "anonymous",
+      "dateUpdated": "May 4, 2017 12:05:00 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eAirbnb - New York’s Analysis\u003c/h1\u003e\n\u003ch2\u003eAbstract\u003c/h2\u003e\n\u003cp\u003eAirbnb is an outstanding hosting service used worldwide and provides information to its users in a simple and efficient manner. In this work, an analysis is made taking into account if incidents and cultural organizations influence the prices practiced in Airbnb. Besides, the prediction of new prices is carried out that the user can come to inform taking into account information of the current listings. The price forecast has some advantages when advising the user: on the price practiced (is too large or small), the mode of advertisement, or even on the investment decisions of the market analysis. To help in this task, the present work performs an analysis using charts, maps and different types of machine learning. The data reveals that Queens district has a fair trade-off among price, cultural organization, and incidents, as well as, the accommodates diversity. Besides, the cultural organization has a high influence in to predict price.\u003c/p\u003e\n\u003ch2\u003eIntroduction\u003c/h2\u003e\n\u003cp\u003eAirbnb was founded in August of 2008 and based in San Francisco, California. Airbnb is an online marketplace and hospitality service, enabling people to lease or rent short-term lodging including vacation rentals, apartment rentals, homestays, hostel beds, or hotel rooms. \u003c/p\u003e\n\u003cp\u003eConsidering the Airbnb listing, how can we predict a price or if the cultural organizations and incidents impacts on listing price? In some moments, the guests want to a local to be cheaper or more attractive considering local events to appreciate. Thus, predicting an affordable and safe local is arguably necessary. In this paper, we try and capture this characteristic using maps, charts and machine learning to help the guest in the chose.\u003c/p\u003e\n\u003ch2\u003eExperiment Description\u003c/h2\u003e\n\u003cp\u003eThe hypothesis of this work is that our approach is capable of recommending a cheap and safe local (district/borough) as well as consider the influence of this aspect in to predict listing price. \u003c/p\u003e\n\u003cp\u003eAccording to our goals the experiment was guided by the following researches questions: \u003cstrong\u003eRQ1\u003c/strong\u003e: \u003ccode\u003eHow the incidents and cultural organizations impact on listing price?\u0026#39;\u0026#39; and **RQ2**:\u003c/code\u003eHow the incidents and cultural organizations impact on regression model to predict the listing price?\u0026rsquo;\u0026rsquo;.\u003c/p\u003e\n\u003cp\u003eTo answer the RQ1, we compared the result shows on maps, a collinearity matrix among the features, and how the accommodates are distributed. To answer the RQ2, we used a machine learning with seven regression models, and the results were compared using Median Absolute Error.\u003c/p\u003e\n\u003ch3\u003eTarget Data\u003c/h3\u003e\n\u003cp\u003eThe investigation focused on four datasets collected in open data sites. These datasets are as follows: 1) Listings, a dataset that is an Airbnb snapshot of 02 April 2017; 2) Incidents, contains all incidents from New York for the year 2016; 3) Cultural Organizations, contains all cultural organizations from New York in 2017; and 4) NYC Borough, contains information about boundaries of boroughs (districts).\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1493910179182_-343815551",
+      "id": "20170504-120259_833065773",
+      "dateCreated": "May 4, 2017 12:02:59 PM",
+      "dateStarted": "May 4, 2017 12:05:00 PM",
+      "dateFinished": "May 4, 2017 12:05:01 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "May 4, 2017 12:05:00 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1493910300100_974150291",
+      "id": "20170504-120500_1891610265",
+      "dateCreated": "May 4, 2017 12:05:00 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Airbnb/New York/0-Article",
+  "id": "2CED1BARJ",
+  "angularObjects": {
+    "2CBX4XXXG:shared_process": [],
+    "2CE9JBDN9:shared_process": [],
+    "2CE6FRUQ2:shared_process": [],
+    "2CEW73UMT:shared_process": [],
+    "2CEYK8CDB:shared_process": [],
+    "2CECHXHWE:shared_process": [],
+    "2CC3Z58W4:shared_process": [],
+    "2CE3U5JZ6:shared_process": [],
+    "2CFEXZ961:shared_process": [],
+    "2CCY49CMM:shared_process": [],
+    "2CCJBUHKC:shared_process": [],
+    "2CFBV5Z6A:shared_process": [],
+    "2CFSCYD6V:shared_process": [],
+    "2CEFPBE3C:shared_process": [],
+    "2CEV49FNN:shared_process": [],
+    "2CDAWQ29W:shared_process": [],
+    "2CCBCNXT2:shared_process": [],
+    "2CFJ3M9BB:shared_process": [],
+    "2CE3TQDAW:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}
