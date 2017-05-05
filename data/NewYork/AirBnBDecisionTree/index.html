@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>AirBnB Decision Tree</title>
-        <meta name="description" content="Code provided from: https://github.com/marmelab/ArchitectureTree">
+        <title>Airbnb - Decision Tree - Predicting Accommodates</title>
+        <meta name="description" content="Code provided from: https://cdn.rawgit.com/marmelab/ArchitectureTree">
         <meta charset="utf-8">
-        <link rel="stylesheet" href="https://github.com/jacksonpradolima/airbnb-ny-analysis/tree/master/data/NewYork/AirBnBDecisionTree/css/vendor/bootstrap.min.css" />
-        <link rel="stylesheet" href="https://github.com/jacksonpradolima/airbnb-ny-analysis/tree/master/data/NewYork/AirBnBDecisionTree/css/tree.css" />
+        <link rel="stylesheet" href="https://cdn.rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/css/vendor/bootstrap.min.css" />        
+        <link rel="stylesheet" href="https://cdn.rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/css/tree.css" />
+
+       <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="images/favicon/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+		<link rel="manifest" href="images/favicon/manifest.json">
+		<meta name="msapplication-TileColor" content="rgba(72, 79, 85, 1)">
+		<meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png">
+<meta name="theme-color" content="rgba(72, 79, 85, 1)">
     </head>
     <body>
         <div class="container-fluid">
             <div ng-app="ChartsApp">
 
-                <h1 class="text-center">AirBnB Decision Tree</h1>
+                <h1 class="text-center">Airbnb - Decision Tree - Predicting Accommodates</h1>
 
                 <div ng-controller="filterCtrl">
-                    <ng-include src="'https://github.com/jacksonpradolima/airbnb-ny-analysis/tree/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/templates/filter.html'"></ng-include>
+                    <ng-include src="'https://cdn.rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/templates/filter.html'"></ng-include>
                 </div>
 
                 <div ng-controller="chartCtrl">
@@ -24,28 +42,28 @@
                 <div ng-controller="panelCtrl">
                     <div id="panel">
                         <div ng-if="detail">
-                            <ng-include src="'https://github.com/jacksonpradolima/airbnb-ny-analysis/tree/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/templates/panel-detail.html'"></ng-include>
+                            <ng-include src="'https://cdn.rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/templates/panel-detail.html'"></ng-include>
                         </div>
 
                         <div ng-if="edit">
-                            <ng-include src="'https://github.com/jacksonpradolima/airbnb-ny-analysis/tree/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/templates/panel-edit.html'"></ng-include>
+                            <ng-include src="'https://cdn.rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/templates/panel-edit.html'"></ng-include>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <script src="https://github.com/jacksonpradolima/airbnb-ny-analysis/tree/master/data/NewYork/AirBnBDecisionTree/js/vendor/d3.v3.js"></script>
-        <script src="https://github.com/jacksonpradolima/airbnb-ny-analysis/tree/master/data/NewYork/AirBnBDecisionTree/js/vendor/angular.min.js"></script>
-        <script src="https://github.com/jacksonpradolima/airbnb-ny-analysis/tree/master/data/NewYork/AirBnBDecisionTree/js/d3.architectureTree.js"></script>
-        <script src="https://github.com/jacksonpradolima/airbnb-ny-analysis/tree/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/app.js"></script>
-        <script src="https://github.com/jacksonpradolima/airbnb-ny-analysis/tree/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/controllers/chart.js"></script>
-        <script src="https://github.com/jacksonpradolima/airbnb-ny-analysis/tree/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/controllers/filter.js"></script>
-        <script src="https://github.com/jacksonpradolima/airbnb-ny-analysis/tree/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/controllers/json-data.js"></script>
-        <script src="https://github.com/jacksonpradolima/airbnb-ny-analysis/tree/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/controllers/panel.js"></script>
-        <script src="https://github.com/jacksonpradolima/airbnb-ny-analysis/tree/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/controllers/undo.js"></script>
-        <script src="https://github.com/jacksonpradolima/airbnb-ny-analysis/tree/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/directives/tree-chart.js"></script>
-        <script src="https://github.com/jacksonpradolima/airbnb-ny-analysis/tree/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/directives/init-focus.js"></script>
-        <script src="https://github.com/jacksonpradolima/airbnb-ny-analysis/tree/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/services/data.js"></script>
-        <script src="https://github.com/jacksonpradolima/airbnb-ny-analysis/tree/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/services/bus.js"></script>
+        <script src="https://cdn.rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/js/vendor/d3.v3.js"></script>
+        <script src="https://cdn.rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/js/vendor/angular.min.js"></script>
+        <script src="https://cdn.rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/js/d3.architectureTree.js"></script>
+        <script src="https://cdn.rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/app.js"></script>
+        <script src="https://cdn.rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/controllers/chart.js"></script>
+        <script src="https://cdn.rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/controllers/filter.js"></script>
+        <script src="https://cdn.rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/controllers/json-data.js"></script>
+        <script src="https://cdn.rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/controllers/panel.js"></script>
+        <script src="https://cdn.rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/controllers/undo.js"></script>
+        <script src="https://cdn.rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/directives/tree-chart.js"></script>
+        <script src="https://cdn.rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/directives/init-focus.js"></script>
+        <script src="https://cdn.rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/services/data.js"></script>
+        <script src="https://cdn.rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/js/angular.architectureTree/services/bus.js"></script>
     </body>
 </html>
