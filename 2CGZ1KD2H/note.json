@@ -1,9 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "%md\n# Airbnb - New York’s Analysis\n\n## Abstract\nAirbnb is an outstanding hosting service used worldwide and provides information to its users in a simple and efficient manner. In this study, an analysis is made taking into account if incidents and cultural organizations influence the prices practiced in Airbnb. To help in this task, the present study performs an analysis using charts, maps and different types of machine learning. The data reveals that Queens district has a fair trade-off among price, cultural organization, and incidents, as well as, the accommodates diversity. Besides, the cultural organization has a high influence in the price prediction.\n\n## Introduction\n\nIn some moments, the guests want to a local to be cheaper or more attractive considering local events to appreciate, besides a safe local is arguably necessary. Considering the Airbnb listing from New York City (NYC), how the cultural organizations and incidents impacts on listing price? \n\n## Experiment Description\n\nThe hypothesis of this study is that our approach is capable of found the influence of cultural organizations and incidents in to predict listing price as well as recommending a cheap and safe local (district/borough). \n\nAccording to our goals the experiment was guided by the following research question: ``How the incidents and cultural organizations impact on listing price?``\n\nTo answer the research question, we compared the result shows on maps, a collinearity matrix among the features, and how the accommodates are distributed. Additionally, we used a machine learning with seven regression models, and the results were compared using Median Absolute Error. Besides, two algorithms for classification were used to see the difficult to predict the most influent features.\n\n### Target Data\n\nThe investigation focused on four datasets collected in open data sites. These datasets are as follows: 1) Listings, a dataset that is an Airbnb snapshot of 02 April 2017; 2) Incidents, contains all incidents from New York for the year 2016; 3) Cultural Organizations, contains all cultural organizations from New York in 2017; and 4) NYC Borough, contains information about boundaries of boroughs (districts).\n\n| Dataset | Description | Size | Format |\n| ------- | ----------- | ---- | ------ |\n| Listings | Detailed listings data, including various attributes (features) of each listing such as number of bedrooms, bathrooms, location, etc. Date Compiled on **02 April, 2017** | 153,7MB | [gz](http://data.insideairbnb.com/united-states/ny/new-york-city/2017-04-02/data/listings.csv.gz) |\n| Incidents | All valid felony, misdemeanor, and violation crimes reported to the New York City Police Department (NYPD) for all complete quarters in 2016. | 124,2MB | [csv](https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Current-YTD/5uac-w243/data) |\n| Cultural Organizations | Listing of all Cultural Organizations in the Department of Cultural Affairs directory. | 333,3kB | [csv](https://data.cityofnewyork.us/Recreation/DCLA-Cultural-Organizations/u35m-9t32) |\n| NYC Borough | Polygon boundaries of boroughs (water areas excluded). | 400,5kB | [GeoJson](http://data.beta.nyc/dataset/nyc-borough-boundaries/resource/7c164faa-4458-4ff2-9ef0-09db00b509ef?view_id\u003d8c05eff7-54d1-4359-8183-0e278e91b01a) |\n\n### Integration Data\n\nTo help in the analyses, the Cultural Organizations and Incidents dataset received a score. How we have 5 districts in New York, and to be easy, the Cultural Organizations and Incidents dataset were grouped and ranked in relation to the order (1-5), where 1 is the worst and 5 the best. In this case, the datasets were ordered by the number in each district, ascendant for Cultural Organizations and descendant for the Incidents. In the end, it was create a unique data frame with the necessary informations that contains **37043** rows. \n",
+      "text": "%md\n# Airbnb - New York’s Analysis\n\n## Abstract\nAirbnb is an outstanding hosting service used worldwide and provides information to its users in a simple and efficient manner. In this study, an analysis is made taking into account if incidents and cultural organizations influence the prices practiced in Airbnb. To help in this task, the present study performs an analysis using charts, maps and different types of machine learning. The data reveals that Queens district has a fair trade-off among price, cultural organization, and incidents, as well as, the accommodates diversity. Besides, the cultural organization has a high influence in the price prediction.\n\n## Introduction\n\nIn some moments, the guests want to a local to be cheaper or more attractive considering local events to appreciate, besides a safe local is arguably necessary. Considering the Airbnb listing from New York City (NYC), how the cultural organizations and incidents impacts on listing price? \n\n## Experiment Description\n\nThe hypothesis of this study is that our approach is able to find the influence of cultural organizations and incidents in to predict listing price as well as recommending a cheap and safe local (district/borough). \n\nAccording to our goals the experiment was guided by the following research question: ``How the incidents and cultural organizations impact on listing price?``\n\nTo answer the research question, we compared the result showed on maps, a collinearity matrix among the features, and how the accommodates are distributed. Additionally, we used a machine learning with seven regression models, and the results were compared using Median Absolute Error. Besides, two algorithms for classification were used to see the difficult to predict the most influent features.\n\n### Target Data\n\nThe investigation focused on four datasets collected in open data sites. These datasets are as follows: 1) Listings, a dataset that is an Airbnb snapshot of 02 April 2017; 2) Incidents, contains all incidents from New York for the year 2016; 3) Cultural Organizations, contains all cultural organizations from New York in 2017; and 4) NYC Borough, contains information about boundaries of boroughs (districts).\n\n| Dataset | Description | Size | Format |\n| ------- | ----------- | ---- | ------ |\n| Listings | Detailed listings data, including various attributes (features) of each listing such as number of bedrooms, bathrooms, location, etc. Date Compiled on **02 April, 2017** | 153,7MB | [gz](http://data.insideairbnb.com/united-states/ny/new-york-city/2017-04-02/data/listings.csv.gz) |\n| Incidents | All valid felony, misdemeanor, and violation crimes reported to the New York City Police Department (NYPD) for all complete quarters in 2016. | 124,2MB | [csv](https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Current-YTD/5uac-w243/data) |\n| Cultural Organizations | Listing of all Cultural Organizations in the Department of Cultural Affairs directory. | 333,3kB | [csv](https://data.cityofnewyork.us/Recreation/DCLA-Cultural-Organizations/u35m-9t32) |\n| NYC Borough | Polygon boundaries of boroughs (water areas excluded). | 400,5kB | [GeoJson](http://data.beta.nyc/dataset/nyc-borough-boundaries/resource/7c164faa-4458-4ff2-9ef0-09db00b509ef?view_id\u003d8c05eff7-54d1-4359-8183-0e278e91b01a) |\n\n### Integration Data\n\nTo help in the analyses, the Cultural Organizations and Incidents dataset received a score. Since we have 5 districts in New York, and to simplify, the Cultural Organizations and Incidents dataset were grouped and ranked in relation to the order (1-5), where 1 is the worst and 5 the best. In this case, the datasets were ordered by the number in each district, ascendant for Cultural Organizations and descendant for the Incidents. In the end, it was create a unique data frame with the necessary informations that contains **37043** rows. \n",
       "user": "anonymous",
-      "dateUpdated": "May 5, 2017 5:01:29 PM",
+      "dateUpdated": "May 5, 2017 5:34:13 PM",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -25,7 +25,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eAirbnb - New York’s Analysis\u003c/h1\u003e\n\u003ch2\u003eAbstract\u003c/h2\u003e\n\u003cp\u003eAirbnb is an outstanding hosting service used worldwide and provides information to its users in a simple and efficient manner. In this study, an analysis is made taking into account if incidents and cultural organizations influence the prices practiced in Airbnb. To help in this task, the present study performs an analysis using charts, maps and different types of machine learning. The data reveals that Queens district has a fair trade-off among price, cultural organization, and incidents, as well as, the accommodates diversity. Besides, the cultural organization has a high influence in the price prediction.\u003c/p\u003e\n\u003ch2\u003eIntroduction\u003c/h2\u003e\n\u003cp\u003eIn some moments, the guests want to a local to be cheaper or more attractive considering local events to appreciate, besides a safe local is arguably necessary. Considering the Airbnb listing from New York City (NYC), how the cultural organizations and incidents impacts on listing price? \u003c/p\u003e\n\u003ch2\u003eExperiment Description\u003c/h2\u003e\n\u003cp\u003eThe hypothesis of this study is that our approach is capable of found the influence of cultural organizations and incidents in to predict listing price as well as recommending a cheap and safe local (district/borough). \u003c/p\u003e\n\u003cp\u003eAccording to our goals the experiment was guided by the following research question: \u003ccode\u003eHow the incidents and cultural organizations impact on listing price?\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eTo answer the research question, we compared the result shows on maps, a collinearity matrix among the features, and how the accommodates are distributed. Additionally, we used a machine learning with seven regression models, and the results were compared using Median Absolute Error. Besides, two algorithms for classification were used to see the difficult to predict the most influent features.\u003c/p\u003e\n\u003ch3\u003eTarget Data\u003c/h3\u003e\n\u003cp\u003eThe investigation focused on four datasets collected in open data sites. These datasets are as follows: 1) Listings, a dataset that is an Airbnb snapshot of 02 April 2017; 2) Incidents, contains all incidents from New York for the year 2016; 3) Cultural Organizations, contains all cultural organizations from New York in 2017; and 4) NYC Borough, contains information about boundaries of boroughs (districts).\u003c/p\u003e\n\u003ctable\u003e\n  \u003cthead\u003e\n    \u003ctr\u003e\n      \u003cth\u003eDataset \u003c/th\u003e\n      \u003cth\u003eDescription \u003c/th\u003e\n      \u003cth\u003eSize \u003c/th\u003e\n      \u003cth\u003eFormat \u003c/th\u003e\n    \u003c/tr\u003e\n  \u003c/thead\u003e\n  \u003ctbody\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eListings \u003c/td\u003e\n      \u003ctd\u003eDetailed listings data, including various attributes (features) of each listing such as number of bedrooms, bathrooms, location, etc. Date Compiled on \u003cstrong\u003e02 April, 2017\u003c/strong\u003e \u003c/td\u003e\n      \u003ctd\u003e153,7MB \u003c/td\u003e\n      \u003ctd\u003e\u003ca href\u003d\"http://data.insideairbnb.com/united-states/ny/new-york-city/2017-04-02/data/listings.csv.gz\"\u003egz\u003c/a\u003e \u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eIncidents \u003c/td\u003e\n      \u003ctd\u003eAll valid felony, misdemeanor, and violation crimes reported to the New York City Police Department (NYPD) for all complete quarters in 2016. \u003c/td\u003e\n      \u003ctd\u003e124,2MB \u003c/td\u003e\n      \u003ctd\u003e\u003ca href\u003d\"https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Current-YTD/5uac-w243/data\"\u003ecsv\u003c/a\u003e \u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eCultural Organizations \u003c/td\u003e\n      \u003ctd\u003eListing of all Cultural Organizations in the Department of Cultural Affairs directory. \u003c/td\u003e\n      \u003ctd\u003e333,3kB \u003c/td\u003e\n      \u003ctd\u003e\u003ca href\u003d\"https://data.cityofnewyork.us/Recreation/DCLA-Cultural-Organizations/u35m-9t32\"\u003ecsv\u003c/a\u003e \u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eNYC Borough \u003c/td\u003e\n      \u003ctd\u003ePolygon boundaries of boroughs (water areas excluded). \u003c/td\u003e\n      \u003ctd\u003e400,5kB \u003c/td\u003e\n      \u003ctd\u003e\u003ca href\u003d\"http://data.beta.nyc/dataset/nyc-borough-boundaries/resource/7c164faa-4458-4ff2-9ef0-09db00b509ef?view_id\u003d8c05eff7-54d1-4359-8183-0e278e91b01a\"\u003eGeoJson\u003c/a\u003e \u003c/td\u003e\n    \u003c/tr\u003e\n  \u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch3\u003eIntegration Data\u003c/h3\u003e\n\u003cp\u003eTo help in the analyses, the Cultural Organizations and Incidents dataset received a score. How we have 5 districts in New York, and to be easy, the Cultural Organizations and Incidents dataset were grouped and ranked in relation to the order (1-5), where 1 is the worst and 5 the best. In this case, the datasets were ordered by the number in each district, ascendant for Cultural Organizations and descendant for the Incidents. In the end, it was create a unique data frame with the necessary informations that contains \u003cstrong\u003e37043\u003c/strong\u003e rows.\u003c/p\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eAirbnb - New York’s Analysis\u003c/h1\u003e\n\u003ch2\u003eAbstract\u003c/h2\u003e\n\u003cp\u003eAirbnb is an outstanding hosting service used worldwide and provides information to its users in a simple and efficient manner. In this study, an analysis is made taking into account if incidents and cultural organizations influence the prices practiced in Airbnb. To help in this task, the present study performs an analysis using charts, maps and different types of machine learning. The data reveals that Queens district has a fair trade-off among price, cultural organization, and incidents, as well as, the accommodates diversity. Besides, the cultural organization has a high influence in the price prediction.\u003c/p\u003e\n\u003ch2\u003eIntroduction\u003c/h2\u003e\n\u003cp\u003eIn some moments, the guests want to a local to be cheaper or more attractive considering local events to appreciate, besides a safe local is arguably necessary. Considering the Airbnb listing from New York City (NYC), how the cultural organizations and incidents impacts on listing price? \u003c/p\u003e\n\u003ch2\u003eExperiment Description\u003c/h2\u003e\n\u003cp\u003eThe hypothesis of this study is that our approach is able to find the influence of cultural organizations and incidents in to predict listing price as well as recommending a cheap and safe local (district/borough). \u003c/p\u003e\n\u003cp\u003eAccording to our goals the experiment was guided by the following research question: \u003ccode\u003eHow the incidents and cultural organizations impact on listing price?\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eTo answer the research question, we compared the result showed on maps, a collinearity matrix among the features, and how the accommodates are distributed. Additionally, we used a machine learning with seven regression models, and the results were compared using Median Absolute Error. Besides, two algorithms for classification were used to see the difficult to predict the most influent features.\u003c/p\u003e\n\u003ch3\u003eTarget Data\u003c/h3\u003e\n\u003cp\u003eThe investigation focused on four datasets collected in open data sites. These datasets are as follows: 1) Listings, a dataset that is an Airbnb snapshot of 02 April 2017; 2) Incidents, contains all incidents from New York for the year 2016; 3) Cultural Organizations, contains all cultural organizations from New York in 2017; and 4) NYC Borough, contains information about boundaries of boroughs (districts).\u003c/p\u003e\n\u003ctable\u003e\n  \u003cthead\u003e\n    \u003ctr\u003e\n      \u003cth\u003eDataset \u003c/th\u003e\n      \u003cth\u003eDescription \u003c/th\u003e\n      \u003cth\u003eSize \u003c/th\u003e\n      \u003cth\u003eFormat \u003c/th\u003e\n    \u003c/tr\u003e\n  \u003c/thead\u003e\n  \u003ctbody\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eListings \u003c/td\u003e\n      \u003ctd\u003eDetailed listings data, including various attributes (features) of each listing such as number of bedrooms, bathrooms, location, etc. Date Compiled on \u003cstrong\u003e02 April, 2017\u003c/strong\u003e \u003c/td\u003e\n      \u003ctd\u003e153,7MB \u003c/td\u003e\n      \u003ctd\u003e\u003ca href\u003d\"http://data.insideairbnb.com/united-states/ny/new-york-city/2017-04-02/data/listings.csv.gz\"\u003egz\u003c/a\u003e \u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eIncidents \u003c/td\u003e\n      \u003ctd\u003eAll valid felony, misdemeanor, and violation crimes reported to the New York City Police Department (NYPD) for all complete quarters in 2016. \u003c/td\u003e\n      \u003ctd\u003e124,2MB \u003c/td\u003e\n      \u003ctd\u003e\u003ca href\u003d\"https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Current-YTD/5uac-w243/data\"\u003ecsv\u003c/a\u003e \u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eCultural Organizations \u003c/td\u003e\n      \u003ctd\u003eListing of all Cultural Organizations in the Department of Cultural Affairs directory. \u003c/td\u003e\n      \u003ctd\u003e333,3kB \u003c/td\u003e\n      \u003ctd\u003e\u003ca href\u003d\"https://data.cityofnewyork.us/Recreation/DCLA-Cultural-Organizations/u35m-9t32\"\u003ecsv\u003c/a\u003e \u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eNYC Borough \u003c/td\u003e\n      \u003ctd\u003ePolygon boundaries of boroughs (water areas excluded). \u003c/td\u003e\n      \u003ctd\u003e400,5kB \u003c/td\u003e\n      \u003ctd\u003e\u003ca href\u003d\"http://data.beta.nyc/dataset/nyc-borough-boundaries/resource/7c164faa-4458-4ff2-9ef0-09db00b509ef?view_id\u003d8c05eff7-54d1-4359-8183-0e278e91b01a\"\u003eGeoJson\u003c/a\u003e \u003c/td\u003e\n    \u003c/tr\u003e\n  \u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch3\u003eIntegration Data\u003c/h3\u003e\n\u003cp\u003eTo help in the analyses, the Cultural Organizations and Incidents dataset received a score. Since we have 5 districts in New York, and to simplify, the Cultural Organizations and Incidents dataset were grouped and ranked in relation to the order (1-5), where 1 is the worst and 5 the best. In this case, the datasets were ordered by the number in each district, ascendant for Cultural Organizations and descendant for the Incidents. In the end, it was create a unique data frame with the necessary informations that contains \u003cstrong\u003e37043\u003c/strong\u003e rows.\u003c/p\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -33,16 +33,16 @@
       "jobName": "paragraph_1493931483268_-183743261",
       "id": "20170504-120259_833065773",
       "dateCreated": "May 4, 2017 5:58:03 PM",
-      "dateStarted": "May 5, 2017 5:01:29 PM",
-      "dateFinished": "May 5, 2017 5:01:29 PM",
+      "dateStarted": "May 5, 2017 5:34:13 PM",
+      "dateFinished": "May 5, 2017 5:34:13 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "Load Libraries",
+      "title": "",
       "text": "%pyspark\n\nfrom folium.features import *\nfrom geopy.geocoders import Nominatim\n\nimport folium \nimport folium.plugins\nimport functools\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport pygeoj\nimport pyspark.sql.functions as func\nimport seaborn as sb\n\n#sci-kit learn\nfrom sklearn import ensemble\nfrom sklearn import linear_model\nfrom sklearn import preprocessing\nfrom sklearn.grid_search import GridSearchCV\nfrom sklearn.cross_validation import train_test_split\nfrom sklearn.model_selection import cross_val_score\nimport sklearn.metrics as metrics\n\n#MLlib\nfrom pyspark.ml.classification import DecisionTreeClassifier, RandomForestClassifier, GBTClassifier\nfrom pyspark.ml.evaluation import BinaryClassificationEvaluator, MulticlassClassificationEvaluator\nfrom pyspark.ml.feature import StringIndexer, VectorIndexer, VectorAssembler, SQLTransformer, OneHotEncoder\nfrom pyspark.sql.types import *\n",
       "user": "anonymous",
-      "dateUpdated": "May 5, 2017 9:15:18 AM",
+      "dateUpdated": "May 5, 2017 5:27:02 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -52,8 +52,8 @@
           "editOnDblClick": false
         },
         "editorMode": "ace/mode/python",
-        "editorHide": false,
-        "title": true
+        "editorHide": true,
+        "title": false
       },
       "settings": {
         "params": {},
@@ -63,8 +63,8 @@
       "jobName": "paragraph_1493933274887_1472355567",
       "id": "20170504-182754_1209043741",
       "dateCreated": "May 4, 2017 6:27:54 PM",
-      "dateStarted": "May 5, 2017 9:15:19 AM",
-      "dateFinished": "May 5, 2017 9:15:29 AM",
+      "dateStarted": "May 5, 2017 5:27:02 PM",
+      "dateFinished": "May 5, 2017 5:27:04 PM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
@@ -73,7 +73,7 @@
       "title": "Load  Data",
       "text": "%pyspark\n\ncultural_organizations \u003d sqlContext.read.format(\"com.databricks.spark.csv\").options(header\u003d\"true\", delimiter\u003d\",\", charset\u003d\"ISO-8859-1\", inferSchema\u003d\"true\").load(\"data/NewYork/cultural_organizations.csv\")\n\nnypdComplaintStreamRaw \u003d sqlContext.read.format(\"com.databricks.spark.csv\").options(header\u003d\"true\", delimiter\u003d\",\", charset\u003d\"ISO-8859-1\", inferSchema\u003d\"true\").load(\"data/NewYork/NYPD_Complaint_Data_Current_YTD.csv\")\n\nairbnbDetailedStreamRaw \u003d sqlContext.read.format(\"com.databricks.spark.csv\").options(header\u003d\"true\", delimiter\u003d\";\", charset\u003d\"ISO-8859-1\", inferSchema\u003d\"true\").load(\"data/NewYork/cleaned_data/listings.csv\")\n  \n# Convert the dataset to a more efficent format to speed up our analysis\nairbnbDetailedStreamRaw.write.mode(\"overwrite\").format(\"parquet\").save(\"data/NewYork/airbnb-detailed-stream\")\nnypdComplaintStreamRaw.write.mode(\"overwrite\").format(\"parquet\").save(\"data/NewYork/nypd-complaint-stream\")\n  \n#Load the optimized data as a DataFrame\nnypd_complaint \u003d sqlContext.read.parquet(\"data/NewYork/nypd-complaint-stream\")\nar \u003d sqlContext.read.parquet(\"data/NewYork/airbnb-detailed-stream\")\n\nallcols \u003d [\u0027price\u0027,\u0027accommodates\u0027,\u0027bedrooms\u0027,\u0027beds\u0027,\u0027district\u0027,\u0027room_type\u0027,\\\n               \u0027cancellation_policy\u0027,\u0027instant_bookable\u0027,\u0027reviews_per_month\u0027,\u0027number_of_reviews\u0027,\\\n               \u0027availability_30\u0027,\u0027review_scores_rating\u0027]\n               \nairbnb \u003d ar.select(allcols)\n\n#Make the data available as a SQL table\ncultural_organizations.registerTempTable(\"culturalorganizations\")\nnypd_complaint.registerTempTable(\"nypdcomplaint\")\nairbnb.registerTempTable(\"airbnb\")\n\nsfP \u003d sqlContext.sql(\"\"\"SELECT *, district cultural_organizations, district incidents FROM airbnb\"\"\").toPandas()\n\ncountCultural \u003d cultural_organizations.select(\"borough\").groupBy(\"borough\").count() \\\n                    .selectExpr(\"borough as District\", \"cast(count as float) AS Number\").orderBy(\"Number\")\n                    \ncountIncidents \u003d nypd_complaint.select(func.initcap(\"BORO_NM\").alias(\"BORO_NM\")).select(\"BORO_NM\").groupBy(\"BORO_NM\") \\\n                    .count().selectExpr(\"BORO_NM as District\", \"cast(count as float) AS Number\")\\\n                    .orderBy(func.desc(\"Number\"))\n                    \ncultural \u003d {}\nincidentes \u003d {}\n\nfor index, each in enumerate(countCultural.collect()):\n     cultural[each[0]] \u003d index + 1\n\nfor index, each in enumerate(countIncidents.collect()):\n     incidentes[each[0]] \u003d index + 1\n     \n# new values for cultural_organizations and nypd_complaint columns\nsfP.replace({\"cultural_organizations\": cultural}, inplace\u003dTrue)\nsfP.replace({\"incidents\": incidentes}, inplace\u003dTrue)\n\ndfAll \u003d spark.createDataFrame(sfP)\ndfAll.registerTempTable(\"dfAll\")\n",
       "user": "anonymous",
-      "dateUpdated": "May 5, 2017 9:16:48 AM",
+      "dateUpdated": "May 5, 2017 5:27:08 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -82,8 +82,8 @@
           "language": "python"
         },
         "editorMode": "ace/mode/python",
-        "editorHide": false,
-        "title": true
+        "editorHide": true,
+        "title": false
       },
       "settings": {
         "params": {},
@@ -97,8 +97,8 @@
       "jobName": "paragraph_1493933348385_1950521829",
       "id": "20170504-182908_1442797920",
       "dateCreated": "May 4, 2017 6:29:08 PM",
-      "dateStarted": "May 5, 2017 9:16:48 AM",
-      "dateFinished": "May 5, 2017 9:17:00 AM",
+      "dateStarted": "May 5, 2017 5:27:08 PM",
+      "dateFinished": "May 5, 2017 5:27:21 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -141,9 +141,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n\nFigure1  shows, per district, a matrix of each feature as a function of another which is useful to check for any collinearity among the feature. The cells running through the diagonal of the matrix contain a histogram with its values on the X axis. The features chose to be analyzed were: **price**, **cultural organizations**, and **incidents**.\n\nBased on the figure, we do see that Queens and Bronx are in the trade-off among the features. To help in to check this observation, Figure 2 shows that Manhattan district has the highest listings mean price, and Queens and Bronx are the lowest. In Figure 3, we can observe that Manhattan stands out followed by Brooklyn. On the other hand, Brooklyn stands out followed by Manhattan when we consider incidents (Figure 4). In this sense, we can affirm that Queens and Bronx have the best trade-off among mean price, cultural organizations and incidents. Besides, the price is more distributed in highest cultural organizations scores and in the lowest incidents score, where we can see that these features are correlated.",
+      "text": "%md\n\nFigure1  shows, per district, a matrix of each feature as a function of another which is useful to check for any collinearity among the feature. The cells running through the diagonal of the matrix contain a histogram with its values on the X axis. The features chosen to be analyzed were: **price**, **cultural organizations**, and **incidents**.\n\nBased on the figure, we do see that Queens and Bronx are in the trade-off among the features. To help checking this observation, Figure 2 shows that Manhattan district has the highest listings mean price, and Queens and Bronx are the lowest. In Figure 3, we can observe that Manhattan stands out followed by Brooklyn. On the other hand, Brooklyn stands out followed by Manhattan when we consider incidents (Figure 4). In this sense, we can affirm that Queens and Bronx have the best trade-off among mean price, cultural organizations and incidents. Besides, the price is more distributed in highest cultural organizations scores and in the lowest incidents score, where we can see that these features are correlated.",
       "user": "anonymous",
-      "dateUpdated": "May 5, 2017 5:10:10 PM",
+      "dateUpdated": "May 5, 2017 5:34:54 PM",
       "config": {
         "colWidth": 5.0,
         "enabled": true,
@@ -165,7 +165,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eFigure1 shows, per district, a matrix of each feature as a function of another which is useful to check for any collinearity among the feature. The cells running through the diagonal of the matrix contain a histogram with its values on the X axis. The features chose to be analyzed were: \u003cstrong\u003eprice\u003c/strong\u003e, \u003cstrong\u003ecultural organizations\u003c/strong\u003e, and \u003cstrong\u003eincidents\u003c/strong\u003e.\u003c/p\u003e\n\u003cp\u003eBased on the figure, we do see that Queens and Bronx are in the trade-off among the features. To help in to check this observation, Figure 2 shows that Manhattan district has the highest listings mean price, and Queens and Bronx are the lowest. In Figure 3, we can observe that Manhattan stands out followed by Brooklyn. On the other hand, Brooklyn stands out followed by Manhattan when we consider incidents (Figure 4). In this sense, we can affirm that Queens and Bronx have the best trade-off among mean price, cultural organizations and incidents. Besides, the price is more distributed in highest cultural organizations scores and in the lowest incidents score, where we can see that these features are correlated.\u003c/p\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eFigure1 shows, per district, a matrix of each feature as a function of another which is useful to check for any collinearity among the feature. The cells running through the diagonal of the matrix contain a histogram with its values on the X axis. The features chosen to be analyzed were: \u003cstrong\u003eprice\u003c/strong\u003e, \u003cstrong\u003ecultural organizations\u003c/strong\u003e, and \u003cstrong\u003eincidents\u003c/strong\u003e.\u003c/p\u003e\n\u003cp\u003eBased on the figure, we do see that Queens and Bronx are in the trade-off among the features. To help checking this observation, Figure 2 shows that Manhattan district has the highest listings mean price, and Queens and Bronx are the lowest. In Figure 3, we can observe that Manhattan stands out followed by Brooklyn. On the other hand, Brooklyn stands out followed by Manhattan when we consider incidents (Figure 4). In this sense, we can affirm that Queens and Bronx have the best trade-off among mean price, cultural organizations and incidents. Besides, the price is more distributed in highest cultural organizations scores and in the lowest incidents score, where we can see that these features are correlated.\u003c/p\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -173,8 +173,8 @@
       "jobName": "paragraph_1493933229136_-1442948145",
       "id": "20170504-182709_1357178220",
       "dateCreated": "May 4, 2017 6:27:09 PM",
-      "dateStarted": "May 5, 2017 5:10:10 PM",
-      "dateFinished": "May 5, 2017 5:10:10 PM",
+      "dateStarted": "May 5, 2017 5:34:54 PM",
+      "dateFinished": "May 5, 2017 5:34:54 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -182,7 +182,7 @@
       "title": "Figure 1 - Collinearity among the features",
       "text": "%pyspark \n\nsb.pairplot(dfAll.select(\"price\", \"cultural_organizations\", \"incidents\", \"district\").toPandas(), hue\u003d\"district\")\nplt.savefig(\u0027data/NewYork/img/related_data2.png\u0027)",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 6:38:14 PM",
+      "dateUpdated": "May 5, 2017 5:27:15 PM",
       "config": {
         "colWidth": 7.0,
         "enabled": true,
@@ -222,7 +222,7 @@
       "title": "Figure 2 - Mean Price per District",
       "text": "%angular\n\n\u003cdiv\u003e \n    \u003cobject type\u003d\"text/html\" data\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_price.html\" width\u003d\"100%\" height\u003d\"1000px\" style\u003d\"overflow:auto;\"\u003e\n    \u003c/object\u003e\n\u003c/div\u003e\n",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 6:41:09 PM",
+      "dateUpdated": "May 5, 2017 5:22:16 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -233,7 +233,7 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": true,
-        "tableHide": true,
+        "tableHide": false,
         "title": true
       },
       "settings": {
@@ -253,8 +253,8 @@
       "jobName": "paragraph_1493933637182_-732714832",
       "id": "20170504-183357_1477970230",
       "dateCreated": "May 4, 2017 6:33:57 PM",
-      "dateStarted": "May 4, 2017 6:38:50 PM",
-      "dateFinished": "May 4, 2017 6:38:50 PM",
+      "dateStarted": "May 5, 2017 5:22:16 PM",
+      "dateFinished": "May 5, 2017 5:22:16 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -262,7 +262,7 @@
       "title": "Figure 3 - Number of Cultural Organizations per District",
       "text": "%angular\n\n\u003cdiv\u003e \n    \u003cobject type\u003d\"text/html\" data\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_cultural.html\" width\u003d\"100%\" height\u003d\"1000px\" style\u003d\"overflow:auto;\"\u003e\n    \u003c/object\u003e\n\u003c/div\u003e\n",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 6:41:06 PM",
+      "dateUpdated": "May 5, 2017 5:22:19 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -273,7 +273,7 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": true,
-        "tableHide": true,
+        "tableHide": false,
         "title": true
       },
       "settings": {
@@ -293,8 +293,8 @@
       "jobName": "paragraph_1493933915098_9079403",
       "id": "20170504-183835_1408717364",
       "dateCreated": "May 4, 2017 6:38:35 PM",
-      "dateStarted": "May 4, 2017 6:41:02 PM",
-      "dateFinished": "May 4, 2017 6:41:02 PM",
+      "dateStarted": "May 5, 2017 5:22:19 PM",
+      "dateFinished": "May 5, 2017 5:22:19 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -302,18 +302,19 @@
       "title": "Figure 4 - Number Incidents per District",
       "text": "%angular\n\n\u003cdiv\u003e \n    \u003cobject type\u003d\"text/html\" data\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/maps/nyc_borough_incidents.html\" width\u003d\"100%\" height\u003d\"1000px\" style\u003d\"overflow:auto;\"\u003e\n    \u003c/object\u003e\n\u003c/div\u003e\n\n",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 6:41:13 PM",
+      "dateUpdated": "May 5, 2017 5:22:39 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "scala"
+          "language": "scala",
+          "editOnDblClick": true
         },
-        "editorMode": "ace/mode/scala",
+        "editorMode": "ace/mode/undefined",
         "title": true,
         "editorHide": true,
-        "tableHide": true
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -332,15 +333,15 @@
       "jobName": "paragraph_1493933962742_467208074",
       "id": "20170504-183922_606507448",
       "dateCreated": "May 4, 2017 6:39:22 PM",
-      "dateStarted": "May 4, 2017 6:41:02 PM",
-      "dateFinished": "May 4, 2017 6:41:02 PM",
+      "dateStarted": "May 5, 2017 5:22:39 PM",
+      "dateFinished": "May 5, 2017 5:22:39 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\nFigure 5 shows mean price grouped by the number of people that can be accommodated (number of beds)  with a limited of four accommodates, when we can begin see differences, per district: Queens, Manhattan, Bronx, Brooklyn, and Staten Island. We can observe that Manhattan\u0027s district has more options than other ones. It\u0027s interesting to highlight Queens district outperformed the Bronx in the diversity of accommodates. ",
+      "text": "%md\nFigure 5 shows mean price grouped by the number of people that can be accommodated (number of beds) with a limited of four accommodates, price less than $1000 and a minimum of 50 listings, when we can begin see differences for a cheap local with diversity, per district: Queens, Manhattan, Bronx, Brooklyn, and Staten Island. We can observe that Manhattan\u0027s district has more options than other ones. It\u0027s interesting to highlight Queens district outperformed the Bronx in the diversity of accommodates. ",
       "user": "anonymous",
-      "dateUpdated": "May 5, 2017 5:11:42 PM",
+      "dateUpdated": "May 5, 2017 5:40:20 PM",
       "config": {
         "colWidth": 4.0,
         "enabled": true,
@@ -362,7 +363,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eFigure 5 shows mean price grouped by the number of people that can be accommodated (number of beds) with a limited of four accommodates, when we can begin see differences, per district: Queens, Manhattan, Bronx, Brooklyn, and Staten Island. We can observe that Manhattan\u0026rsquo;s district has more options than other ones. It\u0026rsquo;s interesting to highlight Queens district outperformed the Bronx in the diversity of accommodates.\u003c/p\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eFigure 5 shows mean price grouped by the number of people that can be accommodated (number of beds) with a limited of four accommodates, price less than $1000 and a minimum of 50 listings, when we can begin see differences for a cheap local with diversity, per district: Queens, Manhattan, Bronx, Brooklyn, and Staten Island. We can observe that Manhattan\u0026rsquo;s district has more options than other ones. It\u0026rsquo;s interesting to highlight Queens district outperformed the Bronx in the diversity of accommodates.\u003c/p\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -370,8 +371,8 @@
       "jobName": "paragraph_1493933956022_333684881",
       "id": "20170504-183916_171969774",
       "dateCreated": "May 4, 2017 6:39:16 PM",
-      "dateStarted": "May 5, 2017 5:11:42 PM",
-      "dateFinished": "May 5, 2017 5:11:42 PM",
+      "dateStarted": "May 5, 2017 5:40:20 PM",
+      "dateFinished": "May 5, 2017 5:40:20 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -379,7 +380,7 @@
       "title": "Figure 5 - Mean price grouped by the number of people that can accommodate",
       "text": "%sql\nWITH subquery AS(\n SELECT AVG(price) PRICE, district, beds, COUNT(1) AS cnt\n    FROM airbnb\n    WHERE beds \u003c\u003d ${max_accommodations\u003d4}\n     AND price \u003c 1000\n    GROUP BY district, beds\n)\nSELECT * \nFROM subquery q2\nINNER JOIN (\n    SELECT DISTINCT(district)\n    FROM subquery q1\n    WHERE q1.cnt \u003e ${min_count_of_listings\u003d50}\n) AS distinct_neigh\nON distinct_neigh.district \u003d q2.district\nWHERE cnt \u003e 15",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 6:43:01 PM",
+      "dateUpdated": "May 5, 2017 5:43:45 PM",
       "config": {
         "colWidth": 8.0,
         "enabled": true,
@@ -458,15 +459,15 @@
       "jobName": "paragraph_1493933999597_301442595",
       "id": "20170504-183959_297013387",
       "dateCreated": "May 4, 2017 6:39:59 PM",
-      "dateStarted": "May 4, 2017 6:42:21 PM",
-      "dateFinished": "May 4, 2017 6:42:22 PM",
+      "dateStarted": "May 5, 2017 5:43:45 PM",
+      "dateFinished": "May 5, 2017 5:43:48 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n\nNext, we used machine learning and for this we split our dataset into an 80% train and 20% test and the informations chose from the dataset were:  **price**, **accommodates**, **bedrooms**, **beds**, **district**, **room type**, **cancellation policy**, **instant bookable**, **reviews per month**, **number of reviews**, **availability 30** and **review scores rating**. In the case of the columns that contain categorical variables these were handled in slightly different ways depending on their possible values and these values were transformed into new columns. \n",
+      "text": "%md\n\nNext, we used machine learning and for this we split our dataset into an 80% train and 20% test and the informations chosen from the dataset were:  **price**, **accommodates**, **bedrooms**, **beds**, **district**, **room type**, **cancellation policy**, **instant bookable**, **reviews per month**, **number of reviews**, **availability 30** and **review scores rating**. In the case of the columns that contain categorical variables these were handled in slightly different ways depending on their possible values and these values were transformed into new columns. \n",
       "user": "anonymous",
-      "dateUpdated": "May 5, 2017 5:12:34 PM",
+      "dateUpdated": "May 5, 2017 5:40:38 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -488,7 +489,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eNext, we used machine learning and for this we split our dataset into an 80% train and 20% test and the informations chose from the dataset were: \u003cstrong\u003eprice\u003c/strong\u003e, \u003cstrong\u003eaccommodates\u003c/strong\u003e, \u003cstrong\u003ebedrooms\u003c/strong\u003e, \u003cstrong\u003ebeds\u003c/strong\u003e, \u003cstrong\u003edistrict\u003c/strong\u003e, \u003cstrong\u003eroom type\u003c/strong\u003e, \u003cstrong\u003ecancellation policy\u003c/strong\u003e, \u003cstrong\u003einstant bookable\u003c/strong\u003e, \u003cstrong\u003ereviews per month\u003c/strong\u003e, \u003cstrong\u003enumber of reviews\u003c/strong\u003e, \u003cstrong\u003eavailability 30\u003c/strong\u003e and \u003cstrong\u003ereview scores rating\u003c/strong\u003e. In the case of the columns that contain categorical variables these were handled in slightly different ways depending on their possible values and these values were transformed into new columns.\u003c/p\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eNext, we used machine learning and for this we split our dataset into an 80% train and 20% test and the informations chosen from the dataset were: \u003cstrong\u003eprice\u003c/strong\u003e, \u003cstrong\u003eaccommodates\u003c/strong\u003e, \u003cstrong\u003ebedrooms\u003c/strong\u003e, \u003cstrong\u003ebeds\u003c/strong\u003e, \u003cstrong\u003edistrict\u003c/strong\u003e, \u003cstrong\u003eroom type\u003c/strong\u003e, \u003cstrong\u003ecancellation policy\u003c/strong\u003e, \u003cstrong\u003einstant bookable\u003c/strong\u003e, \u003cstrong\u003ereviews per month\u003c/strong\u003e, \u003cstrong\u003enumber of reviews\u003c/strong\u003e, \u003cstrong\u003eavailability 30\u003c/strong\u003e and \u003cstrong\u003ereview scores rating\u003c/strong\u003e. In the case of the columns that contain categorical variables these were handled in slightly different ways depending on their possible values and these values were transformed into new columns.\u003c/p\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -496,15 +497,15 @@
       "jobName": "paragraph_1494015044048_687265325",
       "id": "20170505-171044_11884732",
       "dateCreated": "May 5, 2017 5:10:44 PM",
-      "dateStarted": "May 5, 2017 5:12:34 PM",
-      "dateFinished": "May 5, 2017 5:12:34 PM",
+      "dateStarted": "May 5, 2017 5:40:38 PM",
+      "dateFinished": "May 5, 2017 5:40:38 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\n\ndef cleanData():\n    global df, dfAll\n    #select the new data\n    df \u003d dfAll.toPandas()\n\n    # clean the data\n    # first fixup \u0027reviews_per_month\u0027 where there are no reviews\n    df[\u0027reviews_per_month\u0027].fillna(0, inplace\u003dTrue)\n\n    # just drop rows with bad/weird values\n    # (we could do more here)\n    df \u003d df[df.bedrooms !\u003d 0]\n    df \u003d df[df.beds !\u003d 0]\n    df \u003d df[df.price !\u003d 0]\n    df \u003d df.dropna(axis\u003d0)\n\n    #convert the wrong data\n    df[\u0027price\u0027] \u003d df[\u0027price\u0027].replace(\u0027[\\$,)]\u0027,\u0027\u0027, regex\u003dTrue).replace(\u0027[(]\u0027,\u0027-\u0027, regex\u003dTrue).astype(float)\n\n    df[\u0027reviews_per_month\u0027] \u003d df[\u0027reviews_per_month\u0027].replace(\u0027[\\$,)]\u0027,\u0027\u0027, regex\u003dTrue)\\\n                .replace(\u0027[(]\u0027,\u0027-\u0027, regex\u003dTrue).astype(float)\n   \n    prepareSets()\n   \ndef prepareSets():\n    global alldata, df\n    \n    # get feature encoding for categorical variables\n    district_dummies \u003d pd.get_dummies(df.district)\n    room_type_dummies \u003d pd.get_dummies(df.room_type)\n    cancellation_policy_dummies \u003d pd.get_dummies(df.cancellation_policy)\n\n    # convert boolean column to a single boolean value indicating whether this listing has instant booking available\n    instant_bookable_dummies \u003d pd.get_dummies(df.instant_bookable, prefix\u003d\"instant\")\n    instant_bookable_dummies \u003d instant_bookable_dummies.drop(\u0027instant_f\u0027, axis\u003d1)\n\n    # replace the old columns with our new one-hot encoded ones\n    alldata \u003d pd.concat((df.drop([\u0027district\u0027, \\\n                            \u0027room_type\u0027, \\\n                            \u0027cancellation_policy\u0027, \\\n                            \u0027instant_bookable\u0027], axis\u003d1), \\\n        district_dummies.astype(int), \\\n        room_type_dummies.astype(int), \\\n        cancellation_policy_dummies.astype(int), instant_bookable_dummies.astype(int)), \\\n        axis\u003d1)\n        \ndef initTrainingTestingSubsets(colname):\n    global X_train, X_test, y_train, y_test, alldata\n    \n    # We set random_state\u003d1 to guarantee that the split will be always the same for reproducible results drop what will be analysed\n    X_train, X_test, y_train, y_test \u003d train_test_split(alldata.drop([colname], axis\u003d1), alldata[colname], test_size\u003d0.2002, random_state\u003d1)\n",
       "user": "anonymous",
-      "dateUpdated": "May 5, 2017 9:17:22 AM",
+      "dateUpdated": "May 5, 2017 5:22:46 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -513,7 +514,8 @@
           "language": "python",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/python"
+        "editorMode": "ace/mode/python",
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -535,7 +537,7 @@
     {
       "text": "%pyspark\ndef pltMedianAbsoluteError(model_labels, model_errors, colname):\n    model_position \u003d np.arange(model_errors.shape[0])\n    models_sorted \u003d np.argsort(model_errors)\n    \n    for i, model in enumerate(model_labels):\n        print \u0027Model {}: ${}\u0027.format(model_labels[i], model_errors[i])\n        \n    plt.figure(figsize\u003d(10,8))\n    plt.bar(model_position, model_errors[models_sorted], align\u003d\u0027center\u0027)\n    plt.xticks(model_position, model_labels[models_sorted])\n    plt.xlabel(\u0027Estimator\u0027)\n    plt.ylabel(\u0027Median Absolute Error\u0027)\n    plt.savefig(\"data/NewYork/img/median_absolute_error_{}.pdf\".format(colname))\n    \ndef runLinearModels(colname):\n    initTrainingTestingSubsets(colname)\n    \n    global X_train, y_train, clf, models, model_labels, model_errors\n    models \u003d [ linear_model.LinearRegression(), linear_model.Ridge(), linear_model.Lasso(), linear_model.ElasticNet(),\n        linear_model.BayesianRidge(), linear_model.OrthogonalMatchingPursuit() ]\n\n    model_labels \u003d np.array([\u0027GBR\u0027, \u0027Linear\u0027, \u0027Ridge\u0027, \u0027Lasso\u0027, \u0027ElasticNet\u0027, \u0027BayesRidge\u0027, \u0027OMP\u0027])\n    model_errors \u003d np.array([])\n    \n    # RUN GBR\n    n_est \u003d 300\n    tuned_parameters \u003d {\"n_estimators\": [ n_est ], \"max_depth\" : [ 4 ], \"learning_rate\": [ 0.01 ], \"min_samples_split\" : [ 2], \"loss\" : [ \u0027ls\u0027, \u0027lad\u0027 ]}\n\n    #estimator\n    estimator \u003d ensemble.GradientBoostingRegressor()\n    \n    clf \u003d GridSearchCV(estimator, cv\u003d3, param_grid\u003dtuned_parameters, scoring\u003d\u0027neg_median_absolute_error\u0027)\n    preds \u003d clf.fit(X_train, y_train)\n    best \u003d clf.best_estimator_\n    model_errors \u003d np.append(model_errors, round(abs(clf.best_score_),2))\n    \n    #RUN THE OTHER MODELS\n    for model in models:\n        model.fit(X_train, y_train)\n        model_err \u003d round(metrics.median_absolute_error(y_test, model.predict(X_test)),2)\n        model_errors \u003d np.append(model_errors, model_err)\n            \n    pltMedianAbsoluteError(model_labels, model_errors, colname)\n    \ndef plotFeatureImportanceGridSearchCV(colname):\n    feature_importance \u003d clf.best_estimator_.feature_importances_\n    # make importances relative to max importance\n    feature_importance \u003d 100.0 * (feature_importance / feature_importance.max())\n    sorted_idx \u003d np.argsort(feature_importance)\n    pos \u003d np.arange(sorted_idx.shape[0]) + .5\n    pvals \u003d feature_importance[sorted_idx]\n    pcols \u003d X_train.columns[sorted_idx]\n    plt.figure(figsize\u003d(12,12), dpi\u003d100)\n    plt.barh(pos, pvals, align\u003d\u0027center\u0027)\n    plt.tick_params(axis\u003d\u0027both\u0027, which\u003d\u0027major\u0027, labelsize\u003d12)\n    plt.yticks(pos, pcols)\n    plt.xlabel(\u0027Relative Importance\u0027, fontsize\u003d16)\n    plt.title(\u0027Variable Importance\u0027, fontsize\u003d16)\n    plt.savefig(\"data/NewYork/img/feature_importance_gridSearchCV_{}.pdf\".format(colname))",
       "user": "anonymous",
-      "dateUpdated": "May 5, 2017 9:18:38 AM",
+      "dateUpdated": "May 5, 2017 5:22:45 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -545,7 +547,7 @@
           "editOnDblClick": false
         },
         "editorMode": "ace/mode/python",
-        "editorHide": false,
+        "editorHide": true,
         "tableHide": false
       },
       "settings": {
@@ -566,9 +568,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\nWe run seven regression models: **Linear Regression**, **Ridge Regression**, **Lasso Regression**, **Elastic Net**, **Bayes Ridge Regression**, **Orthogonal Matching Pursuit (OMP)**, and **Gradient Boosting Regressor (GBR)**; and two algorithms for classification: **Decision Tree** and **Random Forest**. First, we compared the regression models, where GBR was tunned with 300 iterations and used an exhaustive \"grid search\" which only tries all the supplied parameter combinations and uses cross-validation folding to find the best one.\n\nFigure 6 shows the regression models their Median Absolute Error. Intuitively, Median Absolute Error is less sensitive to outliers than Mean Squared Error and translates nicely to a dollar amount that is about price.\n",
+      "text": "%md\nWe run seven regression models: **Linear Regression**, **Ridge Regression**, **Lasso Regression**, **Elastic Net**, **Bayes Ridge Regression**, **Orthogonal Matching Pursuit (OMP)**, and **Gradient Boosting Regressor (GBR)**; and two algorithms for classification: **Decision Tree** and **Random Forest**. First, we compared the regression models, where GBR was tunned with 300 iterations and used an exhaustive \"grid search\" which only tries all the supplied parameter combinations and uses cross-validation folding to find the best one.\n\nFigure 6 shows the regression models by their Median Absolute Error. Intuitively, Median Absolute Error is less sensitive to outliers than Mean Squared Error and translates nicely to a dollar amount that is about price.\n",
       "user": "anonymous",
-      "dateUpdated": "May 5, 2017 5:15:07 PM",
+      "dateUpdated": "May 5, 2017 5:40:53 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -590,7 +592,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eWe run seven regression models: \u003cstrong\u003eLinear Regression\u003c/strong\u003e, \u003cstrong\u003eRidge Regression\u003c/strong\u003e, \u003cstrong\u003eLasso Regression\u003c/strong\u003e, \u003cstrong\u003eElastic Net\u003c/strong\u003e, \u003cstrong\u003eBayes Ridge Regression\u003c/strong\u003e, \u003cstrong\u003eOrthogonal Matching Pursuit (OMP)\u003c/strong\u003e, and \u003cstrong\u003eGradient Boosting Regressor (GBR)\u003c/strong\u003e; and two algorithms for classification: \u003cstrong\u003eDecision Tree\u003c/strong\u003e and \u003cstrong\u003eRandom Forest\u003c/strong\u003e. First, we compared the regression models, where GBR was tunned with 300 iterations and used an exhaustive \u0026ldquo;grid search\u0026rdquo; which only tries all the supplied parameter combinations and uses cross-validation folding to find the best one.\u003c/p\u003e\n\u003cp\u003eFigure 6 shows the regression models their Median Absolute Error. Intuitively, Median Absolute Error is less sensitive to outliers than Mean Squared Error and translates nicely to a dollar amount that is about price.\u003c/p\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eWe run seven regression models: \u003cstrong\u003eLinear Regression\u003c/strong\u003e, \u003cstrong\u003eRidge Regression\u003c/strong\u003e, \u003cstrong\u003eLasso Regression\u003c/strong\u003e, \u003cstrong\u003eElastic Net\u003c/strong\u003e, \u003cstrong\u003eBayes Ridge Regression\u003c/strong\u003e, \u003cstrong\u003eOrthogonal Matching Pursuit (OMP)\u003c/strong\u003e, and \u003cstrong\u003eGradient Boosting Regressor (GBR)\u003c/strong\u003e; and two algorithms for classification: \u003cstrong\u003eDecision Tree\u003c/strong\u003e and \u003cstrong\u003eRandom Forest\u003c/strong\u003e. First, we compared the regression models, where GBR was tunned with 300 iterations and used an exhaustive \u0026ldquo;grid search\u0026rdquo; which only tries all the supplied parameter combinations and uses cross-validation folding to find the best one.\u003c/p\u003e\n\u003cp\u003eFigure 6 shows the regression models by their Median Absolute Error. Intuitively, Median Absolute Error is less sensitive to outliers than Mean Squared Error and translates nicely to a dollar amount that is about price.\u003c/p\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -598,15 +600,15 @@
       "jobName": "paragraph_1493934850639_1740008341",
       "id": "20170504-185410_1731940877",
       "dateCreated": "May 4, 2017 6:54:10 PM",
-      "dateStarted": "May 5, 2017 5:14:18 PM",
-      "dateFinished": "May 5, 2017 5:14:18 PM",
+      "dateStarted": "May 5, 2017 5:40:53 PM",
+      "dateFinished": "May 5, 2017 5:40:53 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\nWhen analyzing these estimators by their Median Absolute Error, we see that GBR outperforms the other ones with a Median Absolute Error of $23.86, approximately 31% less than Lasso Regression that appear in second with a Median Absolute Error of $34.59. After, we calculate the feature importances to see which features were most influential in predicting the listing price, Figure 7. This show a relative scoring of how important each feature is about the feature with the most importance.\n\nClearly, some of the variables have more influence than others, and the most important feature is the **Entire home/apt** attribute; this indicates whether or not the unit is shared with other people, and has the most effect in setting the price. This feature is followed by accommodates, cultural organizations and Manhattan district, and the feature incidents were not so influent.\n",
+      "text": "%md\nWhen analyzing these estimators by their Median Absolute Error, we see that GBR outperforms the other ones with a Median Absolute Error of $23.86, approximately 31% less than Lasso Regression that appear in second with a Median Absolute Error of $34.59. Then, we calculate the feature importances to see which features were most influential in predicting the listing price, Figure 7. This show a relative scoring of how important each feature is about the feature with the most importance.\n\nClearly, some of the variables have more influence than others, and the most important feature is the **Entire home/apt** attribute; this indicates whether or not the unit is shared with other people, and has the most effect in setting the price. This feature is followed by accommodates, cultural organizations and Manhattan district, and the feature incidents were not so influent.\n",
       "user": "anonymous",
-      "dateUpdated": "May 5, 2017 5:15:47 PM",
+      "dateUpdated": "May 5, 2017 5:41:19 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -628,7 +630,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eWhen analyzing these estimators by their Median Absolute Error, we see that GBR outperforms the other ones with a Median Absolute Error of $23.86, approximately 31% less than Lasso Regression that appear in second with a Median Absolute Error of $34.59. After, we calculate the feature importances to see which features were most influential in predicting the listing price, Figure 7. This show a relative scoring of how important each feature is about the feature with the most importance.\u003c/p\u003e\n\u003cp\u003eClearly, some of the variables have more influence than others, and the most important feature is the \u003cstrong\u003eEntire home/apt\u003c/strong\u003e attribute; this indicates whether or not the unit is shared with other people, and has the most effect in setting the price. This feature is followed by accommodates, cultural organizations and Manhattan district, and the feature incidents were not so influent.\u003c/p\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eWhen analyzing these estimators by their Median Absolute Error, we see that GBR outperforms the other ones with a Median Absolute Error of $23.86, approximately 31% less than Lasso Regression that appear in second with a Median Absolute Error of $34.59. Then, we calculate the feature importances to see which features were most influential in predicting the listing price, Figure 7. This show a relative scoring of how important each feature is about the feature with the most importance.\u003c/p\u003e\n\u003cp\u003eClearly, some of the variables have more influence than others, and the most important feature is the \u003cstrong\u003eEntire home/apt\u003c/strong\u003e attribute; this indicates whether or not the unit is shared with other people, and has the most effect in setting the price. This feature is followed by accommodates, cultural organizations and Manhattan district, and the feature incidents were not so influent.\u003c/p\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -636,8 +638,8 @@
       "jobName": "paragraph_1494015311629_139153552",
       "id": "20170505-171511_1507357695",
       "dateCreated": "May 5, 2017 5:15:11 PM",
-      "dateStarted": "May 5, 2017 5:15:47 PM",
-      "dateFinished": "May 5, 2017 5:15:47 PM",
+      "dateStarted": "May 5, 2017 5:41:19 PM",
+      "dateFinished": "May 5, 2017 5:41:19 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -726,7 +728,7 @@
     {
       "text": "%pyspark\ndef assembleFeatureVectors(position):\n    cleanData()\n\n    global alldataDF, alldata\n    \n    #position: (8) cultural_organizations; (9) nypd_complaint \n    alldata.columns.values[position] \u003d \"label\"\n\n    features \u003d alldata.columns.drop(\u0027label\u0027).values.tolist()\n\n    alldataDF \u003d spark.createDataFrame(alldata)\n\n    # Index labels, adding metadata to the label column.\n    # Fit on whole dataset to include all labels in index.\n    assembler \u003d VectorAssembler(inputCols\u003dfeatures, outputCol\u003d\"features\")\n    alldataDF \u003d assembler.transform(alldataDF.dropna())\n",
       "user": "anonymous",
-      "dateUpdated": "May 5, 2017 9:18:45 AM",
+      "dateUpdated": "May 5, 2017 5:22:52 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -735,7 +737,8 @@
           "language": "python",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/python"
+        "editorMode": "ace/mode/python",
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -757,7 +760,7 @@
     {
       "text": "%pyspark\n\n# Parser\ndef parse(lines):\n\tblock \u003d []\n\twhile lines :\n\t\t\n\t\tif lines[0].startswith(\u0027If\u0027):\n\t\t\tbl \u003d \u0027 \u0027.join(lines.pop(0).split()[1:]).replace(\u0027(\u0027, \u0027\u0027).replace(\u0027)\u0027, \u0027\u0027)\n\t\t\tblock.append({\u0027name\u0027:bl, \u0027children\u0027:parse(lines)})\n\t\t\t\n\t\t\tif lines[0].startswith(\u0027Else\u0027):\n\t\t\t\tbe \u003d \u0027 \u0027.join(lines.pop(0).split()[1:]).replace(\u0027(\u0027, \u0027\u0027).replace(\u0027)\u0027, \u0027\u0027)\n\t\t\t\tblock.append({\u0027name\u0027:be, \u0027children\u0027:parse(lines)})\n\t\telif not lines[0].startswith((\u0027If\u0027,\u0027Else\u0027)):\n\t\t\tblock2 \u003d lines.pop(0)\n\t\t\tblock.append({\u0027name\u0027:block2})\n\t\telse:\n\t\t\tbreak\t\n\treturn block\n\n# Convert Tree to JSON\ndef tree_json(tree):\n\tdata \u003d []\n\tfor line in tree.splitlines() : \n\t\tif line.strip():\n\t\t\tline \u003d line.strip()\n\t\t\tdata.append(line)\n\t\telse : break\n\t\tif not line : break\n\tres \u003d []\n\tres.append({\u0027name\u0027:\u0027Root\u0027, \u0027children\u0027:parse(data[1:])})\n\twith open(\u0027data/NewYork/DecisionTree/data.json\u0027, \u0027w\u0027) as outfile:\n\t\tjson.dump(res[0], outfile)\n",
       "user": "anonymous",
-      "dateUpdated": "May 5, 2017 9:18:47 AM",
+      "dateUpdated": "May 5, 2017 5:22:53 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -765,7 +768,8 @@
         "editorSetting": {
           "language": "python"
         },
-        "editorMode": "ace/mode/python"
+        "editorMode": "ace/mode/python",
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -785,11 +789,11 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n\nIn the last, we tried to predict each one the three most influent features for the GBR model, Figure 7, using algorithms for classification. Table below shows in bold the best test error values. The Decision Tree outperforms Random Forest and the feature with more difficult to predict was **accommodates**.\n\n| Feature | Decision Tree | Random Forest |\n| ------- | ------------- | ------------- |\n| Entire home/apt | **0.0000** | 0.0009 |\n| Accommodates | **0.4115** | 0.4151 |\n| Cultural Organizations | **0.0000** | 0.0000 | ",
+      "text": "%md\n\nBy last, we tried to predict each one the three most influent features for the GBR model, Figure 7, using algorithms for classification. Table below shows in bold the best test error values. The Decision Tree outperforms Random Forest and the feature with more difficult to predict was **accommodates**.\n\n| Feature | Decision Tree | Random Forest |\n| ------- | ------------- | ------------- |\n| Entire home/apt | **0.0000** | 0.0009 |\n| Accommodates | **0.4115** | 0.4151 |\n| Cultural Organizations | **0.0000** | 0.0000 | ",
       "user": "anonymous",
-      "dateUpdated": "May 5, 2017 5:19:22 PM",
+      "dateUpdated": "May 5, 2017 5:41:29 PM",
       "config": {
-        "colWidth": 4.0,
+        "colWidth": 6.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
@@ -809,7 +813,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eIn the last, we tried to predict each one the three most influent features for the GBR model, Figure 7, using algorithms for classification. Table below shows in bold the best test error values. The Decision Tree outperforms Random Forest and the feature with more difficult to predict was \u003cstrong\u003eaccommodates\u003c/strong\u003e.\u003c/p\u003e\n\u003ctable\u003e\n  \u003cthead\u003e\n    \u003ctr\u003e\n      \u003cth\u003eFeature \u003c/th\u003e\n      \u003cth\u003eDecision Tree \u003c/th\u003e\n      \u003cth\u003eRandom Forest \u003c/th\u003e\n    \u003c/tr\u003e\n  \u003c/thead\u003e\n  \u003ctbody\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eEntire home/apt \u003c/td\u003e\n      \u003ctd\u003e\u003cstrong\u003e0.0000\u003c/strong\u003e \u003c/td\u003e\n      \u003ctd\u003e0.0009 \u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eAccommodates \u003c/td\u003e\n      \u003ctd\u003e\u003cstrong\u003e0.4115\u003c/strong\u003e \u003c/td\u003e\n      \u003ctd\u003e0.4151 \u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eCultural Organizations \u003c/td\u003e\n      \u003ctd\u003e\u003cstrong\u003e0.0000\u003c/strong\u003e \u003c/td\u003e\n      \u003ctd\u003e0.0000 \u003c/td\u003e\n    \u003c/tr\u003e\n  \u003c/tbody\u003e\n\u003c/table\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eBy last, we tried to predict each one the three most influent features for the GBR model, Figure 7, using algorithms for classification. Table below shows in bold the best test error values. The Decision Tree outperforms Random Forest and the feature with more difficult to predict was \u003cstrong\u003eaccommodates\u003c/strong\u003e.\u003c/p\u003e\n\u003ctable\u003e\n  \u003cthead\u003e\n    \u003ctr\u003e\n      \u003cth\u003eFeature \u003c/th\u003e\n      \u003cth\u003eDecision Tree \u003c/th\u003e\n      \u003cth\u003eRandom Forest \u003c/th\u003e\n    \u003c/tr\u003e\n  \u003c/thead\u003e\n  \u003ctbody\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eEntire home/apt \u003c/td\u003e\n      \u003ctd\u003e\u003cstrong\u003e0.0000\u003c/strong\u003e \u003c/td\u003e\n      \u003ctd\u003e0.0009 \u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eAccommodates \u003c/td\u003e\n      \u003ctd\u003e\u003cstrong\u003e0.4115\u003c/strong\u003e \u003c/td\u003e\n      \u003ctd\u003e0.4151 \u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eCultural Organizations \u003c/td\u003e\n      \u003ctd\u003e\u003cstrong\u003e0.0000\u003c/strong\u003e \u003c/td\u003e\n      \u003ctd\u003e0.0000 \u003c/td\u003e\n    \u003c/tr\u003e\n  \u003c/tbody\u003e\n\u003c/table\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -817,24 +821,24 @@
       "jobName": "paragraph_1494015293070_1310698628",
       "id": "20170505-171453_1021774444",
       "dateCreated": "May 5, 2017 5:14:53 PM",
-      "dateStarted": "May 5, 2017 5:19:10 PM",
-      "dateFinished": "May 5, 2017 5:19:10 PM",
+      "dateStarted": "May 5, 2017 5:41:29 PM",
+      "dateFinished": "May 5, 2017 5:41:30 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\n\neval_features \u003d {}\n\n#The tree festures most importants\neval_features[\u0027Entire_home_apt\u0027] \u003d 15\neval_features[\u0027accommodates\u0027] \u003d 1\neval_features[\u0027cultural_organizations\u0027] \u003d 8\n\nfor key, value in eval_features.iteritems():    \n    print \"\\nClassifying \u0027{}\u0027\".format(key)\n    assembleFeatureVectors(value)\n\n    # Split the data into training and test sets (20% held out for testing)\n    (trainingData, testData) \u003d alldataDF.randomSplit([0.8, 0.2], seed\u003d1)    \n    \n    classifiers \u003d [DecisionTreeClassifier(labelCol\u003d\"label\", featuresCol\u003d\"features\", maxDepth\u003d5), RandomForestClassifier(labelCol\u003d\"label\", featuresCol\u003d\"features\", numTrees\u003d10, maxDepth\u003d5)]\n    \n    model_labels \u003d np.array([\u0027DecisionTree\u0027, \u0027RandomForest\u0027, \u0027GBT\u0027])\n    model_errors \u003d np.array([])\n        \n    for index, classifier in enumerate(classifiers):\n        model \u003d classifier.fit(trainingData)\n        predictions \u003d model.transform(testData).cache()\n    \n        evaluator \u003d MulticlassClassificationEvaluator(labelCol\u003d\"label\", predictionCol\u003d\"prediction\", metricName\u003d\"accuracy\")\n        accuracy \u003d round(evaluator.evaluate(predictions),4)\n        model_err \u003d 1.0 - accuracy\n        model_errors \u003d np.append(model_errors, model_err)\n        \n        if(model_labels[index] \u003d\u003d \"DecisionTree\" and key \u003d\u003d \"accommodates\"):\n            tree_json(model.toDebugString)\n            \n        print \"{}) {}: Test Error - {} / Acurracy - {}\".format(index + 1, model_labels[index], model_err, accuracy)\n        ",
       "user": "anonymous",
-      "dateUpdated": "May 5, 2017 5:19:30 PM",
+      "dateUpdated": "May 5, 2017 5:24:30 PM",
       "config": {
-        "colWidth": 8.0,
+        "colWidth": 6.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
           "language": "python"
         },
         "editorMode": "ace/mode/python",
-        "editorHide": false
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -897,9 +901,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n\nIn summary, analyzing the results, we found two districts in the trade-off among price, cultural organizations and incidents: Queens and Bronx; where comparing these districts Queens outperform the Bronx in the diversity of accommodates. In relation the machine learning, we can conclude that the local is not so influent in to predict the price, but the room type. Besides, the cultural organizations have a strong relation with the data. Thus, we can conclude that cultural organization has a strong influence on listing price and where there are more cultural organizations is more expensive and consequently attracts more incidents.\n\n## Problems Found\n\nWe identified some points that can be problems found during the study: (i) The listings data set had problem to read it, and a workaround was done using R language; (ii) The Apache Spark regression evaluator has not the median absolute error metric, for this reason it was used sci-kit learn library.\n\n## Concluding Remarks\n\nThis study introduces an analysis trying to discover if the cultural organizations and incidents influence on listing price. The idea is to check the collinearity the features, try to predict the price using regression models, verify the level importance of the features chose and classify them using algorithms for classification. \n\nWe implemented and evaluated the New York City in relation with the Airbnb listings. The results show that where it has a more cultural organization, it has more incidents probability. Using Gradient Boosting Regression, we were able to fit a model that obtained a Median Absolute Error of \\$23.91 for all listing data. Besides, the cultural organization was the third feature more influent in the prediction of the price. In relation the classification using Decision Tree, we were able to classify the features with the minimum test error.\n\nFor a possible predictor to be used in practice, future work will need to be done to explore further and build more suitable models. Predicting a significantly skewed right response variable, price, yields a set of challenges that need to be addressed rather than predicting a particular price. Future works could consider population density, property price, and analysis by neighborhood.\n",
+      "text": "%md\n\nIn summary, analyzing the results, we found two districts in the trade-off among price, cultural organizations and incidents: Queens and Bronx; when comparing these districts, Queens outperformed the Bronx in the diversity of accommodates. In relation to the machine learning, we can conclude that the local is not so influent in to predict the price, but the room type. Besides, the cultural organizations have a strong relation with the data. Thus, we can conclude that cultural organization has a strong influence on listing price and where there are more cultural organizations is more expensive and consequently attracts more incidents.\n\n## Problems Found\n\nWe identified some points that can be problems found during the study: (i) The listings data set had problem to read it, and a workaround was done using R language; (ii) The Apache Spark regression evaluator has not the median absolute error metric, for this reason it was used sci-kit learn library.\n\n## Concluding Remarks\n\nThis study introduces an analysis trying to discover if the cultural organizations and incidents influence on listing price. The idea is to check the collinearity of the features, try to predict the price using regression models, verify the level importance of the features chose and classify them using algorithms for classification. \n\nWe implemented and evaluated the New York City in relation with the Airbnb listings. The results show that where it has a more cultural organization, it has more incidents probability. Using Gradient Boosting Regression, we were able to fit a model that obtained a Median Absolute Error of \\$23.91 for all listing data. Besides, the cultural organization was the third feature more influent in the prediction of the price. In relation the classification using Decision Tree, we were able to classify the features with the minimum test error.\n\nFor a possible predictor to be used in practice, future work will need to be done to explore further and build more suitable models. Predicting a significantly skewed right response variable, price, yields a set of challenges that need to be addressed rather than predicting a particular price. Future works could consider population density, property price, and analysis by neighborhood.\n",
       "user": "anonymous",
-      "dateUpdated": "May 5, 2017 5:20:18 PM",
+      "dateUpdated": "May 5, 2017 5:42:27 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -921,7 +925,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eIn summary, analyzing the results, we found two districts in the trade-off among price, cultural organizations and incidents: Queens and Bronx; where comparing these districts Queens outperform the Bronx in the diversity of accommodates. In relation the machine learning, we can conclude that the local is not so influent in to predict the price, but the room type. Besides, the cultural organizations have a strong relation with the data. Thus, we can conclude that cultural organization has a strong influence on listing price and where there are more cultural organizations is more expensive and consequently attracts more incidents.\u003c/p\u003e\n\u003ch2\u003eProblems Found\u003c/h2\u003e\n\u003cp\u003eWe identified some points that can be problems found during the study: (i) The listings data set had problem to read it, and a workaround was done using R language; (ii) The Apache Spark regression evaluator has not the median absolute error metric, for this reason it was used sci-kit learn library.\u003c/p\u003e\n\u003ch2\u003eConcluding Remarks\u003c/h2\u003e\n\u003cp\u003eThis study introduces an analysis trying to discover if the cultural organizations and incidents influence on listing price. The idea is to check the collinearity the features, try to predict the price using regression models, verify the level importance of the features chose and classify them using algorithms for classification. \u003c/p\u003e\n\u003cp\u003eWe implemented and evaluated the New York City in relation with the Airbnb listings. The results show that where it has a more cultural organization, it has more incidents probability. Using Gradient Boosting Regression, we were able to fit a model that obtained a Median Absolute Error of \\$23.91 for all listing data. Besides, the cultural organization was the third feature more influent in the prediction of the price. In relation the classification using Decision Tree, we were able to classify the features with the minimum test error.\u003c/p\u003e\n\u003cp\u003eFor a possible predictor to be used in practice, future work will need to be done to explore further and build more suitable models. Predicting a significantly skewed right response variable, price, yields a set of challenges that need to be addressed rather than predicting a particular price. Future works could consider population density, property price, and analysis by neighborhood.\u003c/p\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eIn summary, analyzing the results, we found two districts in the trade-off among price, cultural organizations and incidents: Queens and Bronx; when comparing these districts, Queens outperformed the Bronx in the diversity of accommodates. In relation to the machine learning, we can conclude that the local is not so influent in to predict the price, but the room type. Besides, the cultural organizations have a strong relation with the data. Thus, we can conclude that cultural organization has a strong influence on listing price and where there are more cultural organizations is more expensive and consequently attracts more incidents.\u003c/p\u003e\n\u003ch2\u003eProblems Found\u003c/h2\u003e\n\u003cp\u003eWe identified some points that can be problems found during the study: (i) The listings data set had problem to read it, and a workaround was done using R language; (ii) The Apache Spark regression evaluator has not the median absolute error metric, for this reason it was used sci-kit learn library.\u003c/p\u003e\n\u003ch2\u003eConcluding Remarks\u003c/h2\u003e\n\u003cp\u003eThis study introduces an analysis trying to discover if the cultural organizations and incidents influence on listing price. The idea is to check the collinearity of the features, try to predict the price using regression models, verify the level importance of the features chose and classify them using algorithms for classification. \u003c/p\u003e\n\u003cp\u003eWe implemented and evaluated the New York City in relation with the Airbnb listings. The results show that where it has a more cultural organization, it has more incidents probability. Using Gradient Boosting Regression, we were able to fit a model that obtained a Median Absolute Error of \\$23.91 for all listing data. Besides, the cultural organization was the third feature more influent in the prediction of the price. In relation the classification using Decision Tree, we were able to classify the features with the minimum test error.\u003c/p\u003e\n\u003cp\u003eFor a possible predictor to be used in practice, future work will need to be done to explore further and build more suitable models. Predicting a significantly skewed right response variable, price, yields a set of challenges that need to be addressed rather than predicting a particular price. Future works could consider population density, property price, and analysis by neighborhood.\u003c/p\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -929,8 +933,8 @@
       "jobName": "paragraph_1493985764278_1958125697",
       "id": "20170505-090244_652597901",
       "dateCreated": "May 5, 2017 9:02:44 AM",
-      "dateStarted": "May 5, 2017 5:20:18 PM",
-      "dateFinished": "May 5, 2017 5:20:18 PM",
+      "dateStarted": "May 5, 2017 5:42:27 PM",
+      "dateFinished": "May 5, 2017 5:42:27 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -984,6 +988,9 @@
     "2CFJ3M9BB:shared_process": [],
     "2CE3TQDAW:shared_process": []
   },
-  "config": {},
+  "config": {
+    "looknfeel": "report",
+    "personalizedMode": "false"
+  },
   "info": {}
 }
