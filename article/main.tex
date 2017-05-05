@@ -41,7 +41,7 @@
 \renewcommand{\shorttitle}{Airbnb - New York’s Analysis}
 
 \begin{abstract}
-	Airbnb is an outstanding hosting service used worldwide and provides information to its users in a simple and efficient manner. In this work, an analysis is made taking into account if incidents and cultural organizations influence the prices practiced in Airbnb. To help in this task, the present work performs an analysis using charts, maps and different types of machine learning. The data reveals that Queens district has a fair trade-off among price, cultural organization, and incidents, as well as, the accommodates diversity. Besides, the cultural organization has a high influence in to predict price.
+	Airbnb is an outstanding hosting service used worldwide and provides information to its users in a simple and efficient manner. In this study, an analysis is made taking into account if incidents and cultural organizations influence the prices practiced in Airbnb. To help in this task, the present study performs an analysis using charts, maps and different types of machine learning. The data reveals that Queens district has a fair trade-off among price, cultural organization, and incidents, as well as, the accommodates diversity. Besides, the cultural organization has a high influence in the price prediction.
 \end{abstract}
 
 %\keywords{BigData, Machine Learning, Airbnb} 
@@ -56,23 +56,23 @@
 
 In some moments, the guests want to a local to be cheaper or more attractive considering local events to appreciate, besides a safe local is arguably necessary. Considering the Airbnb listing from New York City (NYC), how the cultural organizations and incidents impacts on listing price? 
 
-The paper is organized as follows. Section~\ref{sec:experiment_description} describes how the experimental evaluation was conducted. Section~\ref{sec:results} presents and analyses the results obtained. Section~\ref{sec:problemsfound}, describes the problems found during the work. Finally, Section~\ref{sec:conclusion} concludes the paper and discusses the future work.
+The paper is organized as follows. Section~\ref{sec:experiment_description} describes how the experimental evaluation was conducted. Section~\ref{sec:results} presents and analyses the results obtained. Section~\ref{sec:problemsfound}, describes the problems found during the study. Finally, Section~\ref{sec:conclusion} concludes the paper and discusses the future work.
 
 %\vspace{-0.2cm}
 \section{Experiment Description}
 \label{sec:experiment_description}
 
-The hypothesis of this work\footnote{The project is available at https://github.com/jacksonpradolima/airbnb-ny-analysis} is that our approach is capable of found the influence of cultural organizations and incidents in to predict listing price as well as recommending a cheap and safe local (district/borough). 
+The hypothesis of this study\footnote{The project is available at https://github.com/jacksonpradolima/airbnb-ny-analysis} is that our approach is able to find the influence of cultural organizations and incidents in to predict listing price as well as recommending a cheap and safe local (district/borough). 
 
 According to our goals the experiment was guided by the following research question: ``How the incidents and cultural organizations impact on listing price?''.
 
-To answer the research question, we compared the result shows on maps, a collinearity matrix among the features, and how the accommodates are distributed. Additionally, we used a machine learning with seven regression models, and the results were compared using Median Absolute Error. Besides, two algorithms for classification were used to see the difficult to predict the most influent features.
+To answer the research question, we compared the result showed on maps, a collinearity matrix among the features, and how the accommodates are distributed. Additionally, we used a machine learning with seven regression models, and the results were compared using Median Absolute Error. Besides, two algorithms for classification were used to see the difficult to predict the most influent features.
 
 %\vspace{-0.2cm}
 \subsection{Target Data}
 \label{sec:experiment_description:target_data}
 
-The investigation focused on four datasets collected in open data sites. These datasets are as follows: 1) Listings, a dataset that is an Airbnb snapshot of 02 April 2017 from NYC; 2) Incidents, contains all incidents from NYC for the year 2016; 3) Cultural Organizations, contains all cultural organizations from NYC in 2017; and 4) NYC Borough, contains information about boundaries of boroughs (districts). Further information about these datasets is available in Table~\ref{tab:datasets}.
+The investigation focused on four datasets collected in open data sites: 1) Listings; 2) Incidents; 3) Cultural Organizations; and 4) NYC Borough. Further information about these datasets is available in Table~\ref{tab:datasets}.
 
 %\vspace{-0.2cm}
 \begin{table}[!htpb]
@@ -85,7 +85,7 @@ The investigation focused on four datasets collected in open data sites. These d
 		         \textbf{Dataset}          & \textbf{Description}                                                                                                                   & \textbf{Size} & \textbf{Format} \\ \midrule
 		   Listings~\cite{base:airbnb}     & Detailed listings data, including various attributes (features) of each listing such as number of bedrooms, bathrooms, location, etc.  &    153,7MB    &       csv       \\ \midrule
 		 Incidents~\cite{base:incidents}   & All valid felony, misdemeanor, and violation crimes reported to the New York City Police Department for all complete quarters in 2016. &    124,2MB    &       csv       \\ \midrule
-		Cultural Org.~\cite{base:cultural} & Listing of all Cultural Organizations in the Department of Cultural Affairs directory.                                                 &    333,3kB    &       csv       \\ \midrule
+		Cultural Org.~\cite{base:cultural} & Listing of all Cultural Organizations in the Department of Cultural Affairs directory (2017).                                                 &    333,3kB    &       csv       \\ \midrule
 		 NYC Borough~\cite{base:borough}   & Polygon boundaries of boroughs (water areas excluded).                                                                                 &    400,5kB    &     GeoJson     \\ \bottomrule
 	\end{tabular}
 \end{table}
@@ -93,14 +93,14 @@ The investigation focused on four datasets collected in open data sites. These d
 %\vspace{-0.2cm}
 %\subsection{Integration Data}
 %
-%To help in the analyses, the Cultural Organizations and Incidents dataset received a score. How we have 5 districts in New York, and to be easy, the Cultural Organizations and Incidents dataset were grouped and ranked in relation to the order (0-4), where 0 is the worst and 4 the best. In this case, the datasets were ordered by the number in each district, ascendant for Cultural Organizations and descendant for the Incidents. In the end, it was create a unique data frame with the necessary informations that contains 37043 rows. 
+To help in the analyses, the Cultural Organizations and Incidents dataset received a score. Since we have 5 districts in New York, and to simplify, the Cultural Organizations and Incidents dataset were grouped and ranked in relation to the order (1-5), where 1 is the worst and 5 the best. In this case, the datasets were ordered by the number in each district, ascendant for Cultural Organizations and descendant for the Incidents. In the end, it was create a unique data frame with the necessary informations that contains 37043 rows. 
 
 \section{Results and Analysis}
 \label{sec:results}
 
 This section shows and discusses the results to answer the research question.
 
-Figure~\ref{fig:pairwiserelationsprincipalfeatures} shows, per district, a matrix of each feature as a function of another which is useful to check for any collinearity among the features. The cells running through the diagonal of the matrix contain a histogram with its values on the X axis. The features chose to be analyzed were: price, cultural organizations, and incidents.
+Figure~\ref{fig:pairwiserelationsprincipalfeatures} shows, per district, a matrix of each feature as a function of another which is useful to check for any collinearity among the features. The cells running through the diagonal of the matrix contain a histogram with its values on the X axis. The features chosen to be analyzed were: price, cultural organizations, and incidents.
 
 \begin{figure}[!htpb]
 	\centering
@@ -115,7 +115,7 @@ Figure~\ref{fig:pairwiserelationsprincipalfeatures} shows, per district, a matri
 %J: Old
 %Based on the figure, we do see that the results are loosely related and not resemblance of a straight line. Thus, there is no strong evidence of collinearity among the features. However, we can observe that Queens and Bronx are in the trade-off among the features. To help in to check this observation, Figure~\ref{fig:datadistribution:price} shows that Manhattan district has the highest listings mean price, and Queens and Bronx are the lowest. In Figure~\ref{fig:datadistribution:cultural}, we can observe that Manhattan stands out followed by Brooklyn. On the other hand, Brooklyn stands out followed by Manhattan when we considers incidents (Figure~\ref{fig:datadistribution:incidents}). In this sense, we can to affirm that Queens and Bronx have the best trade-off among mean price, cultural organizations and incidents.
 
-Based on the figure, we do see that Queens and Bronx are in the trade-off among the features. To help in to check this observation, Figure~\ref{fig:datadistribution:price} shows that Manhattan district has the highest listings mean price, and Queens and Bronx are the lowest. In Figure~\ref{fig:datadistribution:cultural}, we can observe that Manhattan stands out followed by Brooklyn. On the other hand, Brooklyn stands out followed by Manhattan when we consider incidents (Figure~\ref{fig:datadistribution:incidents}). In this sense, we can affirm that Queens and Bronx have the best trade-off among mean price, cultural organizations and incidents.
+Based on the figure, we do see that Queens and Bronx are in the trade-off among the features. To help checking this observation, Figure~\ref{fig:datadistribution:price} shows that Manhattan district has the highest listings mean price, and Queens and Bronx are the lowest. In Figure~\ref{fig:datadistribution:cultural}, we can observe that Manhattan stands out followed by Brooklyn. On the other hand, Brooklyn stands out followed by Manhattan when we consider incidents (Figure~\ref{fig:datadistribution:incidents}). In this sense, we can affirm that Queens and Bronx have the best trade-off among mean price, cultural organizations and incidents. Besides, the price is more distributed in highest cultural organizations scores and in the lowest incidents score, where we can see that these features are correlated.
 
 %\begin{figure}[!htpb]
 %	\centering
@@ -165,7 +165,7 @@ Based on the figure, we do see that Queens and Bronx are in the trade-off among 
 	\label{fig:datadistribution:incidents}
 \end{figure}
 
-Figure~\ref{fig:meanpriceperaccomodate} shows mean price grouped by the number of people that can be accommodated (number of beds)  with a limited of four accommodates, when we can begin see differences, per district: Queens, Manhattan, Bronx, Brooklyn, and Staten Island. We can observe that Manhattan's district has more options than other ones. It's interesting to highlight Queens district outperformed the Bronx in the diversity of accommodates. 
+Figure~\ref{fig:meanpriceperaccomodate} shows mean price grouped by the number of people that can be accommodated (number of beds) with a limited of four accommodates, price less than \$1000 and a minimum of 50 listings, when we can begin see differences for a cheap local with diversity, per district: Queens, Manhattan, Bronx, Brooklyn, and Staten Island. We can observe that Manhattan's district has more options than other ones. It's interesting to highlight Queens district outperformed the Bronx in the diversity of accommodates. 
 
 \begin{figure}[!htpb]
 	\centering
@@ -174,42 +174,31 @@ Figure~\ref{fig:meanpriceperaccomodate} shows mean price grouped by the number o
 	\label{fig:meanpriceperaccomodate}
 \end{figure}
 
-Next, we used machine learning and for this we split our dataset into an 80\% train and 20\% test. In this step, we run seven regression models: Linear Regression, Ridge Regression, Lasso Regression, Elastic Net, Bayes Ridge Regression, Orthogonal Matching Pursuit (OMP), and Gradient Boosting Regressor (GBR); and two algorithms for classification: Decision Tree and Random Forest. First, we compared the regression models, where GBR was tunned with 300 iterations and used an exhaustive "grid search" which only tries all the supplied parameter combinations and uses cross-validation folding to find the best one.
+Next, we used machine learning and for this we split our dataset into an 80\% train and 20\% test and the informations chosen from the dataset were:  \textit{price}, \textit{accommodates}, \textit{bedrooms}, \textit{beds}, \textit{district}, \textit{room type}, \textit{cancellation policy}, \textit{instant bookable}, \textit{reviews per month}, \textit{number of reviews}, \textit{availability 30} and \textit{review scores rating}. In the case of the columns that contain categorical variables these were handled in slightly different ways depending on their possible values and these values were transformed into new columns. 
 
-Figure~\ref{fig:medianabsoluteerrorprice} shows the regression models their Median Absolute Error. Intuitively, Median Absolute Error is less sensitive to outliers than Mean Squared Error and translates nicely to a dollar amount that is about price.
+We run seven regression models: Linear Regression, Ridge Regression, Lasso Regression, Elastic Net, Bayes Ridge Regression, Orthogonal Matching Pursuit (OMP), and Gradient Boosting Regressor (GBR); and two algorithms for classification: Decision Tree and Random Forest. First, we compared the regression models, where GBR was tunned with 300 iterations and used an exhaustive "grid search" which only tries all the supplied parameter combinations and uses cross-validation folding to find the best one.
+
+Figure~\ref{fig:medianabsoluteerrorprice} shows the regression models by their Median Absolute Error. Intuitively, Median Absolute Error is less sensitive to outliers than Mean Squared Error and translates nicely to a dollar amount that is about price.
 
 \begin{figure}[!htpb]
 	\centering
-	\includegraphics[width=\linewidth]{images/median_absolute_error_price}
+	\includegraphics[width=0.8\linewidth]{images/median_absolute_error_price}
 	\caption{Price - Median Absolute Error}
 	\label{fig:medianabsoluteerrorprice}
 \end{figure}
 
-When analyzing these estimators by their Median Absolute Error, we see that GBR outperforms the other ones with a Median Absolute Error of \$23.86, approximately 31\% less than Lasso Regression that appear in second with a Median Absolute Error of \$34.59. 
-
-%Figure~\ref{fig:gradientboostingregressorprice} shows how the error is affected by each round of boosting.
-
-%\begin{figure}[!htpb]
-%		\centering
-%		\includegraphics[width=\linewidth]{images/gradient_boosting_regressor_price}
-%		\caption{Gradient Boosting Regressor - Error values affected by each round of boosting}
-%		\label{fig:gradientboostingregressorprice}
-%\end{figure}
-
-%We can observe in Figure~\ref{fig:gradientboostingregressorprice} that the graph begins to converge between 150 and 200 iterations, but is still benefiting from more iterations, so we could increase the iterations to increase the results. 
-
-After, we calculate the feature importances to see which features were most influential in predicting the listing price, Figure~\ref{fig:featureimportanc_gridSearchCVprice}. This show a relative scoring of how important each feature is about the feature with the most importance.
+When analyzing these estimators by their Median Absolute Error, we see that GBR outperforms the other ones with a Median Absolute Error of \$23.86, approximately 31\% less than Lasso Regression that appear in second with a Median Absolute Error of \$34.59. Then, we calculate the feature importances to see which features were most influential in predicting the listing price, Figure~\ref{fig:featureimportanc_gridSearchCVprice}. This show a relative scoring of how important each feature is about the feature with the most importance.
 
 \begin{figure}[!htpb]
 	\centering
-	\includegraphics[width=\linewidth]{images/feature_importance_gridSearchCV_price}
+	\includegraphics[width=0.9\linewidth]{images/feature_importance_gridSearchCV_price}
 	\caption{Gradient Boosting Regressor - Feature Importance}
 	\label{fig:featureimportanc_gridSearchCVprice}
 \end{figure}
 
-Clearly, some of the variables have more influence than others, and the most important feature is the ``Entire home/apt'' attribute; this indicates whether or not the unit is shared with other people, and has the most effect in setting the price. This feature is followed by accommodates, cultural organizations and Manhattan district, and the feature incidents were not so influent.
+Clearly, some of the variables have more influence than others, and the most important feature is the \textit{Entire home/apt} attribute; this indicates whether or not the unit is shared with other people, and has the most effect in setting the price. This feature is followed by accommodates, cultural organizations and Manhattan district, and the feature incidents were not so influent.
 
-In the last, we tried to predict the three most influent features using algorithms for classification. Table~\ref{tab:classification} shows in bold the best test error values.
+By last, we tried to predict each one the three most influent features for the GBR model, Figure~\ref{fig:featureimportanc_gridSearchCVprice}, using algorithms for classification. Table~\ref{tab:classification} shows in bold the best test error values. The Decision Tree outperforms Random Forest and the feature with more difficult to predict was \textit{accommodates}.
 
 \begin{table}[!htpb]
 	\fontsize{7pt}{7pt}\selectfont
@@ -225,17 +214,17 @@ In the last, we tried to predict the three most influent features using algorith
 	\end{tabular}
 \end{table}
 
-Analyzing the results, we found two districts in the trade-off among price, cultural organizations and incidents: Queens and Bronx; where comparing these districts Queens outperform the Bronx in the diversity of accommodates. In relation the regression models, we can conclude that the local is not so influent in to predict the price, but the room type. In relation the algorithms for classification, the Decision Tree outperforms Random Forest and the feature with more difficult to predict was ``Accommodates''. Besides, the cultural organizations have a strong relation with the data where there was not test error. Thus, we can conclude that cultural organization has a strong influence on listing price and where there are more cultural organizations is more expensive and consequently attracts more incidents.
+In summary, analyzing the results, we found two districts in the trade-off among price, cultural organizations and incidents: Queens and Bronx; when comparing these districts, Queens outperformed the Bronx in the diversity of accommodates. In relation to the machine learning, we can conclude that the local is not so influent in to predict the price, but the room type. Besides, the cultural organizations have a strong relation with the data. Thus, we can conclude that cultural organization has a strong influence on listing price and where there are more cultural organizations is more expensive and consequently attracts more incidents.
 
 \section{Problems Found}
 \label{sec:problemsfound}
 
-We identified some points that can be problems found during the work: (i) The listings data set had problem to read it, and a workaround was done using R language; (ii) The Apache Spark regression evaluator has not the median absolute error metric, for this reason it was used sci-kit learn library.
+We identified some points that can be problems found during the study: (i) The listings data set had problem to read it, and a workaround was done using R language; (ii) The Apache Spark regression evaluator has not the median absolute error metric, for this reason it was used sci-kit learn library.
 
 \section{Concluding Remarks}
 \label{sec:conclusion}
 
-This work introduces an analysis trying to discover if the cultural organizations and incidents influence on listing price. The idea is to check the collinearity the features, try to predict the price using regression models, verify the level importance of the features chose and classify them using algorithms for classification. 
+This study introduces an analysis trying to discover if the cultural organizations and incidents influence on listing price. The idea is to check the collinearity of the features, try to predict the price using regression models, verify the level importance of the features chose and classify them using algorithms for classification. 
 
 We implemented and evaluated the New York City in relation with the Airbnb listings. The results show that where it has a more cultural organization, it has more incidents probability. Using Gradient Boosting Regression, we were able to fit a model that obtained a Median Absolute Error of \$23.91 for all listing data. Besides, the cultural organization was the third feature more influent in the prediction of the price. In relation the classification using Decision Tree, we were able to classify the features with the minimum test error.
 
