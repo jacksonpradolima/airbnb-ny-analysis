@@ -1,9 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "%md\n# Airbnb - New York’s Analysis\n\n## Abstract\nAirbnb is an outstanding hosting service used worldwide and provides information to its users in a simple and efficient manner. In this work, an analysis is made taking into account if incidents and cultural organizations influence the prices practiced in Airbnb. Besides, the prediction of new prices is carried out that the user can come to inform taking into account information of the current listings. The price forecast has some advantages when advising the user: on the price practiced (is too large or small), the mode of advertisement, or even on the investment decisions of the market analysis. To help in this task, the present work performs an analysis using charts, maps and different types of machine learning. The data reveals that Queens district has a fair trade-off among price, cultural organization, and incidents, as well as, the accommodates diversity. Besides, the cultural organization has a high influence in to predict price.\n\n## Introduction\n\nAirbnb was founded in August of 2008 and based in San Francisco, California. Airbnb is an online marketplace and hospitality service, enabling people to lease or rent short-term lodging including vacation rentals, apartment rentals, homestays, hostel beds, or hotel rooms. \n\nConsidering the Airbnb listing, how can we predict a price or if the cultural organizations and incidents impacts on listing price? In some moments, the guests want to a local to be cheaper or more attractive considering local events to appreciate. Thus, predicting an affordable and safe local is arguably necessary. In this paper, we try and capture this characteristic using maps, charts and machine learning to help the guest in the chose.\n\n## Experiment Description\n\nThe hypothesis of this work is that our approach is capable of recommending a cheap and safe local (district/borough) as well as consider the influence of this aspect in to predict listing price. \n\nAccording to our goals the experiment was guided by the following researches questions: **RQ1**: ``How the incidents and cultural organizations impact on listing price?`` and **RQ2**: ``How the incidents and cultural organizations impact on regression model to predict the listing price?``.\n\nTo answer the RQ1, we compared the result shows on maps, a collinearity matrix among the features, and how the accommodates are distributed. To answer the RQ2, we used a machine learning with seven regression models, and the results were compared using Median Absolute Error.\n\n### Target Data\n\nThe investigation focused on four datasets collected in open data sites. These datasets are as follows: 1) Listings, a dataset that is an Airbnb snapshot of 02 April 2017; 2) Incidents, contains all incidents from New York for the year 2016; 3) Cultural Organizations, contains all cultural organizations from New York in 2017; and 4) NYC Borough, contains information about boundaries of boroughs (districts).\n\n| Dataset | Description | Size | Format |\n| ------- | ----------- | ---- | ------ |\n| Listings | Detailed listings data, including various attributes (features) of each listing such as number of bedrooms, bathrooms, location, etc. Date Compiled on **02 April, 2017** | 153,7MB | [gz](http://data.insideairbnb.com/united-states/ny/new-york-city/2017-04-02/data/listings.csv.gz) |\n| Incidents | All valid felony, misdemeanor, and violation crimes reported to the New York City Police Department (NYPD) for all complete quarters in 2016. | 124,2MB | [csv](https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Current-YTD/5uac-w243/data) |\n| Cultural Organizations | Listing of all Cultural Organizations in the Department of Cultural Affairs directory. | 333,3kB | [csv](https://data.cityofnewyork.us/Recreation/DCLA-Cultural-Organizations/u35m-9t32) |\n| NYC Borough | Polygon boundaries of boroughs (water areas excluded). | 400,5kB | [GeoJson](http://data.beta.nyc/dataset/nyc-borough-boundaries/resource/7c164faa-4458-4ff2-9ef0-09db00b509ef?view_id\u003d8c05eff7-54d1-4359-8183-0e278e91b01a) |\n\n### Integration Data\n\nTo help in the analyses, the Cultural Organizations and Incidents dataset received a score. How we have 5 districts in New York, and to be easy, the Cultural Organizations and Incidents dataset were grouped and ranked in relation to the order (1-5), where 1 is the worst and 5 the best. In this case, the datasets were ordered by the number in each district, ascendant for Cultural Organizations and descendant for the Incidents. In the end, it was create a unique data frame with the necessary informations that contains **37043** rows. \n",
+      "text": "%md\n# Airbnb - New York’s Analysis\n\n## Abstract\nAirbnb is an outstanding hosting service used worldwide and provides information to its users in a simple and efficient manner. In this study, an analysis is made taking into account if incidents and cultural organizations influence the prices practiced in Airbnb. To help in this task, the present study performs an analysis using charts, maps and different types of machine learning. The data reveals that Queens district has a fair trade-off among price, cultural organization, and incidents, as well as, the accommodates diversity. Besides, the cultural organization has a high influence in the price prediction.\n\n## Introduction\n\nIn some moments, the guests want to a local to be cheaper or more attractive considering local events to appreciate, besides a safe local is arguably necessary. Considering the Airbnb listing from New York City (NYC), how the cultural organizations and incidents impacts on listing price? \n\n## Experiment Description\n\nThe hypothesis of this study is that our approach is capable of found the influence of cultural organizations and incidents in to predict listing price as well as recommending a cheap and safe local (district/borough). \n\nAccording to our goals the experiment was guided by the following research question: ``How the incidents and cultural organizations impact on listing price?``\n\nTo answer the research question, we compared the result shows on maps, a collinearity matrix among the features, and how the accommodates are distributed. Additionally, we used a machine learning with seven regression models, and the results were compared using Median Absolute Error. Besides, two algorithms for classification were used to see the difficult to predict the most influent features.\n\n### Target Data\n\nThe investigation focused on four datasets collected in open data sites. These datasets are as follows: 1) Listings, a dataset that is an Airbnb snapshot of 02 April 2017; 2) Incidents, contains all incidents from New York for the year 2016; 3) Cultural Organizations, contains all cultural organizations from New York in 2017; and 4) NYC Borough, contains information about boundaries of boroughs (districts).\n\n| Dataset | Description | Size | Format |\n| ------- | ----------- | ---- | ------ |\n| Listings | Detailed listings data, including various attributes (features) of each listing such as number of bedrooms, bathrooms, location, etc. Date Compiled on **02 April, 2017** | 153,7MB | [gz](http://data.insideairbnb.com/united-states/ny/new-york-city/2017-04-02/data/listings.csv.gz) |\n| Incidents | All valid felony, misdemeanor, and violation crimes reported to the New York City Police Department (NYPD) for all complete quarters in 2016. | 124,2MB | [csv](https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Current-YTD/5uac-w243/data) |\n| Cultural Organizations | Listing of all Cultural Organizations in the Department of Cultural Affairs directory. | 333,3kB | [csv](https://data.cityofnewyork.us/Recreation/DCLA-Cultural-Organizations/u35m-9t32) |\n| NYC Borough | Polygon boundaries of boroughs (water areas excluded). | 400,5kB | [GeoJson](http://data.beta.nyc/dataset/nyc-borough-boundaries/resource/7c164faa-4458-4ff2-9ef0-09db00b509ef?view_id\u003d8c05eff7-54d1-4359-8183-0e278e91b01a) |\n\n### Integration Data\n\nTo help in the analyses, the Cultural Organizations and Incidents dataset received a score. How we have 5 districts in New York, and to be easy, the Cultural Organizations and Incidents dataset were grouped and ranked in relation to the order (1-5), where 1 is the worst and 5 the best. In this case, the datasets were ordered by the number in each district, ascendant for Cultural Organizations and descendant for the Incidents. In the end, it was create a unique data frame with the necessary informations that contains **37043** rows. \n",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 6:26:41 PM",
+      "dateUpdated": "May 5, 2017 5:01:29 PM",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -25,7 +25,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eAirbnb - New York’s Analysis\u003c/h1\u003e\n\u003ch2\u003eAbstract\u003c/h2\u003e\n\u003cp\u003eAirbnb is an outstanding hosting service used worldwide and provides information to its users in a simple and efficient manner. In this work, an analysis is made taking into account if incidents and cultural organizations influence the prices practiced in Airbnb. Besides, the prediction of new prices is carried out that the user can come to inform taking into account information of the current listings. The price forecast has some advantages when advising the user: on the price practiced (is too large or small), the mode of advertisement, or even on the investment decisions of the market analysis. To help in this task, the present work performs an analysis using charts, maps and different types of machine learning. The data reveals that Queens district has a fair trade-off among price, cultural organization, and incidents, as well as, the accommodates diversity. Besides, the cultural organization has a high influence in to predict price.\u003c/p\u003e\n\u003ch2\u003eIntroduction\u003c/h2\u003e\n\u003cp\u003eAirbnb was founded in August of 2008 and based in San Francisco, California. Airbnb is an online marketplace and hospitality service, enabling people to lease or rent short-term lodging including vacation rentals, apartment rentals, homestays, hostel beds, or hotel rooms. \u003c/p\u003e\n\u003cp\u003eConsidering the Airbnb listing, how can we predict a price or if the cultural organizations and incidents impacts on listing price? In some moments, the guests want to a local to be cheaper or more attractive considering local events to appreciate. Thus, predicting an affordable and safe local is arguably necessary. In this paper, we try and capture this characteristic using maps, charts and machine learning to help the guest in the chose.\u003c/p\u003e\n\u003ch2\u003eExperiment Description\u003c/h2\u003e\n\u003cp\u003eThe hypothesis of this work is that our approach is capable of recommending a cheap and safe local (district/borough) as well as consider the influence of this aspect in to predict listing price. \u003c/p\u003e\n\u003cp\u003eAccording to our goals the experiment was guided by the following researches questions: \u003cstrong\u003eRQ1\u003c/strong\u003e: \u003ccode\u003eHow the incidents and cultural organizations impact on listing price?\u003c/code\u003e and \u003cstrong\u003eRQ2\u003c/strong\u003e: \u003ccode\u003eHow the incidents and cultural organizations impact on regression model to predict the listing price?\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eTo answer the RQ1, we compared the result shows on maps, a collinearity matrix among the features, and how the accommodates are distributed. To answer the RQ2, we used a machine learning with seven regression models, and the results were compared using Median Absolute Error.\u003c/p\u003e\n\u003ch3\u003eTarget Data\u003c/h3\u003e\n\u003cp\u003eThe investigation focused on four datasets collected in open data sites. These datasets are as follows: 1) Listings, a dataset that is an Airbnb snapshot of 02 April 2017; 2) Incidents, contains all incidents from New York for the year 2016; 3) Cultural Organizations, contains all cultural organizations from New York in 2017; and 4) NYC Borough, contains information about boundaries of boroughs (districts).\u003c/p\u003e\n\u003ctable\u003e\n  \u003cthead\u003e\n    \u003ctr\u003e\n      \u003cth\u003eDataset \u003c/th\u003e\n      \u003cth\u003eDescription \u003c/th\u003e\n      \u003cth\u003eSize \u003c/th\u003e\n      \u003cth\u003eFormat \u003c/th\u003e\n    \u003c/tr\u003e\n  \u003c/thead\u003e\n  \u003ctbody\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eListings \u003c/td\u003e\n      \u003ctd\u003eDetailed listings data, including various attributes (features) of each listing such as number of bedrooms, bathrooms, location, etc. Date Compiled on \u003cstrong\u003e02 April, 2017\u003c/strong\u003e \u003c/td\u003e\n      \u003ctd\u003e153,7MB \u003c/td\u003e\n      \u003ctd\u003e\u003ca href\u003d\"http://data.insideairbnb.com/united-states/ny/new-york-city/2017-04-02/data/listings.csv.gz\"\u003egz\u003c/a\u003e \u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eIncidents \u003c/td\u003e\n      \u003ctd\u003eAll valid felony, misdemeanor, and violation crimes reported to the New York City Police Department (NYPD) for all complete quarters in 2016. \u003c/td\u003e\n      \u003ctd\u003e124,2MB \u003c/td\u003e\n      \u003ctd\u003e\u003ca href\u003d\"https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Current-YTD/5uac-w243/data\"\u003ecsv\u003c/a\u003e \u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eCultural Organizations \u003c/td\u003e\n      \u003ctd\u003eListing of all Cultural Organizations in the Department of Cultural Affairs directory. \u003c/td\u003e\n      \u003ctd\u003e333,3kB \u003c/td\u003e\n      \u003ctd\u003e\u003ca href\u003d\"https://data.cityofnewyork.us/Recreation/DCLA-Cultural-Organizations/u35m-9t32\"\u003ecsv\u003c/a\u003e \u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eNYC Borough \u003c/td\u003e\n      \u003ctd\u003ePolygon boundaries of boroughs (water areas excluded). \u003c/td\u003e\n      \u003ctd\u003e400,5kB \u003c/td\u003e\n      \u003ctd\u003e\u003ca href\u003d\"http://data.beta.nyc/dataset/nyc-borough-boundaries/resource/7c164faa-4458-4ff2-9ef0-09db00b509ef?view_id\u003d8c05eff7-54d1-4359-8183-0e278e91b01a\"\u003eGeoJson\u003c/a\u003e \u003c/td\u003e\n    \u003c/tr\u003e\n  \u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch3\u003eIntegration Data\u003c/h3\u003e\n\u003cp\u003eTo help in the analyses, the Cultural Organizations and Incidents dataset received a score. How we have 5 districts in New York, and to be easy, the Cultural Organizations and Incidents dataset were grouped and ranked in relation to the order (1-5), where 1 is the worst and 5 the best. In this case, the datasets were ordered by the number in each district, ascendant for Cultural Organizations and descendant for the Incidents. In the end, it was create a unique data frame with the necessary informations that contains \u003cstrong\u003e37043\u003c/strong\u003e rows.\u003c/p\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eAirbnb - New York’s Analysis\u003c/h1\u003e\n\u003ch2\u003eAbstract\u003c/h2\u003e\n\u003cp\u003eAirbnb is an outstanding hosting service used worldwide and provides information to its users in a simple and efficient manner. In this study, an analysis is made taking into account if incidents and cultural organizations influence the prices practiced in Airbnb. To help in this task, the present study performs an analysis using charts, maps and different types of machine learning. The data reveals that Queens district has a fair trade-off among price, cultural organization, and incidents, as well as, the accommodates diversity. Besides, the cultural organization has a high influence in the price prediction.\u003c/p\u003e\n\u003ch2\u003eIntroduction\u003c/h2\u003e\n\u003cp\u003eIn some moments, the guests want to a local to be cheaper or more attractive considering local events to appreciate, besides a safe local is arguably necessary. Considering the Airbnb listing from New York City (NYC), how the cultural organizations and incidents impacts on listing price? \u003c/p\u003e\n\u003ch2\u003eExperiment Description\u003c/h2\u003e\n\u003cp\u003eThe hypothesis of this study is that our approach is capable of found the influence of cultural organizations and incidents in to predict listing price as well as recommending a cheap and safe local (district/borough). \u003c/p\u003e\n\u003cp\u003eAccording to our goals the experiment was guided by the following research question: \u003ccode\u003eHow the incidents and cultural organizations impact on listing price?\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eTo answer the research question, we compared the result shows on maps, a collinearity matrix among the features, and how the accommodates are distributed. Additionally, we used a machine learning with seven regression models, and the results were compared using Median Absolute Error. Besides, two algorithms for classification were used to see the difficult to predict the most influent features.\u003c/p\u003e\n\u003ch3\u003eTarget Data\u003c/h3\u003e\n\u003cp\u003eThe investigation focused on four datasets collected in open data sites. These datasets are as follows: 1) Listings, a dataset that is an Airbnb snapshot of 02 April 2017; 2) Incidents, contains all incidents from New York for the year 2016; 3) Cultural Organizations, contains all cultural organizations from New York in 2017; and 4) NYC Borough, contains information about boundaries of boroughs (districts).\u003c/p\u003e\n\u003ctable\u003e\n  \u003cthead\u003e\n    \u003ctr\u003e\n      \u003cth\u003eDataset \u003c/th\u003e\n      \u003cth\u003eDescription \u003c/th\u003e\n      \u003cth\u003eSize \u003c/th\u003e\n      \u003cth\u003eFormat \u003c/th\u003e\n    \u003c/tr\u003e\n  \u003c/thead\u003e\n  \u003ctbody\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eListings \u003c/td\u003e\n      \u003ctd\u003eDetailed listings data, including various attributes (features) of each listing such as number of bedrooms, bathrooms, location, etc. Date Compiled on \u003cstrong\u003e02 April, 2017\u003c/strong\u003e \u003c/td\u003e\n      \u003ctd\u003e153,7MB \u003c/td\u003e\n      \u003ctd\u003e\u003ca href\u003d\"http://data.insideairbnb.com/united-states/ny/new-york-city/2017-04-02/data/listings.csv.gz\"\u003egz\u003c/a\u003e \u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eIncidents \u003c/td\u003e\n      \u003ctd\u003eAll valid felony, misdemeanor, and violation crimes reported to the New York City Police Department (NYPD) for all complete quarters in 2016. \u003c/td\u003e\n      \u003ctd\u003e124,2MB \u003c/td\u003e\n      \u003ctd\u003e\u003ca href\u003d\"https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Current-YTD/5uac-w243/data\"\u003ecsv\u003c/a\u003e \u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eCultural Organizations \u003c/td\u003e\n      \u003ctd\u003eListing of all Cultural Organizations in the Department of Cultural Affairs directory. \u003c/td\u003e\n      \u003ctd\u003e333,3kB \u003c/td\u003e\n      \u003ctd\u003e\u003ca href\u003d\"https://data.cityofnewyork.us/Recreation/DCLA-Cultural-Organizations/u35m-9t32\"\u003ecsv\u003c/a\u003e \u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eNYC Borough \u003c/td\u003e\n      \u003ctd\u003ePolygon boundaries of boroughs (water areas excluded). \u003c/td\u003e\n      \u003ctd\u003e400,5kB \u003c/td\u003e\n      \u003ctd\u003e\u003ca href\u003d\"http://data.beta.nyc/dataset/nyc-borough-boundaries/resource/7c164faa-4458-4ff2-9ef0-09db00b509ef?view_id\u003d8c05eff7-54d1-4359-8183-0e278e91b01a\"\u003eGeoJson\u003c/a\u003e \u003c/td\u003e\n    \u003c/tr\u003e\n  \u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch3\u003eIntegration Data\u003c/h3\u003e\n\u003cp\u003eTo help in the analyses, the Cultural Organizations and Incidents dataset received a score. How we have 5 districts in New York, and to be easy, the Cultural Organizations and Incidents dataset were grouped and ranked in relation to the order (1-5), where 1 is the worst and 5 the best. In this case, the datasets were ordered by the number in each district, ascendant for Cultural Organizations and descendant for the Incidents. In the end, it was create a unique data frame with the necessary informations that contains \u003cstrong\u003e37043\u003c/strong\u003e rows.\u003c/p\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -33,15 +33,16 @@
       "jobName": "paragraph_1493931483268_-183743261",
       "id": "20170504-120259_833065773",
       "dateCreated": "May 4, 2017 5:58:03 PM",
-      "dateStarted": "May 4, 2017 6:26:41 PM",
-      "dateFinished": "May 4, 2017 6:26:41 PM",
+      "dateStarted": "May 5, 2017 5:01:29 PM",
+      "dateFinished": "May 5, 2017 5:01:29 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\n\nfrom folium.features import *\nfrom geopy.geocoders import Nominatim\n\nimport folium \nimport folium.plugins\nimport functools\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport pygeoj\nimport pyspark.sql.functions as func\nimport seaborn as sb\n\nfrom sklearn import ensemble\nfrom sklearn import linear_model\nfrom sklearn import preprocessing\nfrom sklearn.grid_search import GridSearchCV\nfrom sklearn.cross_validation import train_test_split\nfrom sklearn.model_selection import cross_val_score\nimport sklearn.metrics as metrics\n\nfrom pyspark.ml.classification import DecisionTreeClassifier, RandomForestClassifier, GBTClassifier\nfrom pyspark.ml.evaluation import BinaryClassificationEvaluator, MulticlassClassificationEvaluator\nfrom pyspark.ml.feature import StringIndexer, VectorIndexer, VectorAssembler, SQLTransformer, OneHotEncoder\nfrom pyspark.sql.types import *\n",
+      "title": "Load Libraries",
+      "text": "%pyspark\n\nfrom folium.features import *\nfrom geopy.geocoders import Nominatim\n\nimport folium \nimport folium.plugins\nimport functools\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport pygeoj\nimport pyspark.sql.functions as func\nimport seaborn as sb\n\n#sci-kit learn\nfrom sklearn import ensemble\nfrom sklearn import linear_model\nfrom sklearn import preprocessing\nfrom sklearn.grid_search import GridSearchCV\nfrom sklearn.cross_validation import train_test_split\nfrom sklearn.model_selection import cross_val_score\nimport sklearn.metrics as metrics\n\n#MLlib\nfrom pyspark.ml.classification import DecisionTreeClassifier, RandomForestClassifier, GBTClassifier\nfrom pyspark.ml.evaluation import BinaryClassificationEvaluator, MulticlassClassificationEvaluator\nfrom pyspark.ml.feature import StringIndexer, VectorIndexer, VectorAssembler, SQLTransformer, OneHotEncoder\nfrom pyspark.sql.types import *\n",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 7:10:13 PM",
+      "dateUpdated": "May 5, 2017 9:15:18 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -51,38 +52,38 @@
           "editOnDblClick": false
         },
         "editorMode": "ace/mode/python",
-        "editorHide": false
+        "editorHide": false,
+        "title": true
       },
       "settings": {
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": []
-      },
       "apps": [],
       "jobName": "paragraph_1493933274887_1472355567",
       "id": "20170504-182754_1209043741",
       "dateCreated": "May 4, 2017 6:27:54 PM",
-      "dateStarted": "May 4, 2017 7:10:13 PM",
-      "dateFinished": "May 4, 2017 7:10:13 PM",
+      "dateStarted": "May 5, 2017 9:15:19 AM",
+      "dateFinished": "May 5, 2017 9:15:29 AM",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
+      "title": "Load  Data",
       "text": "%pyspark\n\ncultural_organizations \u003d sqlContext.read.format(\"com.databricks.spark.csv\").options(header\u003d\"true\", delimiter\u003d\",\", charset\u003d\"ISO-8859-1\", inferSchema\u003d\"true\").load(\"data/NewYork/cultural_organizations.csv\")\n\nnypdComplaintStreamRaw \u003d sqlContext.read.format(\"com.databricks.spark.csv\").options(header\u003d\"true\", delimiter\u003d\",\", charset\u003d\"ISO-8859-1\", inferSchema\u003d\"true\").load(\"data/NewYork/NYPD_Complaint_Data_Current_YTD.csv\")\n\nairbnbDetailedStreamRaw \u003d sqlContext.read.format(\"com.databricks.spark.csv\").options(header\u003d\"true\", delimiter\u003d\";\", charset\u003d\"ISO-8859-1\", inferSchema\u003d\"true\").load(\"data/NewYork/cleaned_data/listings.csv\")\n  \n# Convert the dataset to a more efficent format to speed up our analysis\nairbnbDetailedStreamRaw.write.mode(\"overwrite\").format(\"parquet\").save(\"data/NewYork/airbnb-detailed-stream\")\nnypdComplaintStreamRaw.write.mode(\"overwrite\").format(\"parquet\").save(\"data/NewYork/nypd-complaint-stream\")\n  \n#Load the optimized data as a DataFrame\nnypd_complaint \u003d sqlContext.read.parquet(\"data/NewYork/nypd-complaint-stream\")\nar \u003d sqlContext.read.parquet(\"data/NewYork/airbnb-detailed-stream\")\n\nallcols \u003d [\u0027price\u0027,\u0027accommodates\u0027,\u0027bedrooms\u0027,\u0027beds\u0027,\u0027district\u0027,\u0027room_type\u0027,\\\n               \u0027cancellation_policy\u0027,\u0027instant_bookable\u0027,\u0027reviews_per_month\u0027,\u0027number_of_reviews\u0027,\\\n               \u0027availability_30\u0027,\u0027review_scores_rating\u0027]\n               \nairbnb \u003d ar.select(allcols)\n\n#Make the data available as a SQL table\ncultural_organizations.registerTempTable(\"culturalorganizations\")\nnypd_complaint.registerTempTable(\"nypdcomplaint\")\nairbnb.registerTempTable(\"airbnb\")\n\nsfP \u003d sqlContext.sql(\"\"\"SELECT *, district cultural_organizations, district incidents FROM airbnb\"\"\").toPandas()\n\ncountCultural \u003d cultural_organizations.select(\"borough\").groupBy(\"borough\").count() \\\n                    .selectExpr(\"borough as District\", \"cast(count as float) AS Number\").orderBy(\"Number\")\n                    \ncountIncidents \u003d nypd_complaint.select(func.initcap(\"BORO_NM\").alias(\"BORO_NM\")).select(\"BORO_NM\").groupBy(\"BORO_NM\") \\\n                    .count().selectExpr(\"BORO_NM as District\", \"cast(count as float) AS Number\")\\\n                    .orderBy(func.desc(\"Number\"))\n                    \ncultural \u003d {}\nincidentes \u003d {}\n\nfor index, each in enumerate(countCultural.collect()):\n     cultural[each[0]] \u003d index + 1\n\nfor index, each in enumerate(countIncidents.collect()):\n     incidentes[each[0]] \u003d index + 1\n     \n# new values for cultural_organizations and nypd_complaint columns\nsfP.replace({\"cultural_organizations\": cultural}, inplace\u003dTrue)\nsfP.replace({\"incidents\": incidentes}, inplace\u003dTrue)\n\ndfAll \u003d spark.createDataFrame(sfP)\ndfAll.registerTempTable(\"dfAll\")\n",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 6:31:44 PM",
+      "dateUpdated": "May 5, 2017 9:16:48 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "scala"
+          "language": "python"
         },
-        "editorMode": "ace/mode/scala",
-        "editorHide": false
+        "editorMode": "ace/mode/python",
+        "editorHide": false,
+        "title": true
       },
       "settings": {
         "params": {},
@@ -96,15 +97,15 @@
       "jobName": "paragraph_1493933348385_1950521829",
       "id": "20170504-182908_1442797920",
       "dateCreated": "May 4, 2017 6:29:08 PM",
-      "dateStarted": "May 4, 2017 6:31:23 PM",
-      "dateFinished": "May 4, 2017 6:31:31 PM",
+      "dateStarted": "May 5, 2017 9:16:48 AM",
+      "dateFinished": "May 5, 2017 9:17:00 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%md\n\n## Results and Analysis\n\nThis section shows and discusses the results to answer the researches questions.\n",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 6:27:21 PM",
+      "dateUpdated": "May 5, 2017 5:09:15 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -134,24 +135,26 @@
       "jobName": "paragraph_1493931483271_-183358512",
       "id": "20170504-120500_1891610265",
       "dateCreated": "May 4, 2017 5:58:03 PM",
-      "dateStarted": "May 4, 2017 6:27:21 PM",
-      "dateFinished": "May 4, 2017 6:27:21 PM",
+      "dateStarted": "May 5, 2017 5:09:15 PM",
+      "dateFinished": "May 5, 2017 5:09:15 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n\n### Answering RQ1\n\nFigure1  shows, per district, a matrix of each feature as a function of another which is useful to check for any collinearity among the feature. The cells running through the diagonal of the matrix contain a histogram with its values on the X axis. The features chose to be analyzed were: price, cultural organizations, and incidents.\n\nBased on the figure, we do see that Queens and Bronx are in the trade-off among the features. To help in to check this observation, Figure 2 shows that Manhattan district has the highest listings mean price, and Queens and Bronx are the lowest. In Figure 3, we can observe that Manhattan stands out followed by Brooklyn. On the other hand, Brooklyn stands out followed by Manhattan when we consider incidents (Figure 4). In this sense, we can affirm that Queens and Bronx have the best trade-off among mean price, cultural organizations and incidents.",
+      "text": "%md\n\nFigure1  shows, per district, a matrix of each feature as a function of another which is useful to check for any collinearity among the feature. The cells running through the diagonal of the matrix contain a histogram with its values on the X axis. The features chose to be analyzed were: **price**, **cultural organizations**, and **incidents**.\n\nBased on the figure, we do see that Queens and Bronx are in the trade-off among the features. To help in to check this observation, Figure 2 shows that Manhattan district has the highest listings mean price, and Queens and Bronx are the lowest. In Figure 3, we can observe that Manhattan stands out followed by Brooklyn. On the other hand, Brooklyn stands out followed by Manhattan when we consider incidents (Figure 4). In this sense, we can affirm that Queens and Bronx have the best trade-off among mean price, cultural organizations and incidents. Besides, the price is more distributed in highest cultural organizations scores and in the lowest incidents score, where we can see that these features are correlated.",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 6:35:43 PM",
+      "dateUpdated": "May 5, 2017 5:10:10 PM",
       "config": {
         "colWidth": 5.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "scala"
+          "language": "markdown",
+          "editOnDblClick": true
         },
-        "editorMode": "ace/mode/scala",
-        "editorHide": true
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -162,7 +165,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eAnswering RQ1\u003c/h3\u003e\n\u003cp\u003eFigure1 shows, per district, a matrix of each feature as a function of another which is useful to check for any collinearity among the feature. The cells running through the diagonal of the matrix contain a histogram with its values on the X axis. The features chose to be analyzed were: price, cultural organizations, and incidents.\u003c/p\u003e\n\u003cp\u003eBased on the figure, we do see that Queens and Bronx are in the trade-off among the features. To help in to check this observation, Figure 2 shows that Manhattan district has the highest listings mean price, and Queens and Bronx are the lowest. In Figure 3, we can observe that Manhattan stands out followed by Brooklyn. On the other hand, Brooklyn stands out followed by Manhattan when we consider incidents (Figure 4). In this sense, we can affirm that Queens and Bronx have the best trade-off among mean price, cultural organizations and incidents.\u003c/p\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eFigure1 shows, per district, a matrix of each feature as a function of another which is useful to check for any collinearity among the feature. The cells running through the diagonal of the matrix contain a histogram with its values on the X axis. The features chose to be analyzed were: \u003cstrong\u003eprice\u003c/strong\u003e, \u003cstrong\u003ecultural organizations\u003c/strong\u003e, and \u003cstrong\u003eincidents\u003c/strong\u003e.\u003c/p\u003e\n\u003cp\u003eBased on the figure, we do see that Queens and Bronx are in the trade-off among the features. To help in to check this observation, Figure 2 shows that Manhattan district has the highest listings mean price, and Queens and Bronx are the lowest. In Figure 3, we can observe that Manhattan stands out followed by Brooklyn. On the other hand, Brooklyn stands out followed by Manhattan when we consider incidents (Figure 4). In this sense, we can affirm that Queens and Bronx have the best trade-off among mean price, cultural organizations and incidents. Besides, the price is more distributed in highest cultural organizations scores and in the lowest incidents score, where we can see that these features are correlated.\u003c/p\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -170,8 +173,8 @@
       "jobName": "paragraph_1493933229136_-1442948145",
       "id": "20170504-182709_1357178220",
       "dateCreated": "May 4, 2017 6:27:09 PM",
-      "dateStarted": "May 4, 2017 6:35:39 PM",
-      "dateFinished": "May 4, 2017 6:35:39 PM",
+      "dateStarted": "May 5, 2017 5:10:10 PM",
+      "dateFinished": "May 5, 2017 5:10:10 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -335,9 +338,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\nFigure 5 shows mean price grouped by the number of people that can be accommodated (number of beds) per district: Queens, Manhattan, Bronx, Brooklyn, and Staten Island. We can observe that Manhattan\u0027s district has more options than other ones. It\u0027s interesting to highlight Queens district outperformed the Bronx in the diversity of accommodates. \n\nAnalyzing the results, we can conclude that where there are more cultural organizations is more expensive and consequently attracts more incidents. However, we found two districts in the trade-off among price, cultural organizations and incidents: Queens and Bronx; where comparing these districts Queens outperform the Bronx in the diversity of accommodates.\n",
+      "text": "%md\nFigure 5 shows mean price grouped by the number of people that can be accommodated (number of beds)  with a limited of four accommodates, when we can begin see differences, per district: Queens, Manhattan, Bronx, Brooklyn, and Staten Island. We can observe that Manhattan\u0027s district has more options than other ones. It\u0027s interesting to highlight Queens district outperformed the Bronx in the diversity of accommodates. ",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 6:41:02 PM",
+      "dateUpdated": "May 5, 2017 5:11:42 PM",
       "config": {
         "colWidth": 4.0,
         "enabled": true,
@@ -359,7 +362,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eFigure 5 shows mean price grouped by the number of people that can be accommodated (number of beds) per district: Queens, Manhattan, Bronx, Brooklyn, and Staten Island. We can observe that Manhattan\u0026rsquo;s district has more options than other ones. It\u0026rsquo;s interesting to highlight Queens district outperformed the Bronx in the diversity of accommodates. \u003c/p\u003e\n\u003cp\u003eAnalyzing the results, we can conclude that where there are more cultural organizations is more expensive and consequently attracts more incidents. However, we found two districts in the trade-off among price, cultural organizations and incidents: Queens and Bronx; where comparing these districts Queens outperform the Bronx in the diversity of accommodates.\u003c/p\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eFigure 5 shows mean price grouped by the number of people that can be accommodated (number of beds) with a limited of four accommodates, when we can begin see differences, per district: Queens, Manhattan, Bronx, Brooklyn, and Staten Island. We can observe that Manhattan\u0026rsquo;s district has more options than other ones. It\u0026rsquo;s interesting to highlight Queens district outperformed the Bronx in the diversity of accommodates.\u003c/p\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -367,8 +370,8 @@
       "jobName": "paragraph_1493933956022_333684881",
       "id": "20170504-183916_171969774",
       "dateCreated": "May 4, 2017 6:39:16 PM",
-      "dateStarted": "May 4, 2017 6:41:02 PM",
-      "dateFinished": "May 4, 2017 6:41:02 PM",
+      "dateStarted": "May 5, 2017 5:11:42 PM",
+      "dateFinished": "May 5, 2017 5:11:42 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -461,9 +464,47 @@
       "progressUpdateIntervalMs": 500
     },
     {
+      "text": "%md\n\nNext, we used machine learning and for this we split our dataset into an 80% train and 20% test and the informations chose from the dataset were:  **price**, **accommodates**, **bedrooms**, **beds**, **district**, **room type**, **cancellation policy**, **instant bookable**, **reviews per month**, **number of reviews**, **availability 30** and **review scores rating**. In the case of the columns that contain categorical variables these were handled in slightly different ways depending on their possible values and these values were transformed into new columns. \n",
+      "user": "anonymous",
+      "dateUpdated": "May 5, 2017 5:12:34 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eNext, we used machine learning and for this we split our dataset into an 80% train and 20% test and the informations chose from the dataset were: \u003cstrong\u003eprice\u003c/strong\u003e, \u003cstrong\u003eaccommodates\u003c/strong\u003e, \u003cstrong\u003ebedrooms\u003c/strong\u003e, \u003cstrong\u003ebeds\u003c/strong\u003e, \u003cstrong\u003edistrict\u003c/strong\u003e, \u003cstrong\u003eroom type\u003c/strong\u003e, \u003cstrong\u003ecancellation policy\u003c/strong\u003e, \u003cstrong\u003einstant bookable\u003c/strong\u003e, \u003cstrong\u003ereviews per month\u003c/strong\u003e, \u003cstrong\u003enumber of reviews\u003c/strong\u003e, \u003cstrong\u003eavailability 30\u003c/strong\u003e and \u003cstrong\u003ereview scores rating\u003c/strong\u003e. In the case of the columns that contain categorical variables these were handled in slightly different ways depending on their possible values and these values were transformed into new columns.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1494015044048_687265325",
+      "id": "20170505-171044_11884732",
+      "dateCreated": "May 5, 2017 5:10:44 PM",
+      "dateStarted": "May 5, 2017 5:12:34 PM",
+      "dateFinished": "May 5, 2017 5:12:34 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
       "text": "%pyspark\n\ndef cleanData():\n    global df, dfAll\n    #select the new data\n    df \u003d dfAll.toPandas()\n\n    # clean the data\n    # first fixup \u0027reviews_per_month\u0027 where there are no reviews\n    df[\u0027reviews_per_month\u0027].fillna(0, inplace\u003dTrue)\n\n    # just drop rows with bad/weird values\n    # (we could do more here)\n    df \u003d df[df.bedrooms !\u003d 0]\n    df \u003d df[df.beds !\u003d 0]\n    df \u003d df[df.price !\u003d 0]\n    df \u003d df.dropna(axis\u003d0)\n\n    #convert the wrong data\n    df[\u0027price\u0027] \u003d df[\u0027price\u0027].replace(\u0027[\\$,)]\u0027,\u0027\u0027, regex\u003dTrue).replace(\u0027[(]\u0027,\u0027-\u0027, regex\u003dTrue).astype(float)\n\n    df[\u0027reviews_per_month\u0027] \u003d df[\u0027reviews_per_month\u0027].replace(\u0027[\\$,)]\u0027,\u0027\u0027, regex\u003dTrue)\\\n                .replace(\u0027[(]\u0027,\u0027-\u0027, regex\u003dTrue).astype(float)\n   \n    prepareSets()\n   \ndef prepareSets():\n    global alldata, df\n    \n    # get feature encoding for categorical variables\n    district_dummies \u003d pd.get_dummies(df.district)\n    room_type_dummies \u003d pd.get_dummies(df.room_type)\n    cancellation_policy_dummies \u003d pd.get_dummies(df.cancellation_policy)\n\n    # convert boolean column to a single boolean value indicating whether this listing has instant booking available\n    instant_bookable_dummies \u003d pd.get_dummies(df.instant_bookable, prefix\u003d\"instant\")\n    instant_bookable_dummies \u003d instant_bookable_dummies.drop(\u0027instant_f\u0027, axis\u003d1)\n\n    # replace the old columns with our new one-hot encoded ones\n    alldata \u003d pd.concat((df.drop([\u0027district\u0027, \\\n                            \u0027room_type\u0027, \\\n                            \u0027cancellation_policy\u0027, \\\n                            \u0027instant_bookable\u0027], axis\u003d1), \\\n        district_dummies.astype(int), \\\n        room_type_dummies.astype(int), \\\n        cancellation_policy_dummies.astype(int), instant_bookable_dummies.astype(int)), \\\n        axis\u003d1)\n        \ndef initTrainingTestingSubsets(colname):\n    global X_train, X_test, y_train, y_test, alldata\n    \n    # We set random_state\u003d1 to guarantee that the split will be always the same for reproducible results drop what will be analysed\n    X_train, X_test, y_train, y_test \u003d train_test_split(alldata.drop([colname], axis\u003d1), alldata[colname], test_size\u003d0.2002, random_state\u003d1)\n",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 7:20:43 PM",
+      "dateUpdated": "May 5, 2017 9:17:22 AM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -486,15 +527,15 @@
       "jobName": "paragraph_1493934380207_772094480",
       "id": "20170504-184620_366767710",
       "dateCreated": "May 4, 2017 6:46:20 PM",
-      "dateStarted": "May 4, 2017 7:20:43 PM",
-      "dateFinished": "May 4, 2017 7:20:43 PM",
+      "dateStarted": "May 5, 2017 9:17:22 AM",
+      "dateFinished": "May 5, 2017 9:17:22 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\ndef pltMedianAbsoluteError(model_labels, model_errors, colname):\n    model_position \u003d np.arange(model_errors.shape[0])\n    models_sorted \u003d np.argsort(model_errors)\n    \n    for i, model in enumerate(model_labels):\n        print \u0027Model {} Results: {}\u0027.format(model_labels[i], model_errors[i])\n        \n    plt.figure(figsize\u003d(10,8))\n    plt.bar(model_position, model_errors[models_sorted], align\u003d\u0027center\u0027)\n    plt.xticks(model_position, model_labels[models_sorted])\n    plt.xlabel(\u0027Estimator\u0027)\n    plt.ylabel(\u0027Median Absolute Error\u0027)\n    plt.savefig(\"data/NewYork/img/median_absolute_error_{}.pdf\".format(colname))\n    \ndef runLinearModels(colname):\n    initTrainingTestingSubsets(colname)\n    \n    global X_train, y_train, clf, models, model_labels, model_errors\n    models \u003d [ linear_model.LinearRegression(), linear_model.Ridge(), linear_model.Lasso(), linear_model.ElasticNet(),\n        linear_model.BayesianRidge(), linear_model.OrthogonalMatchingPursuit() ]\n\n    model_labels \u003d np.array([\u0027GBR\u0027, \u0027Linear\u0027, \u0027Ridge\u0027, \u0027Lasso\u0027, \u0027ElasticNet\u0027, \u0027BayesRidge\u0027, \u0027OMP\u0027])\n    model_errors \u003d np.array([])\n    \n    # RUN GBR\n    n_est \u003d 300\n    tuned_parameters \u003d {\"n_estimators\": [ n_est ], \"max_depth\" : [ 4 ], \"learning_rate\": [ 0.01 ], \"min_samples_split\" : [ 2], \"loss\" : [ \u0027ls\u0027, \u0027lad\u0027 ]}\n\n    #estimator\n    estimator \u003d ensemble.GradientBoostingRegressor()\n    \n    clf \u003d GridSearchCV(estimator, cv\u003d3, param_grid\u003dtuned_parameters, scoring\u003d\u0027neg_median_absolute_error\u0027)\n    preds \u003d clf.fit(X_train, y_train)\n    best \u003d clf.best_estimator_\n    model_errors \u003d np.append(model_errors, round(abs(clf.best_score_),2))\n    \n    #RUN THE OTHER MODELS\n    for model in models:\n        model.fit(X_train, y_train)\n        model_err \u003d metrics.median_absolute_error(y_test, model.predict(X_test))\n        model_errors \u003d np.append(model_errors, model_err)\n            \n    pltMedianAbsoluteError(model_labels, model_errors, colname)\n    \ndef plotFeatureImportanceGridSearchCV(colname):\n    feature_importance \u003d clf.best_estimator_.feature_importances_\n    # make importances relative to max importance\n    feature_importance \u003d 100.0 * (feature_importance / feature_importance.max())\n    sorted_idx \u003d np.argsort(feature_importance)\n    pos \u003d np.arange(sorted_idx.shape[0]) + .5\n    pvals \u003d feature_importance[sorted_idx]\n    pcols \u003d X_train.columns[sorted_idx]\n    plt.figure(figsize\u003d(12,12), dpi\u003d100)\n    plt.barh(pos, pvals, align\u003d\u0027center\u0027)\n    plt.tick_params(axis\u003d\u0027both\u0027, which\u003d\u0027major\u0027, labelsize\u003d12)\n    plt.yticks(pos, pcols)\n    plt.xlabel(\u0027Relative Importance\u0027, fontsize\u003d16)\n    plt.title(\u0027Variable Importance\u0027, fontsize\u003d16)\n    plt.savefig(\"data/NewYork/img/feature_importance_gridSearchCV_{}.pdf\".format(colname))",
+      "text": "%pyspark\ndef pltMedianAbsoluteError(model_labels, model_errors, colname):\n    model_position \u003d np.arange(model_errors.shape[0])\n    models_sorted \u003d np.argsort(model_errors)\n    \n    for i, model in enumerate(model_labels):\n        print \u0027Model {}: ${}\u0027.format(model_labels[i], model_errors[i])\n        \n    plt.figure(figsize\u003d(10,8))\n    plt.bar(model_position, model_errors[models_sorted], align\u003d\u0027center\u0027)\n    plt.xticks(model_position, model_labels[models_sorted])\n    plt.xlabel(\u0027Estimator\u0027)\n    plt.ylabel(\u0027Median Absolute Error\u0027)\n    plt.savefig(\"data/NewYork/img/median_absolute_error_{}.pdf\".format(colname))\n    \ndef runLinearModels(colname):\n    initTrainingTestingSubsets(colname)\n    \n    global X_train, y_train, clf, models, model_labels, model_errors\n    models \u003d [ linear_model.LinearRegression(), linear_model.Ridge(), linear_model.Lasso(), linear_model.ElasticNet(),\n        linear_model.BayesianRidge(), linear_model.OrthogonalMatchingPursuit() ]\n\n    model_labels \u003d np.array([\u0027GBR\u0027, \u0027Linear\u0027, \u0027Ridge\u0027, \u0027Lasso\u0027, \u0027ElasticNet\u0027, \u0027BayesRidge\u0027, \u0027OMP\u0027])\n    model_errors \u003d np.array([])\n    \n    # RUN GBR\n    n_est \u003d 300\n    tuned_parameters \u003d {\"n_estimators\": [ n_est ], \"max_depth\" : [ 4 ], \"learning_rate\": [ 0.01 ], \"min_samples_split\" : [ 2], \"loss\" : [ \u0027ls\u0027, \u0027lad\u0027 ]}\n\n    #estimator\n    estimator \u003d ensemble.GradientBoostingRegressor()\n    \n    clf \u003d GridSearchCV(estimator, cv\u003d3, param_grid\u003dtuned_parameters, scoring\u003d\u0027neg_median_absolute_error\u0027)\n    preds \u003d clf.fit(X_train, y_train)\n    best \u003d clf.best_estimator_\n    model_errors \u003d np.append(model_errors, round(abs(clf.best_score_),2))\n    \n    #RUN THE OTHER MODELS\n    for model in models:\n        model.fit(X_train, y_train)\n        model_err \u003d round(metrics.median_absolute_error(y_test, model.predict(X_test)),2)\n        model_errors \u003d np.append(model_errors, model_err)\n            \n    pltMedianAbsoluteError(model_labels, model_errors, colname)\n    \ndef plotFeatureImportanceGridSearchCV(colname):\n    feature_importance \u003d clf.best_estimator_.feature_importances_\n    # make importances relative to max importance\n    feature_importance \u003d 100.0 * (feature_importance / feature_importance.max())\n    sorted_idx \u003d np.argsort(feature_importance)\n    pos \u003d np.arange(sorted_idx.shape[0]) + .5\n    pvals \u003d feature_importance[sorted_idx]\n    pcols \u003d X_train.columns[sorted_idx]\n    plt.figure(figsize\u003d(12,12), dpi\u003d100)\n    plt.barh(pos, pvals, align\u003d\u0027center\u0027)\n    plt.tick_params(axis\u003d\u0027both\u0027, which\u003d\u0027major\u0027, labelsize\u003d12)\n    plt.yticks(pos, pcols)\n    plt.xlabel(\u0027Relative Importance\u0027, fontsize\u003d16)\n    plt.title(\u0027Variable Importance\u0027, fontsize\u003d16)\n    plt.savefig(\"data/NewYork/img/feature_importance_gridSearchCV_{}.pdf\".format(colname))",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 6:56:23 PM",
+      "dateUpdated": "May 5, 2017 9:18:38 AM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -519,73 +560,15 @@
       "jobName": "paragraph_1493934391967_1697830982",
       "id": "20170504-184631_2022528402",
       "dateCreated": "May 4, 2017 6:46:31 PM",
-      "dateStarted": "May 4, 2017 6:56:23 PM",
-      "dateFinished": "May 4, 2017 6:56:23 PM",
+      "dateStarted": "May 5, 2017 9:18:38 AM",
+      "dateFinished": "May 5, 2017 9:18:38 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\n",
+      "text": "%md\nWe run seven regression models: **Linear Regression**, **Ridge Regression**, **Lasso Regression**, **Elastic Net**, **Bayes Ridge Regression**, **Orthogonal Matching Pursuit (OMP)**, and **Gradient Boosting Regressor (GBR)**; and two algorithms for classification: **Decision Tree** and **Random Forest**. First, we compared the regression models, where GBR was tunned with 300 iterations and used an exhaustive \"grid search\" which only tries all the supplied parameter combinations and uses cross-validation folding to find the best one.\n\nFigure 6 shows the regression models their Median Absolute Error. Intuitively, Median Absolute Error is less sensitive to outliers than Mean Squared Error and translates nicely to a dollar amount that is about price.\n",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 6:54:10 PM",
-      "config": {},
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "jobName": "paragraph_1493934850639_1740008341",
-      "id": "20170504-185410_1731940877",
-      "dateCreated": "May 4, 2017 6:54:10 PM",
-      "status": "READY",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%pyspark\ncleanData()\nrunLinearModels(\u0027price\u0027)\n",
-      "user": "anonymous",
-      "dateUpdated": "May 4, 2017 6:56:32 PM",
-      "config": {
-        "colWidth": 6.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "python",
-          "editOnDblClick": false
-        },
-        "editorMode": "ace/mode/python",
-        "editorHide": true,
-        "tableHide": false
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "Model GBR Results: 23.91\nModel Linear Results: 34.6582634721\nModel Ridge Results: 34.6548672804\nModel Lasso Results: 34.5960717555\nModel ElasticNet Results: 36.0976896088\nModel BayesRidge Results: 34.7197937951\nModel OMP Results: 39.7275081508\n"
-          },
-          {
-            "type": "HTML",
-            "data": "\u003cdiv style\u003d\u0027width:auto;height:auto\u0027\u003e\u003cimg src\u003ddata:image/png;base64,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azZ7oJ9//vm6130uKyureyfC//3f/y3xZAAANCbNJqB/9rOfZccddyz1GAAANHLN5hCO0047rdQjAADQBDSbPdDdu3fP1KlT07Nnz2y44YZ15/fu3buEUwEA0Ng0m4BeuHBhnnrqqTz11FN155WVlWXatGklnAoAgMam2QT09OnTSz0CAABNQJM/Bvrcc8+t+/j2229f5bJBgwY19DgAADRyTT6gP/0ydX9/uMYHH3zQ0OMAANDINfmArq2trffj5ONjoAEAoIgmH9CfjmTBDADAP6vJP4lwxYoVefvtt1NTU1P38Sd7olesWFHi6QAAaGyafEAvW7YsgwcProvmb3/723WX2SMNAEBRTT6gH3rooVKPAABAE9Lkj4EGAIB/JQENAAAFCGgAACig2QT08uXLc/XVV+ess87KkiVLMnXq1CxfvrzUYwEA0Mg0m4AeO3ZsPvjgg7zwwgtp0aJF5syZk1GjRpV6LAAAGplmE9DPP/98RowYkYqKirRu3ToTJ05c5W2+AQDg82g2AV1WVpbly5fXvfZzVVWV14EGAKCwJv860J8YOnRovvvd72b+/PkZP358Zs6cmZNPPrnUYwEA0Mg0m4AeOHBgdt111zz11FOprq7O1VdfnR133LHUYwEA0Mg0m4A+5ZRTcsUVV6R79+51533nO9/JL37xixJOBQBAY9PkA/oHP/hBXnzxxbzzzjs58MAD686vrq7OFltsUcLJAABojJp8QE+cODELFy7M+PHjc95559WdX1FRkU033bSEkwEA0Bg1+YBu165d2rVrl2OPPTZvvfXWKpfNmTMnvXv3LtFkAAA0Rk0+oD/xk5/8pO7jlStX5qWXXkqvXr0ENAAAhTSbgJ4+ffoqp994441cfPHFJZoGAIDGqtm8kcrf69y5c1599dVSjwEAQCPTbPZAn3POOauc/utf/5rtt9++RNMAANBYNZuA3muvveo+Lisry6GHHpp99tmnhBMBANAYNfmA/uSVN/bee+/VLnv33Xez1VZbNfRIAAA0Yk0+oAcPHpyysrLU1taudllZWVkefPDBEkwFAEBj1eQD+qGHHir1CAAANCHN5lU4FixYkFNPPTV77713evXqlWHDhuXdd98t9VgAADQyzSagzz///Oy222558MEH89BDD6Vnz54ZNWpUqccCAKCRaTYB/cYbb+S4445Lu3btstFGG+X4449f7a29AQBgTZpNQJeVleXtt9+uO/3WW2+loqLJHwIOAMC/WLMpyOHDh+eoo45Kz549U1tbm+eeey4XXXTRGq+3cuXKnHvuuZk7d25WrFiRE088Md27d8/IkSNTXl6eHj16ZMyYMQ1wCwAAWB80m4Du169fevbsmT/+8Y+pqanJ2LFj07FjxzVe76677kqHDh0yadKkvP/++/n617+eHXfcMSNGjEivXr0yZsyYzJw5MwcddFAD3AoAAEqt2RzCMWfOnDz++OPp27dvfvOb3+T444/Ps88+u8br9e/fP8OHD0+SVFdXp0WLFnnhhRfSq1evJEnfvn0za9asdTo7AADrj2YT0Oecc05atmyZhx56KLNnz84555yTSZMmrfF6rVu3Tps2bbJkyZIMHz48p5122ipvytK2bdssXrx4XY4OAMB6pNkcwvHRRx+lf//+GTVqVAYMGJBevXpl5cqVn+u6b7/9doYNG5bBgwfnsMMOy+TJk+suW7p0aTbaaKM1bqNDhzapqGix1vM3hKqqdqUeYZ3r2LFdKivbF7pOU18Xa1I/61I/61I/67I6a1K/tVkX1j/NJqBbtGiRX/3qV3n44YczfPjwzJw5M+Xla94B/+677+a4447L+eefnz59+iRJdtpppzzzzDPp3bt3Hn300brzP0tV1bJ/+jasawsWLCn1COvcggVLMn9+sUcMmvq6WJP6WZf6WZf6WZfVWZP6rc26lILI/2zNJqDHjh2bn//85xkzZkw6deqUe++9N+PGjVvj9a699tq8//77ueqqq3LllVemrKwso0aNyrhx47JixYp069Ythx56aAPcAgAA1gfNJqB32GGHnHHGGXnuuefy6KOPZsyYMdlkk03WeL1Ro0bV+46F06dPXxdjAgCwnms2TyK8//778/Wvfz133HFHfvnLX2bgwIF59NFHSz0WAACNTLPZA3311VfntttuS6dOnZIkc+fOzUknnZS+ffuWeDIAABqTZrMHuqKiIpWVlXWnt956a2/lDQBAYU2+IO+4444kyTbbbJMTTzwxAwcOTEVFRe65557ssMMOJZ4OAIDGpskH9FNPPZXk4zc8adu2bd1xz23atCnlWAAANFJNPqAvvvjies9funRp7rnnngaeBgCAxq7ZHAP9iRdffDFjxoxJ375988tf/rLU4wAA0Mg0+T3Qycdv433vvfdmxowZefnll1NeXp5rr702e+21V6lHAwCgkWnye6DHjRuXAw88MP/zP/+TIUOG5IknnkiHDh3EMwAAa6XJ74F+4IEHsvvuu+eQQw5Jv3790q5du5SVlZV6LAAAGqkmvwf6kUceyZFHHpkHH3ww+++/f37wgx/kgw8+yPLly0s9GgAAjVCTD+gWLVqkX79+ueKKK/I///M/2WuvvVJZWZn99tsvkyZNKvV4AAA0Mk0+oD+tY8eO+c53vpM777wzP/3pT+2FBgCgsCZ/DPQ/sssuu2SXXXYp9RgAADQyzWoPNAAA/LMENAAAFNBsDuF4//33c/fdd2fhwoWpra2tO3/YsGElnAoAgMam2QT08OHD0759+/To0cPrQAMAsNaaTUC/++67+dnPflbqMQAAaOSazTHQO+20U1588cVSjwEAQCPXbPZAv/LKKzn88MOz6aabplWrVqmtrU1ZWVkefPDBUo8GAEAj0mwCeurUqaUeAQCAJqDZBHRlZWUeeeSRLF26NElSXV2dN998M8OHDy/xZAAANCbNJqCHDRuWDz74IHPmzEmvXr3yzDPPZI899ij1WAAANDLN5kmEr732WqZNm5aDDz443/ve93LzzTdn3rx5pR4LAIBGptkE9KabbpqysrJsu+22eemll7L55ptn+fLlpR4LAIBGptkcwtGjR49cdNFFGTRoUM4444zMmzcvK1asKPVYAAA0Ms1mD/QFF1yQ/v37p3v37vnhD3+YefPm5Uc/+lGpxwIAoJFp8gH9/PPPJ0l+97vfpba2Ns8880zat2+ff//3f8+iRYtKPB0AAI1Nkz+EY8aMGRk3blx+8pOfrHZZWVlZpk2bVoKpAABorJp8QI8bNy5JMn369BJPAgBAU9DkA3rIkCEpKyv7h5fbAw0AQBFNPqBPOeWUJMkvf/nLbLjhhhk4cGAqKipyzz335KOPPirxdAAANDZNPqD32muvJMnEiRNz66231p2/xx575Bvf+EapxgIAoJFq8q/C8YmPPvoor732Wt3pl156KStXrizhRAAANEZNfg/0J0aOHJkhQ4Zk8803T01NTRYsWOB1oAEAKKzZBPS//du/5aGHHsrLL7+csrKy7LDDDqmoaDY3HwCAf5FmcwjHokWLMnbs2EyaNClbbbVVRo8e7Y1UAAAorNkE9OjRo7Pbbrtl4cKFadu2bTp16pQzzzyz1GMBANDINJuAfvPNN3PUUUelvLw8G2ywQU477bT87W9/K/VYAAA0Ms0moFu0aJHFixfXvanK7NmzU17ebG4+AAD/Is3mWXSnnHJKhgwZkrfffjsnn3xy/vCHP2TChAmlHgsAgEam2QR03759s+uuu+aPf/xjqqurM3bs2Gy22WalHgsAgEamyQf0HXfcUe/5jz/+eJJk4MCBDTkOAACNXJMP6JEjR2bTTTfNPvvsk5YtW652uYAGAKCIJh/Qt99+e+6777488cQT2XHHHfOVr3wlX/rSlzyBEACAtdLkA3qnnXbKTjvtlNNPPz1/+tOfct9992XKlCnZddddc9hhh2Xvvfcu9YgAADQiTT6gP2233XbLbrvtlmeffTaXXnpp7r777vz+978v9VgAADQizSKga2tr88wzz+SBBx7Io48+mp122ilDhgxJv379Sj0aAACNTJMP6DFjxuSxxx7LzjvvnP79++eMM85ImzZtCm/nueeey6WXXprp06fnf//3f3PCCSeka9euSZJBgwalf//+/+LJAQBYHzX5gL7pppuyySab5IUXXsgLL7yQKVOmrHL5gw8+uMZtXHfddbnzzjvTtm3bJMmf//znHHvssTnmmGPWxcgAAKzHmnxAf55AXpMuXbrkyiuvzFlnnZUkef755zN79uzMnDkzXbp0yahRo9ZqrzYAAI1Pkw/orbfe+p/exsEHH5y5c+fWne7Zs2e+9a1vZeedd84111yTK664ImefffY//XUAAFj/eTHktXDQQQdl5513TvJxXL/44oslnggAgIbS5PdArwvHHXdcRo8end122y2zZs3KLrvsssbrdOjQJhUVLRpgurVXVdWu1COscx07tktlZftC12nq62JN6mdd6mdd6mddVmdN6rc268L6R0CvhQsuuCAXXXRRWrZsmcrKyowdO3aN16mqWtYAk/1zFixYUuoR1rkFC5Zk/vzFha/TlFmT+lmX+lmX+lmX1VmT+q3NupSCyP9sAvpz2nrrrXPjjTcmSXbeeefMmDGjxBMBAFAKjoEGAIACBDQAABQgoAEAoAABDQAABQhoAAAoQEADAEABAhoAAAoQ0AAAUICABgCAAgQ0AAAUIKABAKAAAQ0AAAUIaAAAKEBAAwBAAQIaAAAKENAAAFCAgAYAgAIENAAAFCCgAQCgAAENAAAFCGgAAChAQAMA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pvHr+tP3e21tbVasWJELLrggO+6447/8a91+++35yU9+ks6dO6e2tjZLlizJnnvumdGjR+exxx7L3/72txx55JGrXOeoo47KZZddlq222upfPk8Rf79OZWVl6dChQxYsWJCxY8cWetL6yy+/nPfffz+9evX6zO+nqVOn5pFHHslNN91U954Ga1qPZ599NhtttNF6+UpUb775ZiZNmpSFCxdm5cqV2XHHHXP66afnpz/9aa6++uo88sgjqaysTJIsWLAgffv2zbhx49K7d+987Wtfq/t/Z/ny5dl7771z2mmnlfLmsJ5pGr+RWe98+OGHOfnkkzN+/PjsvvvuSZI//elPGTt2bPbaa68ce+yxOeqoo5Ikl112WW6++eZ897vfTVlZWX7605+mZcuWSZLHH388V1xxRa655pqS3ZZ/hbKyslKPsF7aZ5998qMf/aju9Omnn56//e1vq8Vzc/L33yufXp+m4tP3+xNPPJHLL798nf2MDxgwICNGjKg7PWjQoDz//PN17yS7Pvv7n48kGTJkSOHt/PrXv85mm22WXr16rfH76a233so111xT9zO4pt9dt956a77yla+sdwH90Ucf5aSTTsqECROy2267JUnuuOOOnH766dl1112z7bbb5v7778/QoUOTJPfee+8qfyT06NEj06ZNqzv9H//xH3n55ZfXu9tJ6Qho1omHHnooffr0qYvnJNltt90ybdq0TJ06NZ9+8ZdFixZlu+22S/LxywN++rK33norG2+8ccMN3kB+9atf5YYbbkh1dXXKysoyderU1NTU5LTTTkttbW2WL1+eCy64INttt12GDx+eJUuW5MMPP8xpp52WL33pS7nrrrsybdq0tGrVKl26dMlFF12UFi1alPpmFfbp+3r58uV59913s9FGG2XEiBGZMmVKbrjhhtxyyy2prKzMggULknz8H+NZZ52V+fPnZ4sttsgzzzyTxx57LC+99FLGjx+fJNlkk00yYcKEtGvXriS361/pgAMOyAMPPJAxY8akZcuWmTt3bt59991ccskl2WmnnXL//ffnF7/4RVq0aJEvfvGLGTFiRN55552MGTMmK1asyLx583LqqafmwAMPzIABA9K1a9dssMEGJQ3zv//533TTTfPMM8/U/W5YtmxZLr300jz99NOZPXt2zjrrrNTU1OTrX/96br311tx000259957U1ZWlsMOOyyDBw/Or3/961x33XVp2bJlOnXqlMsuu2y1r7V48eK6d5G9/fbb8+qrr+b000/PZZddlscffzxbbLFFFi5cmCSpqqrKGWeckeXLl2fbbbfNk08+mV//+td5+umnc/nll6dFixb5whe+kLFjx66zn73PepGsf3QfX3bZZXnqqadSU1OTQw45JAMGDMhtt92WDTbYIDvvvHNOPfXUPPDAA3n77bdz3nnnZcWKFWndunXd98P3vve93HzzzTnggAOy44471s2wcuXKjBkzJnPmzElNTU2GDx+etm3b5rHHHssLL7yQHj16ZIsttlgn67A2Hn744ey999518ZwkAwcOzIwZMzJ37tz0799/lYB++OGH069fv7rP/fTaf/DBB1m+fHlat27dcDeA9Z6AZp14880306VLl7rTJ598chYvXpz58+enV69eufvuu3Pfffdl4cKFef/993PSSSfVfe5xxx2XDz/8MPPmzUvfvn1z9tlnl+ImrFOvv/56/uu//iutWrXK+eefn8cffzzt27dPhw4dMmnSpLzyyiv54IMPMmfOnCxcuDDXXXdd3nvvvcyePTsLFy7M1KlTc+edd6Z169a5+OKLc+ONN+bb3/52qW9WYU8++WSGDh2a9957L+Xl5TnqqKNSXl6esrKyvPfee5k2bVruvffeJMk3v/nNJMlNN92Uzp0758c//nFeffXVDBgwIEly/vnnZ8KECenWrVtuueWW/Nd//VeTeMj103sAt9lmm4wdOzY333xzbrrpppx22mmZOnVqbrvttrRq1SpnnXVWZs2aleTjn6PevXvn97//faZOnZoDDzwwS5cuzQ9+8IN1crhEEZ/c78uXL89LL72UK6+8Mn/5y19y6aWXprKyMtdee21+9atfZfDgwfnGN76RM888M4899lj69OmTN954I/fff39mzJiR2trafPe7382+++6b++67L9/73vdyyCGH5M4778ySJUuSJPfcc0/+8Ic/ZN68eWnXrl1OOumkfOELX8hvf/vblJWV5c9//nN++9vf5tZbb82SJUvq3l32mmuuyUEHHZRBgwbl//2//5cnnngiSTJ69OjMmDEjHTt2zI9//OPcdtttqx0G8q9ep08O4fjyl79c9/3w6quv1nsf33PPPZk+fXo222yz3HHHHdl8883zjW98I5WVldl9993rrj9x4sSceOKJ2XffffOb3/wmL774YpKkTZs2GTt2bEaOHJlf/vKXdbPcfPPN6dixY8aPH5+FCxdm8ODBueeee7LffvvlsMMOW6/iOfn4EMLOnTuvdv4222yTuXPnpmfPnmnTpk3efPPN1NTUZMstt0yrVq3qPu8vf/lLXVxXVFRk6NCh9W6P5ktAs05sueWW+fOf/1x3+qqrrkry8fF01dXVqxzCceutt2bkyJH52c9+liR1h3BcdtllefPNN9OxY8eGvwHrWIcOHXL22WendevWee2117Lnnnumb9++mT17dk466aS0bNkyJ510Urp3756jjjoqI0aMyMqVKzNkyJC88cYb6dGjR93ekN69e9f9597YfPIQ9cKFC3Psscdmm222qbtszpw52X777euO1fxkT9Jf//rX9O3bN0my3XbbpUOHDnXnX3jhhUk+3lv26T/gmoqddtopSbLFFlvkd7/7XV5//fUsWLAgxx9/fN2e2zlz5uSLX/xirr766txyyy1JkhUrVtRtY314w6dPH5owe/bsHHXUUZkwYUIuuuiitG3bNu+880723HPPtG3bNnvttVceffTR3HrrrRk2bFhefvnlvPXWW/nOd76T2traLF68OHPmzMnIkSNz7bXXZvr06enWrVsOPPDAJP93CMebb76Z448/frXvi9mzZ2fXXXdNkrRr167uIfq//vWvOfzww5MkvXr1SvLxcbLz58/PqaeemuTjR0O+9KUvNcg6feLhhx9OklRWVtZ7H0+ePDmXXnpp3n333bqfk/q89tpr6dmzZ5LU7Xn93e9+l+Tj27vPPvvkJz/5SV1wv/zyy/ntb3+b5557LrW1tamurq7bW78+2nzzzfPHP/5xtfNff/31dO/eve7Ri3vvvTcrVqzIgAED8vjjj9d93t8fwgF/z6twsE4ceOCBmTVr1iq/wF5//fX87W9/S1lZ2SoPj22xxRZZuXJl3elPLjv11FMzb9683HDDDQ03+Dry9w8jX3HFFbnssssyfvz4tGrVKrW1tXnqqadSWVmZ//7v/86JJ56YKVOm5JVXXsnSpUtz7bXX5pJLLsm4cePSuXPn/OUvf8mHH36Y5OMnG3Xt2rVEt+xfY5NNNsnkyZMzatSozJ8/P0nSpUuXvPLKK1m+fHmqq6vzwgsvJEm23377/P73v0+Suj30yccxPWnSpEybNi1nnHHGKg/HNiZ//7D9p0///fGo22yzTbbccsv87Gc/y/Tp0zN48OD07NkzP/7xjzNw4MBMnDgxe++992duoxQ+Pc8nfyCPHj06l1xySS6++OJ06tSp7vIjjzwyt9xyS6qqqrL99ttn2223rYub6dOn5/DDD88OO+yQm266KaecckqmT5+empqazJw5c5Wvuc022+T888/PD3/4w7qfnSTp3r173e+pZcuW5ZVXXkmy6vfZJ/927NgxW265Za666qpMmzYtJ5xwQvr06bMOVuhjn3UIR3338YoVK/LAAw9kypQpmTZtWm677ba8/fbbKSsrS01NzSrb7N69e/70pz8lSe6+++5cf/31q2z/tNNOyyOPPJLXX389ycc/X1/96lczbdq0XHfddTn00EOz8cYb1z3he33zyf9Bn9zG5P/2on/yh/ohhxySBx98ML/73e+y9957r3J97zHHmtgDzTrRpk2bXHPNNbn00kszf/78rFy5MhUVFTn33HPzyiuv5Oc//3nuu+++tGjRIh9++GHOO++8JKv+515WVpZx48Zl8ODBOeSQQ+qeLd0YPfHEEzniiCPqfinvscce+da3vpUWLVpkk002ybx589KvX7+MGDEiM2bMSE1NTYYNG5YuXbrkiiuuyP3335/a2toMHz48m2yySX74wx9myJAhdcdhnnHGGSW+hf+8bt26ZejQoRk/fnz22WefdOzYMccff3yOOuqodOzYMW3btk2SHHHEERk5cmSGDBmSLbfcMhtssEGSZMyYMTnzzDNTXV2d8vLyuuOhG5tPvleS1O3p+0c6duyYY445Jt/+9rdTU1OTbbbZJl/5yldy6KGHZuLEifnP//zPdOrUqe6PjPUhnpPkqaeeytChQ1NeXp5ly5blnHPOyUsvvZSjjz46bdq0yWabbZZ58+YlSXbfffe8/vrrdU+e23HHHdOnT58MGjQoy5cvT8+ePbP55ptn9913zwknnJC2bdumbdu26devXx566KFVvu4+++yTfffdN1dccUV69OhRt7399tsv3/zmN1NZWZnNNtssSXL88cfnrLPOygMPPJDKysq6R0LOPffcfP/7309NTU3at2+fiRMnrvN1+sQnz49Issp9vPnmm2fhwoVp2bJlNt5443zrW9/KhhtumP322y9bbrlldt1110yePDnbbbdd3ffAmWeemfPPPz9XXXVV2rRpk8mTJ6+yx3WDDTbIxRdfnP/4j/9I8vGjh6NHj86QIUOydOnSDBo0KGVlZenZs2emTJmSzp071z2XZX3Qpk2bXH311ZkwYUIWLVqU6urq7LDDDpkyZUp+/vOfJ/n4EYctttii3ker1pefFdZf3sobaFR+//vfZ9myZdl3333z+uuv5/jjj8+vf/3rUo/FOlJTU5Ojjz46//3f/133R1RDeOSRR7Lppptm1113zaxZs3LttdfWhReAPdBAo9K5c+eMGDEiU6dOTXV1dcaMGVPqkVhH3nzzzQwbNixHHHFEg8Zz8vEhH6NGjUqLFi1SU1NT9ygZQGIPNAAAFOJJhAAAUICABgCAAgQ0AAAUIKABAKAAr8IB0ADmzp2bf//3f0+PHj3qXg+8rKwsRx55ZI4++ujVPv83v/lNXn/99RxzzDG58cYbU1ZWVvfunWvr09sEYO0JaIAGsvnmm+f222//XJ/7/PPP1338yZtZ/LM+vU0A1p6ABiihlStX5txzz81f/vKXJMmgQYOy55575sYbb0ySbL311pk7d26SZNiwYfm3f/u39OvXL88++2wqKytz9NFHZ/r06XnnnXdyySWXpFevXnn66adz+eWX58MPP8z777+fM888M927d19lm/379895552Xl156KeXl5fnud7+bgQMH5vbbb8/tt9+ehQsXpl+/fjnttNNKszAA6zEBDdBA3nnnnRx++OFJPn5b5rKyspx77rlZtGhRbrvttixcuDATJ07MkUceWbfX+fDDD8/UqVPrtvHuu+/mgAMOyEUXXZShQ4dm5syZueGGG3LHHXfkF7/4RXr16pUbbrgh48ePz7bbbpsnn3wyEyZMyF133bXKNidPnpwOHTrk7rvvTlVVVY488sjsvPPOdXM+8MAD3s4Y4B8Q0AANpL5DOBYuXJjZs2fnuOOOy5e//OWceeaZa9zOfvvtl+TjPclf/OIXkyRbbbVVFi1alCSZPHlyfvOb3+T+++/Pc889l2XLlq22jU/COkk6dOiQgw46KE8//XTatm2bXXbZRTwDfAavwgFQQptssknuvvvuDB06NK+99loGDhyYJUuWfOZ1Kioq6v34E4MGDcqf/vSn7LrrrjnxxBNT3xvO/v15NTU1WblyZZKkVatWa3NTAJoNAQ3QQOoL2QcffDBnnnlmvvzlL2fUqFFp27Zt3n777bRo0SLV1dWFv8aiRYsyZ86c/PCHP0zfvn3z+OOPp6amJklW2ebee++dW265JUmyYMGCPPjgg9l7773/iVsH0Hw4hAOggcyfP3+1Y6D32GOPtG7dOocddlhatWqVQw45JD169MiiRYsycuTIbLbZZqtsY02HVmy88cY54ogjcthhh6V9+/bZY4898sEHH+TDDz9M796967Y5bNiwXHDBBRkwYEBqa2tz0kknZaeddsqLL764zm4/QFNRVlvfLhEAAKBeDuEAAIACBDQAABQgoAEAoAABDQAABQhoAAAoQEADAEABAhoAAAoQ0AAAUICABgCAAgQ0AAAUIKABAKAAAQ0AAAUIaAAAKEBAAwBAAQIaAAAKENAAAFCAgAYAgAIENAAAFCCgAQCgAAENAAAFCGgAAChAQAMAQAECGgAAChDQAABQgIAGAIACBDQAABQgoAEAoAABDQAABfx/ZC2to44L8DEAAAAASUVORK5CYII\u003d style\u003d\u0027width\u003dauto;height:auto\u0027\u003e\u003cdiv\u003e\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1493934307450_1300046591",
-      "id": "20170504-184507_1894763891",
-      "dateCreated": "May 4, 2017 6:45:07 PM",
-      "dateStarted": "May 4, 2017 6:55:18 PM",
-      "dateFinished": "May 4, 2017 6:55:58 PM",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%md\n\n### Answering RQ2\n\nFor this analysis using machine learning, we split our dataset into an 80% train and 20% test. We run seven regression models to calculate the Train and Test Score: Linear Regression, Ridge Regression, Lasso Regression, Elastic Net, Bayes Ridge Regression, Orthogonal Matching Pursuit (OMP), and Gradient Boosting Regressor (GBR). In the analysis, we used six regression models and compared with GBR using an exhaustive \"grid search\" which only tries all the supplied parameter combinations and uses cross-validation folding to find the best one.\n\nFigure 6 shows the Linear Regression, Ridge Regression, Lasso Regression, Elastic Net, Bayes Ridge Regression, OMP and their Median Absolute Error. Intuitively, Median Absolute Error is less sensitive to outliers than Mean Squared Error and translates nicely to a dollar amount that is about price.",
-      "user": "anonymous",
-      "dateUpdated": "May 4, 2017 6:56:35 PM",
+      "dateUpdated": "May 5, 2017 5:15:07 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -607,23 +590,106 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eAnswering RQ2\u003c/h3\u003e\n\u003cp\u003eFor this analysis using machine learning, we split our dataset into an 80% train and 20% test. We run seven regression models to calculate the Train and Test Score: Linear Regression, Ridge Regression, Lasso Regression, Elastic Net, Bayes Ridge Regression, Orthogonal Matching Pursuit (OMP), and Gradient Boosting Regressor (GBR). In the analysis, we used six regression models and compared with GBR using an exhaustive \u0026ldquo;grid search\u0026rdquo; which only tries all the supplied parameter combinations and uses cross-validation folding to find the best one.\u003c/p\u003e\n\u003cp\u003eFigure 6 shows the Linear Regression, Ridge Regression, Lasso Regression, Elastic Net, Bayes Ridge Regression, OMP and their Median Absolute Error. Intuitively, Median Absolute Error is less sensitive to outliers than Mean Squared Error and translates nicely to a dollar amount that is about price.\u003c/p\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eWe run seven regression models: \u003cstrong\u003eLinear Regression\u003c/strong\u003e, \u003cstrong\u003eRidge Regression\u003c/strong\u003e, \u003cstrong\u003eLasso Regression\u003c/strong\u003e, \u003cstrong\u003eElastic Net\u003c/strong\u003e, \u003cstrong\u003eBayes Ridge Regression\u003c/strong\u003e, \u003cstrong\u003eOrthogonal Matching Pursuit (OMP)\u003c/strong\u003e, and \u003cstrong\u003eGradient Boosting Regressor (GBR)\u003c/strong\u003e; and two algorithms for classification: \u003cstrong\u003eDecision Tree\u003c/strong\u003e and \u003cstrong\u003eRandom Forest\u003c/strong\u003e. First, we compared the regression models, where GBR was tunned with 300 iterations and used an exhaustive \u0026ldquo;grid search\u0026rdquo; which only tries all the supplied parameter combinations and uses cross-validation folding to find the best one.\u003c/p\u003e\n\u003cp\u003eFigure 6 shows the regression models their Median Absolute Error. Intuitively, Median Absolute Error is less sensitive to outliers than Mean Squared Error and translates nicely to a dollar amount that is about price.\u003c/p\u003e\n\u003c/div\u003e"
           }
         ]
       },
       "apps": [],
-      "jobName": "paragraph_1493934027970_-34260950",
-      "id": "20170504-184027_2101167517",
-      "dateCreated": "May 4, 2017 6:40:27 PM",
-      "dateStarted": "May 4, 2017 6:45:07 PM",
-      "dateFinished": "May 4, 2017 6:45:07 PM",
+      "jobName": "paragraph_1493934850639_1740008341",
+      "id": "20170504-185410_1731940877",
+      "dateCreated": "May 4, 2017 6:54:10 PM",
+      "dateStarted": "May 5, 2017 5:14:18 PM",
+      "dateFinished": "May 5, 2017 5:14:18 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
+      "text": "%md\nWhen analyzing these estimators by their Median Absolute Error, we see that GBR outperforms the other ones with a Median Absolute Error of $23.86, approximately 31% less than Lasso Regression that appear in second with a Median Absolute Error of $34.59. After, we calculate the feature importances to see which features were most influential in predicting the listing price, Figure 7. This show a relative scoring of how important each feature is about the feature with the most importance.\n\nClearly, some of the variables have more influence than others, and the most important feature is the **Entire home/apt** attribute; this indicates whether or not the unit is shared with other people, and has the most effect in setting the price. This feature is followed by accommodates, cultural organizations and Manhattan district, and the feature incidents were not so influent.\n",
+      "user": "anonymous",
+      "dateUpdated": "May 5, 2017 5:15:47 PM",
+      "config": {
+        "colWidth": 6.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eWhen analyzing these estimators by their Median Absolute Error, we see that GBR outperforms the other ones with a Median Absolute Error of $23.86, approximately 31% less than Lasso Regression that appear in second with a Median Absolute Error of $34.59. After, we calculate the feature importances to see which features were most influential in predicting the listing price, Figure 7. This show a relative scoring of how important each feature is about the feature with the most importance.\u003c/p\u003e\n\u003cp\u003eClearly, some of the variables have more influence than others, and the most important feature is the \u003cstrong\u003eEntire home/apt\u003c/strong\u003e attribute; this indicates whether or not the unit is shared with other people, and has the most effect in setting the price. This feature is followed by accommodates, cultural organizations and Manhattan district, and the feature incidents were not so influent.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1494015311629_139153552",
+      "id": "20170505-171511_1507357695",
+      "dateCreated": "May 5, 2017 5:15:11 PM",
+      "dateStarted": "May 5, 2017 5:15:47 PM",
+      "dateFinished": "May 5, 2017 5:15:47 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Figure 6 - Price - Median Absolute Error",
+      "text": "%pyspark\ncleanData()\nrunLinearModels(\u0027price\u0027)\n",
+      "user": "anonymous",
+      "dateUpdated": "May 5, 2017 5:13:44 PM",
+      "config": {
+        "colWidth": 6.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python",
+        "editorHide": true,
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Model GBR: $23.86\nModel Linear: $34.64\nModel Ridge: $34.64\nModel Lasso: $34.64\nModel ElasticNet: $36.14\nModel BayesRidge: $34.72\nModel OMP: $39.74\n"
+          },
+          {
+            "type": "HTML",
+            "data": "\u003cdiv style\u003d\u0027width:auto;height:auto\u0027\u003e\u003cimg src\u003ddata:image/png;base64,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OfjlvzprUj/rAtD0eRk7AAAoQEADAEABAhoAAAoQ0AAAUICABgCAAgQ0AAAUIKABAKAAAQ0AAAUIaAAAKEBAAwBAAQIaAAAKENAAAFCAgAYAgAIENAAAFCCgAQCgAAENAAAFCGgAAChAQAMAQAECGgAAChDQAABQgIAGAIACBDQAABQgoAEAoAABDQAABQhoAAAoQEADAEABAhoAAAoQ0AAAUICABgCAAgQ0AAAUIKABAKAAAQ0AAAUIaAAAKEBAAwBAAQIaAAAKENAAAFCAgAYAgAIENAAAFCCgAQCgAAENAAAFCGgAAChAQAMAQAECGgAAChDQAABQgIAGAIACBDQAABQgoAEAoICKUg+wvqupqcl5552X1157LeXl5bnwwguzwQYbZOTIkSkvL0+PHj0yZsyYUo8JAEADEdBr8NBDD6WsrCwzZszI008/nSlTpqS2tjYjRoxIr169MmbMmMycOTMHHXRQqUcFAKABOIRjDQ466KBcdNFFSZK33norG2+8cV544YX06tUrSdK3b9/MmjWrlCMCANCABPTnUF5enpEjR2bcuHH56le/mtra2rrL2rZtm8WLF5dwOgAAGpJDOD6nSy65JO+9916OOOKIfPTRR3XnL126NBtttFEJJwMAoCEJ6DW4884788477+T73/9+WrVqlfLy8uy66655+umns9dee+XRRx9Nnz591ridDh3apKKiRQNM3PhUVrYv9QifqaqqXalHWKc6dmxX+HvQ1NcksS7/iHWpn3VZnTWp39qsC+sfAb0GhxxySM4555wMHjw4K1euzHnnnZftttsu5513XlasWJFu3brl0EMPXeN2qqqWNcC0jU9lZfvMn79+HwKzYMGSUo+wTi1YsKTw96Cpr0liXf4R61I/67I6a1K/tVmXUhD5n01Ar0Hr1q1z+eWXr3b+9OnTSzANAACl5kmEAABQgIAGAIACBDQAABQgoAEAoAABDQAABQhoAAAoQEADAEABAhoAAAoQ0AAAUICABgCAAgQ0AAAUIKABAKAAAQ0AAAUIaAAAKEBAAwBAAQIaAAAKENAAAFCAgAYAgAIENAAAFCCgAQCgAAENAAAFCGgAAChAQAMAQAECGgAAChDQAABQgIAGAIACBDQAABQgoAEAoAABDQAABQhoAAAoQEADAEABAhoAAAoQ0AAAUICABgCAAgQ0AAAUIKABAKAAAQ0AAAUIaAAAKEBAAwBAAQIaAAAKENAAAFCAgAYAgAIENAAAFCCgAQCgAAENAAAFCGgAAChAQAMAQAECGgAAChDQAABQgIAGAIACKko9wPpu5cqVOffcczN37tysWLEiJ554YrbccsuccMIJ6dq1a5Jk0KBB6d+/f2kHBQCgQQjoNbjrrrvSoUOHTJo0KYsWLcrAgQPzgx/8IMcee2yOOeaYUo8HAEADE9Br0L9//xx66KFJkpqamlRUVOT555/Pq6++mpkzZ6ZLly4ZNWpU2rRpU+JJAQBoCI6BXoPWrVunTZs2WbJkSYYPH55TTz01u+++e84+++xcf/316dy5c6644opSjwkAQAOxB/pzePvttzNs2LAMHjw4hx12WBYvXpz27dsnSQ4++OCMGzdujdvo0KFNKiparOtRG6XKyvalHuEzVVW1K/UI61THju0Kfw+a+pok1uUfsS71sy6rsyb1W5t1Yf0joNfg3XffzXHHHZfzzz8/ffr0SZIcd9xxGT16dHbbbbfMmjUru+yyyxq3U1W1bF2P2ihVVrbP/PmLSz3GZ1qwYEmpR1inFixYUvh70NTXJLEu/4h1qZ91WZ01qd/arEspiPzPJqDX4Nprr83777+fq666KldeeWXKyspyzjnnZMKECWnZsmUqKyszduzYUo8JAEADEdBrMGrUqIwaNWq182fMmFGCaQAAKLVm8yTCY489ttQjAADQBDSbgP7www/z9ttvl3oMAAAauWZzCEdVVVUOOOCAbLrppmnVqlVqa2tTVlaWBx98sNSjAQDQiDSbgL7uuutKPQIAAE1AswnorbbaKjNmzMiTTz6ZlStXpk+fPhk8eHCpxwIAoJFpNgE9adKkvP766/nmN7+Z2tra3HbbbXnzzTdz7rnnlno0AAAakWYT0E888UTuuOOOlJd//LzJ/fffPwMGDCjxVAAANDbN5lU4qqurs3LlylVOt2jhrbUBACim2eyBHjBgQIYOHZrDDjssSXLvvffmq1/9aomnAgCgsWk2AX388cdnp512ypNPPpna2tqceOKJ2X///Us91nqluro6s2e/2qBfs6qqXRYsWNJgX69r1+088gAA/FOaTUAfccQRuf322/PlL3+51KOst2bPfjXDJ9+VNht3KvUo68SyRfPy4zO/lm7depR6FACgEWs2Ab3pppvm2Wefze67754N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L3/5y1KPAwBAI9Pk90AnH7+N97333psZM2bk5ZdfTnl5ea699trstddepR4NAIBGpsnvgR43blwOPPDA/M///E+GDBmSJ554Ih06dBDPAACslSa/B/qBBx7I7rvvnkMOOST9+vVLu3btUlZWVuqxAABopJr8HuhHHnkkRx55ZB588MHsv//++cEPfpAPPvggy5cvL/VoAAA0Qk0+oFu0aJF+/frliiuuyP/8z/9kr732SmVlZfbbb79MmjSp1OMBANDINPmA/rSOHTvmO9/5Tu6888789Kc/tRcaAIDCmvwx0P/ILrvskl122aXUYwAA0Mg0qz3QAADwzxLQAABQQLM5hOP999/P3XffnYULF6a2trbu/GHDhpVwKgAAGptmE9DDhw9P+/bt06NHD68DDQDAWms2Af3uu+/mZz/7WanHAACgkWs2x0DvtNNOefHFF0s9BgAAjVyz2QP9yiuv5PDDD8+mm26aVq1apba2NmVlZXnwwQdLPRoAAI1IswnoqVOnlnoEAACagGYT0JWVlXnkkUeydOnSJEl1dXXefPPNDB8+vMSTAQDQmDSbgB42bFg++OCDzJkzJ7169cozzzyTPfbYo9RjAQDQyDSbJxG+9tprmTZtWg4++OB873vfy80335x58+aVeiwAABqZZhPQm266acrKyrLtttvmpZdeyuabb57ly5eXeiwAABqZZnMIR48ePXLRRRdl0KBBOeOMMzJv3rysWLGi1GMBANDINJs90BdccEH69++f7t2754c//GHmzZuXH/3oR6UeCwCARqbJB/Tzzz+fJPnd736X2traPPPMM2nfvn3+/d//PYsWLSrxdAAANDZN/hCOGTNmZNy4cfnJT36y2mVlZWWZNm1aCaYCAKCxavIBPW7cuCTJ9OnTSzwJAABNQZMP6CFDhqSsrOwfXm4PNAAARTT5gD7llFOSJL/85S+z4YYbZuDAgamoqMg999yTjz76qMTTAQDQ2DT5gN5rr72SJBMnTsytt95ad/4ee+yRb3zjG6UaCwCARqrJvwrHJz766KO89tprdadfeumlrFy5soQTAQDQGDX5PdCfGDlyZIYMGZLNN988NTU1WbBggdeBBgCgsGYT0P/2b/+Whx56KC+//HLKysqyww47pKKi2dx8AAD+RZrNIRyLFi3K2LFjM2nSpGy11VYZPXq0N1IBAKCwZhPQo0ePzm677ZaFCxembdu26dSpU84888xSjwUAQCPTbAL6zTffzFFHHZXy8vJssMEGOe200/K3v/2t1GMBANDINJuAbtGiRRYvXlz3piqzZ89OeXmzufkAAPyLNJtn0Z1yyikZMmRI3n777Zx88sn5wx/+kAkTJpR6LAAAGplmE9B9+/bNrrvumj/+8Y+prq7O2LFjs9lmm5V6LAAAGpkmH9B33HFHvec//vjjSZKBAwc25DgAADRyTT6gR44cmU033TT77LNPWrZsudrlAhoAgCKafEDffvvtue+++/LEE09kxx13zFe+8pV86Utf8gRCAADWSpMP6J122ik77bRTTj/99PzpT3/KfffdlylTpmTXXXfNYYcdlr333rvUIwIA0Ig0+YD+tN122y277bZbnn322Vx66aW5++678/vf/77UYwEA0Ig0i4Cura3NM888kwceeCCPPvpodtpppwwZMiT9+vUr9WgAADQyTT6gx4wZk8ceeyw777xz+vfvnzPOOCNt2rQpvJ3nnnsul156aaZPn57//d//zQknnJCuXbsmSQYNGpT+/fv/iycHAGB91OQD+qabbsomm2ySF154IS+88EKmTJmyyuUPPvjgGrdx3XXX5c4770zbtm2TJH/+859z7LHH5phjjlkXIwMAsB5r8gH9eQJ5Tbp06ZIrr7wyZ511VpLk+eefz+zZszNz5sx06dIlo0aNWqu92gAAND5NPqC33nrrf3obBx98cObOnVt3umfPnvnWt76VnXfeOddcc02uuOKKnH322f/01wEAYP3nxZDXwkEHHZSdd945ycdx/eKLL5Z4IgAAGkqT3wO9Lhx33HEZPXp0dtttt8yaNSu77LLLGq/ToUObVFS0aIDp1l5VVbtSj7DOdezYLpWV7Qtdp6mvizWpn3Wpn3Wpn3VZnTWp39qsC+sfAb0WLrjgglx00UVp2bJlKisrM3bs2DVep6pqWQNM9s9ZsGBJqUdY5xYsWJL58xcXvk5TZk3qZ13qZ13qZ11WZ03qtzbrUgoi/7MJ6M9p6623zo033pgk2XnnnTNjxowSTwQAQCk4BhoAAAoQ0AAAUICABgCAAgQ0AAAUIKABAKAAAQ0AAAUIaAAAKEBAAwBAAQIaAAAKENAAAFCAgAYAgAIENAAAFCCgAQCgAAENAAAFCGgAAChAQAMAQAECGgAAChDQAABQgIAGAIACBDQAABQgoAEAoAABDQAABQhoAAAoQEADAEABAhoAAAoQ0AAAUICABgCAAgQ0AAAUIKABAKAAAQ0AAAUIaAAAKEBAAwBAAQIaAAAKENAAAFCAgAYAgAIENAAAFCCgAQCgAAENAAAFCGgAAChAQAMAQAECGgAAChDQAABQgIAGAIACBDQAABQgoAEAoAABDQAABQhoAAAoQEADAEABAhoAAAoQ0AAAUICA/pyee+65DBkyJEkyZ86cHH300Rk8eHAuvPDCEk8GAEBDEtCfw3XXXZfzzjsvK1asSJJcfPHFGTFiRK6//vrU1NRk5syZJZ4QAICGIqA/hy5duuTKK6+sO/3888+nV69eSZK+fftm1qxZpRoNAIAGJqA/h4MPPjgtWrSoO11bW1v3cdu2bbN48eJSjAUAQAlUlHqAxqi8/P/+7li6dGk22mijNV6nQ4c2qahoscbPK6WqqnalHmGd69ixXSor2xe6TlNfF2tSP+tSP+tSP+uyOmtSv7VZF9Y/Anot7LzzznnmmWfSu3fvPProo+nTp88ar1NVtawBJvvnLFiwpNQjrHMLFizJ/PnFHjFo6utiTepnXepnXepnXVZnTeq3NutSCiL/swnotXD22Wdn9OjRWbFiRbp165ZDDz201CMBANBABPTntPXWW+fGG29MknTt2jXTp08v8UQAAJSCJxECAEABAhoAAAoQ0AAAUICABgCAAgQ0AAAUIKABAKAAAQ0AAAUIaAAAKEBAAwBAAQIaAAAKENAAAFCAgAYAgAIENAAAFCCgAQCgAAENAAAFCGgAAChAQAMAQAECGgAAChDQAABQgIAGAIACBDQAABQgoAEAoAABDQAABQhoAAAoQEADAEABAhoAAAoQ0AAAUICABgCAAgQ0AAAUIKABAKAAAQ0AAAUIaAAAKEBAAwBAAQIaAAAKENAAAFCAgAYAgAIENAAAFCCgAQCgAAENAAAFCGgAAChAQAMAQAECGgAAChDQAABQgIAGAIACBDQAABQgoAEAoAABDQAABQhoAAAoQEADAEABFaUeoDH7xje+kXbt2iVJttlmm0yYMKHEEwEAsK4J6LW0fPnyJMm0adNKPAkAAA3JIRxr6cUXX8yyZcty3HHH5Zhjjslzzz1X6pEAAGgA9kCvpQ033DDHHXdcjjzyyMyePTvHH398fvWrX6W83N8kAABNmYBeS127dk2XLl3qPt5kk00yf/78bL755iWeDACAdUlAr6Vbb701L7/8csaMGZN33nknS5cuTWVl5T/8/A4d2qSiokUDTlhcVVW7Uo+wznXs2C6Vle0LXaepr4s1qZ91qZ91qZ91WZ01qd/arAvrHwG9lo444oicc845Ofroo1NeXp4JEyZ85uEbVVXLGnC6tbNgwZJSj7DOLViwJPPnLy58nabMmtTPutRbHJlGAAAVx0lEQVTPutTPuqzOmtRvbdalFET+ZxPQa6lly5a59NJLSz0GAAANzDPeAACgAAENAAAFCGgAAChAQAMAQAECGgAAChDQAABQgIAGAIACBDQAABQgoAEAoAABDQAABQhoAAAoQEADAEABAhoAAAoQ0AAAUICABgCAAgQ0AAAUIKABAKAAAQ0AAAUIaAAAKEBAAwBAAQIaAAAKENAAAFCAgAYAgAIENAAAFCCgAQCgAAENAAAFCGgAAChAQAMAQAECGgAAChDQAABQgIAGAIACBDQAABQgoAEAoAABDQAABQhoAAAoQEADAEABAhoAAAoQ0AAAUICABgCAAgQ0AAAUIKABAKAAAQ0AAAUIaAAAKEBAAwBAAQIaAAAKENAAAFCAgAYAgAIENAAAFCCgAQCgAAENAAAFVJR6gMaqtrY2F1xwQV566aVssMEGGT9+fDp37lzqsQAAWMfsgV5LM2fOzPLly3PjjTfm9NNPz8UXX1zqkQAAaAACei399re/zX777Zck6dmzZ/785z+XeCIAABqCQzjW0pIlS9K+ffu60xUVFampqUl5eeP+m2TZonmlHmGd+WduW1NdF2tSP+tSP+tSP+uyOmtSv6Z825qbstra2tpSD9EYXXLJJdljjz1y6KGHJkn233//PPzww6UdCgCAda5x7y4toT333DOPPPJIkuQPf/hDtt9++xJPBABAQ7AHei19+lU4kuTiiy/OtttuW+KpAABY1wQ0AAAU4BAOAAAoQEADAEABAhoAAArwOtCsM2+88UYmT56cefPmpVWrVmndunXOOOOMPPDAA7n77ruz+eabZ+XKlWnfvn1+9KMfpV27djnggAOy9dZbp6ysLNXV1fnggw9y0UUXZZdddin1zVkrTz/9dG688cZMmTKl7rzTTz89EydOTEVF8/7xe/rpp3Pqqaeme/fuST5+bfUvfOELOfbYY/P444/n5JNPXuXzR4wYkUGDBqV3796lGLdB1Pf/pan59Pe9trY2K1asyAUXXJAdd9zxX/61br/99vzkJz9J586dU1tbmyVLlmTPPffM6NGj89hjj+Vvf/tbjjzyyFWuc9RRR+Wyyy7LVltt9S+fp4i/X6eysrJ06NAhCxYsyNixYws9af3ll1/O+++/n169en3m/c/UqVPzyCOP5Kabbqp7T4M1rcezzz6bjTbaaL18Jao333wzkyZNysKFC7Ny5crsuOOOOf300/PTn/40V199dR555JFUVlYmSRYsWJC+fftm3Lhx6d27d772ta/V/d5Zvnx59t5775x22mmlvDmsZ5r3b3DWmQ8//DAnn3xyxo8fn9133z1J8qc//Sljx47NXnvtlWOPPTZHHXVUkuSyyy7LzTffnO9+97spKyvLT3/607Rs2TJJ8vjjj+eKK67INddcU7Lb8s8qKytb5fSPfvSjEk2y/tlnn31WWY/TTz89f/vb31aL5+bk7/+/NEWf/r4/8cQTufzyy9fZz/iAAQMyYsSIutODBg3K888/X/dOsuuzv//5SJIhQ4YU3s6vf/3rbLbZZunVq9ca73/eeuutXHPNNXU/g2v6/3jrrbfmK1/5ynoX0B999FFOOumkTJgwIbvttluS5I477sjpp5+eXXfdNdtuu23uv//+DB06NEly7733rvJHQo8ePTJt2rS60//xH/+Rl19+eb27nZSOgGadeOihh9KnT5+6eE6S3XbbLdOmTcvUqVPz6Rd/WbRoUbbbbrskH7884Kcve+utt7Lxxhs33OAN4IADDsgDDzyQMWPGpGXLlpk7d27efffdXHLJJdlpp51y//335xe/+EVatGiRL37xixkxYkTeeeedjBkzJitWrMi8efNy6qmn5sADD8yAAQPStWvXbLDBBo0yzD/9vV6+fHnefffdbLTRRhkxYkSmTJmSG264IbfccksqKyuzYMGCJB//YjzrrLMyf/78bLHFFnnmmWfy2GOP5aWXXsr48eOTJJtsskkmTJiQdu3aleR2/Sv96le/yg033JDq6uqUlZVl6tSpqampyWmnnZba2tosX748F1xwQbbbbrsMHz48S5YsyYcffpjTTjstX/rSl3LXXXdl2rRpadWqVbp06ZKLLrooLVq0KOlt+vuf/0033TTPPPNM3X3DsmXLcumll+bpp5/O7Nmzc9ZZZ6WmpiZf//rXc+utt+amm27Kvffem7Kyshx22GEZPHhwfv3rX+e6665Ly5Yt06lTp1x22WWrfa3FixfXvYvs7bffnldffTWnn356Lrvssjz++OPZYostsnDhwiRJVVVVzjjjjCxfvjzbbrttnnzyyfz617/O008/ncsvvzwtWrTIF77whYwdO3adrednvUjWP7pPuOyyy/LUU0+lpqYmhxxySAYMGJDbbrstG2ywQXbeeeeceuqpeeCBB/L222/nvPPOy4oVK9K6deu6+4/vfe97ufnmm3PAAQdkxx13rJth5cqVGTNmTObMmZOampoMHz48bdu2zWOPPZYXXnghPXr0yBZbbLFO1mFtPPzww9l7773r4jlJBg4cmBkzZmTu3Lnp37//KgH98MMPp1+/fnWf++m1/+CDD7J8+fK0bt264W4A6z0BzTrx5ptvpkuXLnWnTz755CxevDjz589Pr169cvfdd+e+++7LwoUL8/777+ekk06q+9zjjjsuH374YebNm5e+ffvm7LPPLsVNWGc+vUdnm222ydixY3PzzTfnpptuymmnnZapU6fmtttuS6tWrXLWWWdl1qxZST5el969e+f3v/99pk6dmgMPPDBLly7ND37wg3Xy8HdDePLJJzN06NC89957KS8vz1FHHZXy8vKUlZXlvffey7Rp03LvvfcmSb75zW8mSW666aZ07tw5P/7xj/Pqq69mwIABSZLzzz8/EyZMSLdu3XLLLbfkv/7rv5rEQ66vv/56/uu//iutWrXK+eefn8cffzzt27dPhw4dMmnSpLzyyiv54IMPMmfOnCxcuDDXXXdd3nvvvcyePTsLFy7M1KlTc+edd6Z169a5+OKLc+ONN+bb3/52SW/TJ9/35cuX56WXXsqVV16Zv/zlL7n00ktTWVmZa6+9Nr/61a8yePDgfOMb38iZZ56Zxx57LH369Mkbb7yR+++/PzNmzEhtbW2++93vZt999819992X733veznkkENy5513ZsmSJUmSe+65J3/4wx8yb968tGvXLieddFK+8IUv5Le//W3Kysry5z//Ob/97W9z6623ZsmSJXXvLnvNNdfkoIMOyqBBg/L//t//yxNPPJEkGT16dGbMmJGOHTvmxz/+cW677bbVDgP5V6/TJ4dwfPnLX667/3j11VfrvU+45557Mn369Gy22Wa54447svnmm+cb3/hGKisrs/vuu9ddf+LEiTnxxBOz77775je/+U1efPHFJEmbNm0yduzYjBw5Mr/85S/rZrn55pvTsWPHjB8/PgsXLszgwYNzzz33ZL/99sthhx22XsVz8vEhhJ07d17t/G222SZz585Nz54906ZNm7z55pupqanJlltumVatWtV93l/+8pe6uK6oqMjQoUPr3R7Nl4Bmndhyyy3z5z//ue70VVddleTj4+mqq6tXOYTj1ltvzciRI/Ozn/0sSeoO4bjsssvy5ptvpmPHjg1/AxrITjvtlCTZYost8rvf/S6vv/56FixYkOOPP75uT9ycOXPyxS9+MVdffXVuueWWJMmKFSvqttGY38Dnk4eoFy5cmGOPPTbbbLNN3WVz5szJ9ttvX3es5id7kv7617+mb9++SZLtttsuHTp0qDv/wgsvTPLx3rJP/wHXmHXo0CFnn312Wrdunddeey177rln+vbtm9mzZ+ekk05Ky5Ytc9JJJ6V79+456qijMmLEiKxcuTJDhgzJG2+8kR49etTtOevdu3ddCJbSpw9NmD17do466qhMmDAhF110Udq2bZt33nkne+65Z9q2bZu99torjz76aG699dYMGzYsL7/8ct5666185zvfSW1tbRYvXpw5c+Zk5MiRufbaazN9+vR069YtBx54YJL/O4TjzTffzPHHH7/a/4vZs2dn1113TZK0a9eu7iH6v/71rzn88MOTJL169Ury8XGy8+fPz6mnnprk40dDvvSlLzXIOn3i4YcfTpJUVlbWe58wefLkXHrppXn33Xfrfk7q89prr6Vnz55JUrfn9Xe/+12Sj2/vPvvsk5/85Cd1wf3yyy/nt7/9bZ577rnU1tamurq6bm/9+mjzzTfPH//4x9XOf/3119O9e/e6Ry/uvfferFixIgMGDMjjjz9e93l/fwgH/D2vwsE6ceCBB2bWrFmr3IG9/vrr+dvf/paysrJVHh7bYostsnLlyrrTn1x26qmnZt68ebnhhhsabvB14O8fhv306b8/vnCbbbbJlltumZ/97GeZPn16Bg8enJ49e+bHP/5xBg4cmIkTJ2bvvff+zG00RptsskkmT56cUaNGZf78+UmSLl265JVXXsny5ctTXV2dF154IUmy/fbb5/e//32S1O11TT6O6UmTJmXatGk544wzVnk4tjH5+0MOrrjiilx22WUZP358WrVqldra2jz11FOprKzMf//3f+fEE0/MlClT8sorr2Tp0qW59tprc8kll2TcuHHp3Llz/vKXv+TDDz9M8vET07p27VqiW/Z/Pn0bP/kDefTo0bnkkkty8cUXp1OnTnWXH3nkkbnllltSVVWV7bffPttuu21d3EyfPj2HH354dthhh9x000055ZRTMn369NTU1GTmzJmrfM1tttkm559/fn74wx/WrUeSdO/eve5+atmyZXnllVeSrPr/7JN/O3bsmC233DJXXXVVpk2blhNOOCF9+vRZByv0sc86hKO++4QVK1bkgQceyJQpUzJt2rTcdtttefvtt1NWVpaamppVttm9e/f86U9/SpLcfffduf7661fZ/mmnnZZHHnkkr7/+epKPf76++tWvZtq0abnuuuty6KGHZuONN657wvf65pPfQZ/cxuT/9qJ/8of6IYcckgcffDC/+93vsvfee69yfe8xx5rYA8060aZNm1xzzTW59NJLM3/+/KxcuTIVFRU599xz88orr+TnP/957rvvvrRo0SIffvhhzjvvvCSrxmBZWVnGjRuXwYMH55BDDql7tnRj88QTT+SII45Ikro9N/9Ix44dc8wxx+Tb3/52ampqss022+QrX/lKDj300EycODH/+Z//mU6dOtVFY1OI509069YtQ4cOzfjx47PPPvukY8eOOf7443PUUUelY8eOadu2bZLkiCOOyMiRIzNkyJBsueWW2WCDDZIkY8aMyZlnnpnq6uqUl5fXHQ/d2Hzy/+WTX+B77LFHvvWtb6VFixbZZJNNMm/evPTr1y8jRozIjBkzUlNTk2HDhqVLly654oorcv/996e2tjbDhw/PJptskh/+8IcZMmRI3TG7Z5xxRolvYfLUU09l6NChKS8vz7Jly3LOOefkpZdeytFHH502bdpks802y7x585Iku+++e15//fW6J8/tuOOO6dOnTwYNGpTly5enZ8+e2XzzzbP77rvnhBNOSNu2bdO2bdv069cvDz300Cpfd5999sm+++6bK664Ij169Kjb3n777ZdvfvObqayszGabbZYkOf7443PWWWflgQceSGVlZd0jIeeee26+//3vp6amJu3bt8/EiRPX+Tp94pNj3pOscp+w+eabZ+HChWnZsmU23njjfOtb38qGG26Y/fbbL1tuuWV23XXXTJ48Odttt13dfcaZZ56Z888/P1dddVXatGmTyZMnr7LHdYMNNsjFF1+c//iP/0jy8aOHo0ePzpAhQ7J06dIMGjQoZWVl6dmzZ6ZMmZLOnTvXPZdlfdCmTZtcffXVmTBhQhYtWpTq6urssMMOmTJlSn7+858n+fgRhy222KLeR6ua0n0r64a38gYald///vdZtmxZ9t1337z++us5/vjj8+tf/7rUY7GO1NTU5Oijj85///d/1/0R1RAeeeSRbLrpptl1110za9asXHvttXXhBWAPNNCodO7cOSNGjMjUqVNTXV2dMWPGlHok1pE333wzw4YNyxFHHNGg8Zx8fMjHqFGj0qJFi9TU1NQ9SgaQ2AMNAACFeBIhAAAUIKABAKAAAQ0AAAUIaAAAKMCrcAA0gLlz5+bf//3f06NHj7rXeC4rK8uRRx6Zo48+erXP/81vfpPXX389xxxzTG688caUlZXVvXvn2vr0NgFYewIaoIFsvvnmuf322z/X5z7//PN1H3/yZhb/rE9vE4C1J6ABSmjlypU599xz85e//CVJMmjQoOy555658cYbkyRbb7115s6dmyQZNmxY/u3f/i39+vXLs88+m8rKyhx99NGZPn163nnnnVxyySXp1atXnn766Vx++eX58MMP8/777+fMM89M9+7dV9lm//79c9555+Wll15KeXl5vvvd72bgwIG5/fbbc/vtt2fhwoXp169fTjvttNIsDMB6TEADNJB33nknhx9+eJKP35a5rKws5557bhYtWpTbbrstCxcuzMSJE3PkkUfW7XU+/PDDM3Xq1LptvPvuuznggANy0UUXZejQoZk5c2ZuuOGG3HHHHfnFL36RXr165YYbbsj48eOz7bbb5sknn8yECRNy1113rbLNyZMnp0OHDrn77rtTVVWVI488MjvvvHPdnA888IC3Mwb4BwQ0QAOp7xCOhQsXZvbs2TnuuOPy5S9/OWeeeeYat7Pffvsl+XhP8he/+MUkyVZbbZVFixYlSSZPnpzf/OY3uf/++/Pcc89l2bJlq23jk7BOkg4dOuSggw7K008/nbZt22aXXXYRzwCfwatwAJTQJptskrvvvjtDhw7Na6+9loEDB2bJkiWfeZ2Kiop6P/7EoEGD8qc//Sm77rprTjzxxNT3hrN/f15NTU1WrlyZJGnVqtXa3BSAZkNAAzSQ+kL2wQcfzJlnnpkvf/nLGTVqVNq2bZu33347LVq0SHV1deGvsWjRosyZMyc//OEP07dv3zz++OOpqalJklW2uffee+eWW25JkixYsCAPPvhg9t5773/i1gE0Hw7hAGgg8+fPX+0Y6D322COtW7fOYYcdllatWuWQQw5Jjx49smjRoowcOTKbbbbZKttY06EVG2+8cY444ogcdthhad++ffbYY4988MEH+fDDD9O7d++6bQ4bNiwXXHBBBgwYkNra2px00knZaaed8uKLL66z2w/QVJTV1rdLBAAAqJdDOAAAoAABDQAABQhoAAAoQEADAEABAhoAAAoQ0AAAUICABgCAAgQ0AAAUIKABAKAAAQ0AAAUIaAAAKEBAAwBAAQIaAAAKENAAAFCAgAYAgAIENAAAFCCgAQCgAAENAAAFCGgAAChAQAMAQAECGgAAChDQAABQgIAGAIACBDQAABQgoAEAoAABDQAABQhoAAAoQEADAEAB/x+bhKtR8lEUiwAAAABJRU5ErkJggg\u003d\u003d style\u003d\u0027width\u003dauto;height:auto\u0027\u003e\u003cdiv\u003e\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1493934307450_1300046591",
+      "id": "20170504-184507_1894763891",
+      "dateCreated": "May 4, 2017 6:45:07 PM",
+      "dateStarted": "May 5, 2017 9:18:40 AM",
+      "dateFinished": "May 5, 2017 9:19:22 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Figure 7 - Gradient Boosting Regressor - Feature Importance",
       "text": "%pyspark\n\nplotFeatureImportanceGridSearchCV(\u0027price\u0027)\n",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 6:56:54 PM",
+      "dateUpdated": "May 5, 2017 5:16:37 PM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -632,7 +698,8 @@
           "language": "python"
         },
         "editorMode": "ace/mode/python",
-        "editorHide": true
+        "editorHide": true,
+        "title": true
       },
       "settings": {
         "params": {},
@@ -659,7 +726,7 @@
     {
       "text": "%pyspark\ndef assembleFeatureVectors(position):\n    cleanData()\n\n    global alldataDF, alldata\n    \n    #position: (8) cultural_organizations; (9) nypd_complaint \n    alldata.columns.values[position] \u003d \"label\"\n\n    features \u003d alldata.columns.drop(\u0027label\u0027).values.tolist()\n\n    alldataDF \u003d spark.createDataFrame(alldata)\n\n    # Index labels, adding metadata to the label column.\n    # Fit on whole dataset to include all labels in index.\n    assembler \u003d VectorAssembler(inputCols\u003dfeatures, outputCol\u003d\"features\")\n    alldataDF \u003d assembler.transform(alldataDF.dropna())\n",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 6:59:28 PM",
+      "dateUpdated": "May 5, 2017 9:18:45 AM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -682,15 +749,15 @@
       "jobName": "paragraph_1493934329015_-1460496118",
       "id": "20170504-184529_471739846",
       "dateCreated": "May 4, 2017 6:45:29 PM",
-      "dateStarted": "May 4, 2017 6:59:28 PM",
-      "dateFinished": "May 4, 2017 6:59:28 PM",
+      "dateStarted": "May 5, 2017 9:18:45 AM",
+      "dateFinished": "May 5, 2017 9:19:22 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\n\n# Parser\ndef parse(lines):\n\tblock \u003d []\n\twhile lines :\n\t\t\n\t\tif lines[0].startswith(\u0027If\u0027):\n\t\t\tbl \u003d \u0027 \u0027.join(lines.pop(0).split()[1:]).replace(\u0027(\u0027, \u0027\u0027).replace(\u0027)\u0027, \u0027\u0027)\n\t\t\tblock.append({\u0027name\u0027:bl, \u0027children\u0027:parse(lines)})\n\t\t\t\n\t\t\t\n\t\t\tif lines[0].startswith(\u0027Else\u0027):\n\t\t\t\tbe \u003d \u0027 \u0027.join(lines.pop(0).split()[1:]).replace(\u0027(\u0027, \u0027\u0027).replace(\u0027)\u0027, \u0027\u0027)\n\t\t\t\tblock.append({\u0027name\u0027:be, \u0027children\u0027:parse(lines)})\n\t\telif not lines[0].startswith((\u0027If\u0027,\u0027Else\u0027)):\n\t\t\tblock2 \u003d lines.pop(0)\n\t\t\tblock.append({\u0027name\u0027:block2})\n\t\telse:\n\t\t\tbreak\t\n\treturn block\n\n# Convert Tree to JSON\ndef tree_json(tree):\n\tdata \u003d []\n\tfor line in tree.splitlines() : \n\t\tif line.strip():\n\t\t\tline \u003d line.strip()\n\t\t\tdata.append(line)\n\t\telse : break\n\t\tif not line : break\n\tres \u003d []\n\tres.append({\u0027name\u0027:\u0027Root\u0027, \u0027children\u0027:parse(data[1:])})\n\twith open(\u0027data/NewYork/DecisionTree/data.json\u0027, \u0027w\u0027) as outfile:\n\t\tjson.dump(res[0], outfile)\n",
+      "text": "%pyspark\n\n# Parser\ndef parse(lines):\n\tblock \u003d []\n\twhile lines :\n\t\t\n\t\tif lines[0].startswith(\u0027If\u0027):\n\t\t\tbl \u003d \u0027 \u0027.join(lines.pop(0).split()[1:]).replace(\u0027(\u0027, \u0027\u0027).replace(\u0027)\u0027, \u0027\u0027)\n\t\t\tblock.append({\u0027name\u0027:bl, \u0027children\u0027:parse(lines)})\n\t\t\t\n\t\t\tif lines[0].startswith(\u0027Else\u0027):\n\t\t\t\tbe \u003d \u0027 \u0027.join(lines.pop(0).split()[1:]).replace(\u0027(\u0027, \u0027\u0027).replace(\u0027)\u0027, \u0027\u0027)\n\t\t\t\tblock.append({\u0027name\u0027:be, \u0027children\u0027:parse(lines)})\n\t\telif not lines[0].startswith((\u0027If\u0027,\u0027Else\u0027)):\n\t\t\tblock2 \u003d lines.pop(0)\n\t\t\tblock.append({\u0027name\u0027:block2})\n\t\telse:\n\t\t\tbreak\t\n\treturn block\n\n# Convert Tree to JSON\ndef tree_json(tree):\n\tdata \u003d []\n\tfor line in tree.splitlines() : \n\t\tif line.strip():\n\t\t\tline \u003d line.strip()\n\t\t\tdata.append(line)\n\t\telse : break\n\t\tif not line : break\n\tres \u003d []\n\tres.append({\u0027name\u0027:\u0027Root\u0027, \u0027children\u0027:parse(data[1:])})\n\twith open(\u0027data/NewYork/DecisionTree/data.json\u0027, \u0027w\u0027) as outfile:\n\t\tjson.dump(res[0], outfile)\n",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 7:01:02 PM",
+      "dateUpdated": "May 5, 2017 9:18:47 AM",
       "config": {
         "colWidth": 6.0,
         "enabled": true,
@@ -712,23 +779,62 @@
       "jobName": "paragraph_1493935168698_-939922634",
       "id": "20170504-185928_2030722317",
       "dateCreated": "May 4, 2017 6:59:28 PM",
-      "dateStarted": "May 4, 2017 7:01:02 PM",
-      "dateFinished": "May 4, 2017 7:01:02 PM",
+      "dateStarted": "May 5, 2017 9:19:22 AM",
+      "dateFinished": "May 5, 2017 9:19:22 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\n\neval_features \u003d {}\n\n#The tree festures most importants\neval_features[\u0027Entire_home_apt\u0027] \u003d 15\neval_features[\u0027accommodates\u0027] \u003d 1\neval_features[\u0027cultural_organizations\u0027] \u003d 8\n\nfor key, value in eval_features.iteritems():    \n    print \"\\nClassifying \u0027{}\u0027\".format(key)\n    assembleFeatureVectors(value)\n\n    # Split the data into training and test sets (20% held out for testing)\n    (trainingData, testData) \u003d alldataDF.randomSplit([0.8, 0.2], seed\u003d1)    \n    \n    classifiers \u003d [DecisionTreeClassifier(labelCol\u003d\"label\", featuresCol\u003d\"features\", maxDepth\u003d5), RandomForestClassifier(labelCol\u003d\"label\", featuresCol\u003d\"features\", numTrees\u003d10, maxDepth\u003d5)]\n    \n    model_labels \u003d np.array([\u0027DecisionTree\u0027, \u0027RandomForest\u0027, \u0027GBT\u0027])\n    model_errors \u003d np.array([])\n        \n    for index, classifier in enumerate(classifiers):\n        model \u003d classifier.fit(trainingData)\n        predictions \u003d model.transform(testData).cache()\n    \n        evaluator \u003d MulticlassClassificationEvaluator(labelCol\u003d\"label\", predictionCol\u003d\"prediction\", metricName\u003d\"accuracy\")\n        accuracy \u003d evaluator.evaluate(predictions)\n        model_err \u003d 1.0 - accuracy\n        model_errors \u003d np.append(model_errors, model_err)\n        \n        if(model_labels[index] \u003d\u003d \"DecisionTree\"):\n            tree_json(model.toDebugString)\n            \n        print \"{}) {} - {}/{}\".format(index + 1, model_labels[index], model_err, accuracy)",
+      "text": "%md\n\nIn the last, we tried to predict each one the three most influent features for the GBR model, Figure 7, using algorithms for classification. Table below shows in bold the best test error values. The Decision Tree outperforms Random Forest and the feature with more difficult to predict was **accommodates**.\n\n| Feature | Decision Tree | Random Forest |\n| ------- | ------------- | ------------- |\n| Entire home/apt | **0.0000** | 0.0009 |\n| Accommodates | **0.4115** | 0.4151 |\n| Cultural Organizations | **0.0000** | 0.0000 | ",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 7:30:55 PM",
+      "dateUpdated": "May 5, 2017 5:19:22 PM",
       "config": {
-        "colWidth": 12.0,
+        "colWidth": 4.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eIn the last, we tried to predict each one the three most influent features for the GBR model, Figure 7, using algorithms for classification. Table below shows in bold the best test error values. The Decision Tree outperforms Random Forest and the feature with more difficult to predict was \u003cstrong\u003eaccommodates\u003c/strong\u003e.\u003c/p\u003e\n\u003ctable\u003e\n  \u003cthead\u003e\n    \u003ctr\u003e\n      \u003cth\u003eFeature \u003c/th\u003e\n      \u003cth\u003eDecision Tree \u003c/th\u003e\n      \u003cth\u003eRandom Forest \u003c/th\u003e\n    \u003c/tr\u003e\n  \u003c/thead\u003e\n  \u003ctbody\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eEntire home/apt \u003c/td\u003e\n      \u003ctd\u003e\u003cstrong\u003e0.0000\u003c/strong\u003e \u003c/td\u003e\n      \u003ctd\u003e0.0009 \u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eAccommodates \u003c/td\u003e\n      \u003ctd\u003e\u003cstrong\u003e0.4115\u003c/strong\u003e \u003c/td\u003e\n      \u003ctd\u003e0.4151 \u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003eCultural Organizations \u003c/td\u003e\n      \u003ctd\u003e\u003cstrong\u003e0.0000\u003c/strong\u003e \u003c/td\u003e\n      \u003ctd\u003e0.0000 \u003c/td\u003e\n    \u003c/tr\u003e\n  \u003c/tbody\u003e\n\u003c/table\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1494015293070_1310698628",
+      "id": "20170505-171453_1021774444",
+      "dateCreated": "May 5, 2017 5:14:53 PM",
+      "dateStarted": "May 5, 2017 5:19:10 PM",
+      "dateFinished": "May 5, 2017 5:19:10 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\neval_features \u003d {}\n\n#The tree festures most importants\neval_features[\u0027Entire_home_apt\u0027] \u003d 15\neval_features[\u0027accommodates\u0027] \u003d 1\neval_features[\u0027cultural_organizations\u0027] \u003d 8\n\nfor key, value in eval_features.iteritems():    \n    print \"\\nClassifying \u0027{}\u0027\".format(key)\n    assembleFeatureVectors(value)\n\n    # Split the data into training and test sets (20% held out for testing)\n    (trainingData, testData) \u003d alldataDF.randomSplit([0.8, 0.2], seed\u003d1)    \n    \n    classifiers \u003d [DecisionTreeClassifier(labelCol\u003d\"label\", featuresCol\u003d\"features\", maxDepth\u003d5), RandomForestClassifier(labelCol\u003d\"label\", featuresCol\u003d\"features\", numTrees\u003d10, maxDepth\u003d5)]\n    \n    model_labels \u003d np.array([\u0027DecisionTree\u0027, \u0027RandomForest\u0027, \u0027GBT\u0027])\n    model_errors \u003d np.array([])\n        \n    for index, classifier in enumerate(classifiers):\n        model \u003d classifier.fit(trainingData)\n        predictions \u003d model.transform(testData).cache()\n    \n        evaluator \u003d MulticlassClassificationEvaluator(labelCol\u003d\"label\", predictionCol\u003d\"prediction\", metricName\u003d\"accuracy\")\n        accuracy \u003d round(evaluator.evaluate(predictions),4)\n        model_err \u003d 1.0 - accuracy\n        model_errors \u003d np.append(model_errors, model_err)\n        \n        if(model_labels[index] \u003d\u003d \"DecisionTree\" and key \u003d\u003d \"accommodates\"):\n            tree_json(model.toDebugString)\n            \n        print \"{}) {}: Test Error - {} / Acurracy - {}\".format(index + 1, model_labels[index], model_err, accuracy)\n        ",
+      "user": "anonymous",
+      "dateUpdated": "May 5, 2017 5:19:30 PM",
+      "config": {
+        "colWidth": 8.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
           "language": "python"
         },
-        "editorMode": "ace/mode/python"
+        "editorMode": "ace/mode/python",
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -739,7 +845,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "\nClassifying \u0027Entire_home_apt\u0027\n1) DecisionTree - 0.0/1.0\n2) RandomForest - 0.000943777807739/0.999056222192\n\nClassifying \u0027cultural_organizations\u0027\n1) DecisionTree - 0.0/1.0\n2) RandomForest - 0.0/1.0\n\nClassifying \u0027accommodates\u0027\n1) DecisionTree - 0.411487124174/0.588512875826\n2) RandomForest - 0.415127410004/0.584872589996\n"
+            "data": "\nClassifying \u0027Entire_home_apt\u0027\n1) DecisionTree: Test Error - 0.0 / Acurracy - 1.0\n2) RandomForest: Test Error - 0.0009 / Acurracy - 0.9991\n\nClassifying \u0027cultural_organizations\u0027\n1) DecisionTree: Test Error - 0.0 / Acurracy - 1.0\n2) RandomForest: Test Error - 0.0 / Acurracy - 1.0\n\nClassifying \u0027accommodates\u0027\n1) DecisionTree: Test Error - 0.4115 / Acurracy - 0.5885\n2) RandomForest: Test Error - 0.4151 / Acurracy - 0.5849\n"
           }
         ]
       },
@@ -747,24 +853,110 @@
       "jobName": "paragraph_1493935184228_1759506297",
       "id": "20170504-185944_600546082",
       "dateCreated": "May 4, 2017 6:59:44 PM",
-      "dateStarted": "May 4, 2017 7:30:55 PM",
-      "dateFinished": "May 4, 2017 7:31:20 PM",
+      "dateStarted": "May 5, 2017 9:20:02 AM",
+      "dateFinished": "May 5, 2017 9:20:32 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\n",
+      "text": "%angular\n\n\u003cdiv\u003e \n    \u003cobject type\u003d\"text/html\" data\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/index.html\" width\u003d\"100%\" height\u003d\"1000px\" style\u003d\"overflow:auto;\"\u003e\n    \u003c/object\u003e\n\u003c/div\u003e",
       "user": "anonymous",
-      "dateUpdated": "May 4, 2017 7:01:07 PM",
-      "config": {},
+      "dateUpdated": "May 5, 2017 11:18:40 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\u003cdiv\u003e \n    \u003cobject type\u003d\"text/html\" data\u003d\"https://rawgit.com/jacksonpradolima/airbnb-ny-analysis/master/data/NewYork/AirBnBDecisionTree/index.html\" width\u003d\"100%\" height\u003d\"1000px\" style\u003d\"overflow:auto;\"\u003e\n    \u003c/object\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1493985391467_189315699",
+      "id": "20170505-085631_529015035",
+      "dateCreated": "May 5, 2017 8:56:31 AM",
+      "dateStarted": "May 5, 2017 11:18:40 AM",
+      "dateFinished": "May 5, 2017 11:18:40 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n\nIn summary, analyzing the results, we found two districts in the trade-off among price, cultural organizations and incidents: Queens and Bronx; where comparing these districts Queens outperform the Bronx in the diversity of accommodates. In relation the machine learning, we can conclude that the local is not so influent in to predict the price, but the room type. Besides, the cultural organizations have a strong relation with the data. Thus, we can conclude that cultural organization has a strong influence on listing price and where there are more cultural organizations is more expensive and consequently attracts more incidents.\n\n## Problems Found\n\nWe identified some points that can be problems found during the study: (i) The listings data set had problem to read it, and a workaround was done using R language; (ii) The Apache Spark regression evaluator has not the median absolute error metric, for this reason it was used sci-kit learn library.\n\n## Concluding Remarks\n\nThis study introduces an analysis trying to discover if the cultural organizations and incidents influence on listing price. The idea is to check the collinearity the features, try to predict the price using regression models, verify the level importance of the features chose and classify them using algorithms for classification. \n\nWe implemented and evaluated the New York City in relation with the Airbnb listings. The results show that where it has a more cultural organization, it has more incidents probability. Using Gradient Boosting Regression, we were able to fit a model that obtained a Median Absolute Error of \\$23.91 for all listing data. Besides, the cultural organization was the third feature more influent in the prediction of the price. In relation the classification using Decision Tree, we were able to classify the features with the minimum test error.\n\nFor a possible predictor to be used in practice, future work will need to be done to explore further and build more suitable models. Predicting a significantly skewed right response variable, price, yields a set of challenges that need to be addressed rather than predicting a particular price. Future works could consider population density, property price, and analysis by neighborhood.\n",
+      "user": "anonymous",
+      "dateUpdated": "May 5, 2017 5:20:18 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eIn summary, analyzing the results, we found two districts in the trade-off among price, cultural organizations and incidents: Queens and Bronx; where comparing these districts Queens outperform the Bronx in the diversity of accommodates. In relation the machine learning, we can conclude that the local is not so influent in to predict the price, but the room type. Besides, the cultural organizations have a strong relation with the data. Thus, we can conclude that cultural organization has a strong influence on listing price and where there are more cultural organizations is more expensive and consequently attracts more incidents.\u003c/p\u003e\n\u003ch2\u003eProblems Found\u003c/h2\u003e\n\u003cp\u003eWe identified some points that can be problems found during the study: (i) The listings data set had problem to read it, and a workaround was done using R language; (ii) The Apache Spark regression evaluator has not the median absolute error metric, for this reason it was used sci-kit learn library.\u003c/p\u003e\n\u003ch2\u003eConcluding Remarks\u003c/h2\u003e\n\u003cp\u003eThis study introduces an analysis trying to discover if the cultural organizations and incidents influence on listing price. The idea is to check the collinearity the features, try to predict the price using regression models, verify the level importance of the features chose and classify them using algorithms for classification. \u003c/p\u003e\n\u003cp\u003eWe implemented and evaluated the New York City in relation with the Airbnb listings. The results show that where it has a more cultural organization, it has more incidents probability. Using Gradient Boosting Regression, we were able to fit a model that obtained a Median Absolute Error of \\$23.91 for all listing data. Besides, the cultural organization was the third feature more influent in the prediction of the price. In relation the classification using Decision Tree, we were able to classify the features with the minimum test error.\u003c/p\u003e\n\u003cp\u003eFor a possible predictor to be used in practice, future work will need to be done to explore further and build more suitable models. Predicting a significantly skewed right response variable, price, yields a set of challenges that need to be addressed rather than predicting a particular price. Future works could consider population density, property price, and analysis by neighborhood.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1493985764278_1958125697",
+      "id": "20170505-090244_652597901",
+      "dateCreated": "May 5, 2017 9:02:44 AM",
+      "dateStarted": "May 5, 2017 5:20:18 PM",
+      "dateFinished": "May 5, 2017 5:20:18 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "May 5, 2017 5:20:37 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true
+      },
       "settings": {
         "params": {},
         "forms": {}
       },
       "apps": [],
-      "jobName": "paragraph_1493935267220_2079372195",
-      "id": "20170504-190107_923168169",
-      "dateCreated": "May 4, 2017 7:01:07 PM",
+      "jobName": "paragraph_1494015618052_-1957482767",
+      "id": "20170505-172018_570696347",
+      "dateCreated": "May 5, 2017 5:20:18 PM",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }

@@ -70,7 +70,7 @@
       "title": "[Map] Avg Price",
       "text": "%pyspark\n\n# calculating the price per district\npricedata \u003d spark.sql(\"\"\"select district as District, \n                                cast(avg(price) as float) as Number \n                         from airbnb \n                         group by district\"\"\").toPandas()\n\npriceagg_file \u003d \u0027./data/NewYork/maps/ny_priceagg.json\u0027                    \npricedata.to_json(priceagg_file)\n\ninitMap()\n\nny_map.choropleth(geo_path \u003d district_geo, data \u003d pricedata,\n                  data_out \u003d priceagg_file, \n                  columns \u003d [\u0027District\u0027, \u0027Number\u0027],\n                  key_on \u003d \u0027feature.properties.borough\u0027,\n                  fill_color \u003d \u0027YlOrRd\u0027, \n                  fill_opacity \u003d 0.7, line_opacity \u003d 0.2,\n                  legend_name \u003d \u0027Price per district\u0027,\n                  reset\u003dTrue)\n\ncreateDistrictsLabelNY()\n    \nny_map.save(\u0027data/NewYork/maps/nyc_borough_price.html\u0027)",
       "user": "anonymous",
-      "dateUpdated": "Apr 26, 2017 7:51:13 PM",
+      "dateUpdated": "May 5, 2017 11:04:00 AM",
       "config": {
         "colWidth": 4.0,
         "enabled": true,
